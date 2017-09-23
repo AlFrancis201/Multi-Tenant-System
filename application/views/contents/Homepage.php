@@ -6,8 +6,8 @@
             </div>
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li role="presentation"><a href="#">SIGN IN</a></li>
-                    <li class="active" role="presentation"><a>CREATE AN ACCOUNT</a></li>
+                    <li role="presentation"><a href="<?php echo base_url('mts/login'); ?>">SIGN IN</a></li>
+                    <li class="active" role="presentation"><a href="<?php echo base_url('mts/register'); ?>">CREATE AN ACCOUNT</a></li>
                 </ul>
             </div>
         </div>

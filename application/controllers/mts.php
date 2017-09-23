@@ -7,9 +7,16 @@ class mts extends CI_Controller {
 	{	
 		$header_data['title'] = "Homepage";
 		$this->load->view('include/header',$header_data);
-		$this->load->view('contents/Homepage.html');
+		$this->load->view('contents/Homepage');
 		$this->load->view('include/footer');
 
 	}
-
+    
+    public function login(){
+        $this->load->view('contents/login_view');
+    }
+    
+    public function register(){
+        $this->load->view('contents/register_view');
+    }
 }

@@ -23,4 +23,11 @@ class mts extends CI_Controller {
     public function dashboard(){
         $this->load->view('contents/dashboard');
     }
+	
+	public function add_staff(){
+        $this->load->view('contents/add_staff');
+    }
+	public function add_service(){
+        $this->load->view('contents/add_service');
+    }
 }

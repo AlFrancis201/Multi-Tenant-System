@@ -5,6 +5,7 @@ class Mts extends CI_Controller {
 
 	public function index()
 	{	
+		$this->load->view('include/dashhead');		
 		$this->load->view('contents/dashboard');
         echo $this->session->userdata('user_id');
 	}

@@ -28,6 +28,7 @@
         </nav>
         <div class="login-card">
             <p class="profile-name-card">SIGN IN</p>
+            <?php echo validation_errors(); ?>
             <form class="form-signin" action="<?php echo base_url('login')?>" method='post'><span class="reauth-email"> </span>
                 <input class="form-control" type="email" required="" placeholder="Email address" autofocus="" id="inputEmail" name="email">
                 <input class="form-control" type="password" required="" placeholder="Password" id="inputPassword" name="password">

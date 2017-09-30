@@ -17,10 +17,6 @@ class Mts extends CI_Controller {
     public function register(){
         $this->load->view('contents/register_view');
     }
-    
-    public function dashboard(){
-        
-    }
 	
 	public function add_staff(){
 		$this->load->view('include/staff');

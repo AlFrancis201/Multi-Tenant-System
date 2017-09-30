@@ -1,77 +1,77 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>STAFF FORM</title>
-    <link rel="stylesheet" href="<?php echo base_url('bootstrap/css/bootstrap.min.css'); ?>">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cookie">
-    <link rel="stylesheet" href="<?php echo base_url('assets/css/styles2.css'); ?>">
-    <link rel="stylesheet" href="<?php echo base_url('assets/css/Google-Style-Login.css'); ?>">
-</head>
-
 <body>
-     <div class="container-fluid bgsignin">
-        <nav class="navbar navbar-inverse" id="nav">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <a class="navbar-brand navbar-link" href="#"><img src="<?php echo base_url('assets/img/logo.png'); ?>" id="logo"></a>
-                    <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
-                </div>
-                
+    <nav class="navbar navbar-inverse navbar-fixed-top" id="nav">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand navbar-link" href="#"><img src="<?php echo base_url('assets/img/logo.png');?>" alt="logo" id="logo"></a>
+                <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
             </div>
-        </nav>
-       <div class="container" >
-	<div class="row" >  
-		
-		<div class="col-md-9" >
-		<div class = "panel panel-primary">
-				<div class = "panel-heading">
-				 <h3 class="panel-title" align="center">STAFF FORM</h3></div>
-   
-				<div class = "panel-body">
-					
-					<div class="col-md-12">
-					 <form>
-						<div class="col-md-3">
-							 <label for="date">Last Name:</label>
-							<input type="text" class="form-control" id="staff" placeholder="Last Name">
-						</div>
-						<div class="col-md-4">
-							 <label for="date">First Name:</label>
-							<input type="text" class="form-control" id="staff" placeholder="First Name">
-						</div>
-						<div class="col-md-3">
-							 <label for="date">Middle Name:</label>
-							<input type="text" class="form-control" id="staff" placeholder="Middle Name">
-						</div>
-						<div class="col-md-3">
-							 <label for="date">Day Active:</label>
-							<input type="text" class="form-control" id="staff" placeholder="Day Active">
-						</div>
-						<div class="col-md-3">
-							 <label for="date">Active Hour:</label>
-							<input type="text" class="form-control" id="staff" placeholder="Active Hour">
-						</div>
-						<div class="row" align="right">
-									<div class="col-md-3">
-												
-											<a href="add_staff" class="btn btn-primary btn-pos" role="button" >ADD</a>
-											</div>
-						</div>
-										 
-				</div>
-		</div>
-		
-		</div>
-		
-	</div>
-</div>
-</div>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <p class="navbar-text">Staff </p>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#"><i class="fa fa-user" id="useroption"></i> <span class="caret" id="dropdownUser"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li role="presentation"><a href="#">Account Settings</a></li>
+                            <li role="presentation"><a href="#">Sign Out</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="navbar-primary">
+        <ul class="list-group navbar-primary-menu mainmenu">
+            <li class="list-group-item">
+                <a href="#">
+                    <button class="btn btn-default sidebar" type="button" data-toggle="tooltip" data-placement="top" title="Dashboard"><i class="fa fa-home" id="dashboard"></i></button>
+                </a>
+            </li>
+            <li class="list-group-item">
+                <a href="#">
+                    <button class="btn btn-default sidebar" type="button"><i class="fa fa-calendar-minus-o" id="calendar" data-toggle="tooltip" title="Calendar"></i></button>
+                </a>
+            </li>
+            <li class="list-group-item">
+                <a href="#">
+                    <button class="btn btn-default sidebar" type="button"><i class="material-icons" id="settings" data-toggle="tooltip" title="Settings">settings</i></button>
+                </a>
+                <ul class="list-group submenu">
+                    <li class="list-group-item">
+                        <a href="#">
+                            <button class="btn btn-default sidebar" type="button"><i class="fa fa-users" id="staff" data-toggle="tooltip" title="Staff"></i></button>
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="#">
+                            <button class="btn btn-default sidebar" type="button"><i class="material-icons" id="services" data-toggle="tooltip" title="Services">local_library</i></button>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
     </div>
-    <script src="<?php echo base_url('assets/js/jquery.min.js'); ?>"></script>
-    <script src="<?php echo base_url('bootstrap/js/bootstrap.min.js'); ?>"></script>
+    <div class="row addStaff">
+        <div class="col-md-3">
+            <form class="customform">
+                <h1 class="text-info">Add New Staff</h1>
+                <div class="col-md-7 inputColumn">
+                    <input class="form-control" type="text" placeholder="First Name">
+                </div>
+                <div class="col-md-7 inputColumn">
+                    <input class="form-control" type="text" placeholder="Last Name">
+                </div>
+                <div class="col-md-7 inputColumn">
+                    <input class="form-control" type="text" placeholder="Day Active">
+                </div>
+                <div class="col-md-7 inputColumn">
+                    <input class="form-control" type="text" placeholder="Active Hour/s">
+                </div>
+                <button class="btn btn-primary active" type="submit">Add </button>
+            </form>
+        </div>
+        <div class="col-md-9">
+		
+		</div>
+    </div>
 </body>
 
 </html>

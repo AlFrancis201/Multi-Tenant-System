@@ -1,0 +1,177 @@
+#nav{
+  background-color:#74afad;
+   border:none;
+  min-height:70px;
+}
+
+#useroption{
+  font-size:20px;
+}
+
+#logo{
+  max-height:55px;
+  max-width:55px;
+  margin-right:10px;
+}
+
+@media (min-width:768px) {
+  .navbar{
+    border-radius:0px;
+  }
+}
+
+.navbar-inverse .navbar-nav > li > a{
+  color:#fffdfd;
+}
+
+.navbar-primary{
+  overflow:auto;
+  position:fixed;
+  background-color:#ececea;
+  top:67px;
+  width:80px;
+  height:100%;
+}
+
+.navbar-primary li a{
+  display:block;
+  padding:0;
+  text-align:center;
+  margin:20px 0 0;
+}
+
+.navbar-primary ul, .navbar-primary li{
+  list-style:none;
+  padding:0px;
+}
+
+#dashboard.fa.fa-home{
+  font-size:45px;
+}
+
+#calendar.fa.fa-calendar-minus-o{
+  font-size:37px;
+  padding:2px;
+}
+
+#settings.material-icons{
+  font-size:39px;
+  padding:0 1px;
+}
+
+.navbar-primary ul li a{
+  color:#fefeff;
+}
+
+.collapse .navbar-text{
+  font-size:20px;
+  margin-left:500px;
+  font-weight:bold;
+  color:#ececea;
+}
+
+.list-group-item{
+  position:relative;
+  display:block;
+  background-color:#ececea;
+  border:none;
+}
+
+button.btn.btn-default.sidebar{
+  background-color:#ececea;
+  cursor:pointer;
+  overflow:hidden;
+}
+
+.btn-default{
+  color:#74afad;
+}
+
+.btn:hover, .btn:focus, .btn.focus{
+  color:#74afad;
+  text-decoration:none;
+}
+
+.btn{
+  display:inline-block;
+  margin-bottom:0;
+  border:1px solid transparent;
+}
+
+.list-group-item.active, .list-group-item.active:hover, .list-group-item.active:focus{
+  z-index:2;
+  color:#ffffff;
+  background-color:#ececea;
+}
+
+.mainmenu, .submenu{
+  list-style:none;
+  padding:0;
+  margin:0;
+}
+
+.mainmenu li:hover .submenu{
+  display:block;
+  max-height:300px;
+}
+
+.submenu{
+  overflow:hidden;
+  max-height:0;
+  -webkit-transition:all 0.5s ease-out;
+  text-align:center;
+  margin:5px;
+}
+
+#staff.fa.fa-users{
+  font-size:20px;
+  padding:2px;
+}
+
+#services.material-icons{
+  font-size:25px;
+}
+
+div.row{
+  margin-top:80px;
+  margin-left:100px;
+}
+
+.addStaff form.customform{
+  text-align:left;
+  padding:0 10px 15px;
+}
+
+.addStaff form.customform h1{
+  display:inline-block;
+  color:rgb(89,95,95);
+  font-size:24px;
+  padding:0 10px 15px;
+  border-bottom:2px solid rgb(236,236,234);
+  margin-left:30px;
+}
+
+.addStaff .inputColumn{
+  padding:12px;
+  height:50px;
+  width:250px;
+}
+
+.addStaff .form-control{
+  border:1px solid #dbdbdb;
+}
+
+.addStaff btn-primary{
+  border-radius:2px;
+  background:rgb(116,175,173);
+}
+
+.addStaff button.btn.btn-primary.active{
+  background:rgb(116,175,173);
+  border-color:rgb(116,175,173);
+  color:white;
+  font-weight:bold;
+  margin:20px 15px;
+  outline:none;
+}
+

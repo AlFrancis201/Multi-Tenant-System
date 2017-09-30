@@ -9,10 +9,10 @@
 
 <link href="<?php echo base_url('bootstrap/css/bootstrap.css'); ?>" rel="stylesheet" />
 <link href="<?php echo base_url('bootstrap/css/bootstrap-theme.css'); ?>" rel="stylesheet" />
-<link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-<link href="assets/fonts/font-awesome.min.css" rel="stylesheet" />
-<link href="assets/css/styles.css" rel="stylesheet" />
-<link href="assets/css/Pretty-Footer.css" rel="stylesheet" />
+<link href="<?php echo base_url('bootstrap/css/bootstrap.min.css'); ?>" rel="stylesheet" />
+<link href="<?php echo base_url('assets/fonts/font-awesome.min.css'); ?>" rel="stylesheet" />
+<link href="<?php echo base_url('assets/css/styles.css'); ?>" rel="stylesheet" />
+<link href="<?php echo base_url('assets/css/Pretty-Footer.css'); ?>" rel="stylesheet" />
 
 <script src="<?php echo base_url('bootstrap/js/jquery.min.js'); ?>"></script>
 <script src="<?php echo base_url('bootstrap/js/bootstrap.min.js'); ?>"></script>

@@ -28,12 +28,14 @@
         </nav>
         <div class="login-card">
             <p class="profile-name-card">CREATE AN ACCOUNT</p>
-            <form class="form-signin"><span class="reauth-email"> </span>
-                <input class="form-control" type="text" placeholder="Name" id="inputName">
-                <input class="form-control" type="email" required="" placeholder="Email address" autofocus="" id="inputEmail">
-                <input class="form-control" type="password" required="" placeholder="Password" id="inputPassword">
+            <?php echo validation_errors(); ?>
+            <?php echo form_open('registration','class="form-signin"'); ?>
+            <!--<form class="form-signin" action="<?php //echo base_url('registration'); ?>" method="post">--><span class="reauth-email"> </span>
+                <input class="form-control" type="text" name="name" placeholder="Name" id="inputName" name="name">
+                <input class="form-control" type="email" name="email" required="" placeholder="Email address" id="inputEmail" >
+                <input class="form-control" type="password" name="password" required="" placeholder="Password" id="inputPassword" name="password">
                 <div class="checkbox"></div>
-                <button class="btn btn-default btn-block btn-lg btn-signin" type="submit">Register </button>
+                <input class="btn btn-default btn-block btn-lg btn-signin" type="submit" value="Register"> <!--Register </button>-->
             </form>
         </div>
     </div>

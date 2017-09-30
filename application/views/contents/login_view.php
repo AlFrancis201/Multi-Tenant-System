@@ -28,9 +28,9 @@
         </nav>
         <div class="login-card">
             <p class="profile-name-card">SIGN IN</p>
-            <form class="form-signin"><span class="reauth-email"> </span>
-                <input class="form-control" type="email" required="" placeholder="Email address" autofocus="" id="inputEmail">
-                <input class="form-control" type="password" required="" placeholder="Password" id="inputPassword">
+            <form class="form-signin" action="<?php echo base_url('login')?>" method='post'><span class="reauth-email"> </span>
+                <input class="form-control" type="email" required="" placeholder="Email address" autofocus="" id="inputEmail" name="email">
+                <input class="form-control" type="password" required="" placeholder="Password" id="inputPassword" name="password">
                 <div class="checkbox"></div>
                 <button class="btn btn-default btn-block btn-lg btn-signin" type="submit">Sign in</button>
             </form><a href="#" class="forgot-password">Forgot your password?</a></div>

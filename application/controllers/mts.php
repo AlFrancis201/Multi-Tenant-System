@@ -1,15 +1,12 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class mts extends CI_Controller {
+class Mts extends CI_Controller {
 
 	public function index()
 	{	
-		$header_data['title'] = "Homepage";
-		$this->load->view('include/header',$header_data);
-		$this->load->view('contents/Homepage');
-		$this->load->view('include/footer');
-
+		$this->load->view('contents/dashboard');
+        echo $this->session->userdata('user_id');
 	}
     
     public function login(){
@@ -21,7 +18,7 @@ class mts extends CI_Controller {
     }
     
     public function dashboard(){
-        $this->load->view('contents/dashboard');
+        
     }
 	
 	public function add_staff(){

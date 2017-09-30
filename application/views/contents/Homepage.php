@@ -1,13 +1,13 @@
 	<nav class="navbar navbar-default" id="nav">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand navbar-link" href="#"><img src="assets/img/logo.png" id="logo"></a>
+                <a class="navbar-brand navbar-link" href="#"><img src="<?php echo base_url('assets/img/logo.png'); ?>" id="logo"></a>
                 <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
             </div>
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li role="presentation"><a href="#">SIGN IN</a></li>
-                    <li class="active" role="presentation"><a>CREATE AN ACCOUNT</a></li>
+                    <li role="presentation"><a href="<?php echo base_url('login'); ?>">SIGN IN</a></li>
+                    <li class="active" role="presentation"><a href="<?php echo base_url('registration'); ?>">CREATE AN ACCOUNT</a></li>
                 </ul>
             </div>
         </div>

@@ -27,6 +27,7 @@ class Mts extends CI_Controller {
         $this->load->view('contents/add_staff');
     }
 	public function add_service(){
+		$this->load->view('include/service');
         $this->load->view('contents/add_service');
     }
 }

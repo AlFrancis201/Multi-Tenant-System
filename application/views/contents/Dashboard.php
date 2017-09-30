@@ -1,16 +1,7 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Header</title>
-    <link rel="stylesheet" href="<?php echo base_url('bootstrap/css/bootstrap.min.css'); ?>">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cookie">
-    <link rel="stylesheet" href="<?php echo base_url('assets/fonts/font-awesome.min.css'); ?>">
-    <link rel="stylesheet" href="<?php echo base_url('assets/fonts/material-icons.css'); ?>">
-    <link rel="stylesheet" href="<?php echo base_url('assets/css/dashboard.css'); ?>">
-</head>
+
 
 <body>
     <nav class="navbar navbar-inverse navbar-fixed-top" id="nav">
@@ -20,7 +11,7 @@
                 <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
             </div>
             <div class="collapse navbar-collapse" id="navcol-1">
-                <p class="navbar-text">Staff </p>
+                <p class="navbar-text">Dashboard </p>
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#"><i class="fa fa-user" id="useroption"></i> <span class="caret" id="dropdownUser"></span></a>
                         <ul class="dropdown-menu" role="menu">

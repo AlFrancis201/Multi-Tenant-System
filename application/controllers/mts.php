@@ -11,6 +11,7 @@ class Mts extends CI_Controller {
 	}
     
     public function login(){
+		$this->load->view('include/login');			
         $this->load->view('contents/login_view');
     }
     
@@ -19,10 +20,12 @@ class Mts extends CI_Controller {
     }
 	
 	public function add_staff(){
+		$this->load->view('include/Navbar');
 		$this->load->view('include/staff');
         $this->load->view('contents/add_staff');
     }
 	public function add_service(){
+		$this->load->view('include/Navbar');
 		$this->load->view('include/service');
         $this->load->view('contents/add_service');
     }

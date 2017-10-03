@@ -1,0 +1,54 @@
+.modal-content{
+  min-width:500px;
+}
+
+.modal-header h4{
+  font-weight:normal;
+  font-size:30px;
+  text-align:center;
+}
+
+.modal-body .nav li a{
+  font-family:'Raleway';
+}
+
+.nav-tabs li a{
+  color:#010101;
+  text-decoration:none;
+  opacity:.5;
+}
+
+.nav-tabs li a:hover, .nav-tabs li a:focus{
+  color:#030303;
+  opacity:1;
+}
+
+#tab-1 .row .col-md-6 span{
+  color:black;
+  text-align:right;
+}
+
+.tab-content h1{
+  font-weight:normal;
+  font-size:15px;
+  text-align:right;
+}
+
+.row textarea{
+  min-height:150px;
+  min-width:350px;
+}
+
+.appnt{
+  margin:15px 0;
+}
+
+.tab-content button, .tab-content input{
+  min-width:350px;
+  text-align:left;
+}
+
+.modal-footer .btn{
+  margin:center;
+}
+

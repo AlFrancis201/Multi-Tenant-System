@@ -22,7 +22,7 @@
                 <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
             </div>
             <div class="collapse navbar-collapse" id="navcol-1">
-                <p class="navbar-text">Dashboard</p>
+                <p class="navbar-text"> </p>
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#"><i class="fa fa-user" id="useroption"></i> <span class="caret" id="dropdownUser"></span></a>
                         <ul class="dropdown-menu" role="menu">
@@ -64,15 +64,27 @@
                         </div>
                         <div id="serviceTab" class="tab-pane">
                             <!--<button class="view-button" onclick="addServiceForm()">Add Service</button>-->
-                            <button class="view-button" value="add_service">Add Service</button>
-                            <h2>All Services</h2>
-                            <?php
-                            foreach($service_record as $s){
-                                echo '<ul>';
-                                echo '<li><a href=# class="view-button" data-method="view_service_profile" data-args="'.$s['service_id'].'">'.$s['service_name'].'</a></li>';
-                                echo '</ul>';
-                            }
-                            ?>
+                            <div class="row">
+								<div class="col-md-6" "allService">
+									<h2 id="servtitle">All Services</h2>
+								</div>								
+								<div class="col-md-6">
+									<button class="view-button" id="addservice" value="add_service">Add Service</button>
+								</div>							
+							</div>
+							<div class="col-md-2">		
+							</div>
+							<div class="col-md-10">						
+								<div class="serviceList">
+									<?php
+									foreach($service_record as $s){
+										echo '<ul>';
+										echo '<li><a href=# class="view-button" data-method="view_service_profile" data-args="'.$s['service_id'].'">'.$s['service_name'].'</a></li>';
+										echo '</ul>';
+									}
+									?>
+								</div>
+							</div>
                         </div>
                     </div>
                 </div>

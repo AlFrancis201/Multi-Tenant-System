@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 30, 2017 at 07:05 AM
+-- Generation Time: Oct 08, 2017 at 12:17 PM
 -- Server version: 10.1.16-MariaDB
 -- PHP Version: 5.6.24
 
@@ -72,8 +72,31 @@ CREATE TABLE `service` (
   `service_name` varchar(20) NOT NULL,
   `service_desc` varchar(30) NOT NULL,
   `duration` int(11) NOT NULL,
+  `price` int(11) NOT NULL,
   `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `service`
+--
+
+INSERT INTO `service` (`service_id`, `service_name`, `service_desc`, `duration`, `price`, `user_id`) VALUES
+(1, 'dsa', 'dsa', 0, 0, 4),
+(2, 'dsafd', 'sdf', 0, 0, 4),
+(3, 'dsa', 'dsa', 421, 421, 4),
+(4, 'dsa', 'dsa', 42, 42, 4),
+(5, 'dsa', 'dsa', 64, 64, 4),
+(6, 'dsa', 'dsa', 75, 5, 4),
+(7, 'dsa', 'dsads', 54, 75, 4),
+(8, 'dsa', 'dsa', 65, 65, 4),
+(9, 'dsa', 'gs', 786, 865, 4),
+(10, 'gd', 'gd', 35, 53, 4),
+(11, 'dsafd', 'dsa', 53, 6, 4),
+(12, 'res', 'res', 42, 42, 4),
+(13, 'hf', 'hf', 75, 75, 4),
+(14, 'ds', 'gf', 56, 87, 4),
+(15, 'ter', 'ter', 54, 64, 4),
+(16, 'test', 'test', 42, 42, 4);
 
 -- --------------------------------------------------------
 
@@ -92,7 +115,8 @@ CREATE TABLE `staff` (
 --
 
 INSERT INTO `staff` (`staff_id`, `staff_name`, `user_id`) VALUES
-(2, 'alvin', 4);
+(2, 'alvin', 4),
+(3, 'leo', 5);
 
 -- --------------------------------------------------------
 
@@ -136,7 +160,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`user_id`, `email`, `password`, `company_name`) VALUES
-(4, 'babin@yahoo.com', '1234', '');
+(4, 'babin@yahoo.com', '1234', ''),
+(5, 'leo@yahoo.com', '123', '');
 
 --
 -- Indexes for dumped tables
@@ -188,6 +213,7 @@ ALTER TABLE `staff_hours`
 -- Indexes for table `staff_service`
 --
 ALTER TABLE `staff_service`
+  ADD PRIMARY KEY (`staff_id`,`service_id`),
   ADD KEY `service_id` (`service_id`),
   ADD KEY `staff_id` (`staff_id`);
 
@@ -216,17 +242,17 @@ ALTER TABLE `client`
 -- AUTO_INCREMENT for table `service`
 --
 ALTER TABLE `service`
-  MODIFY `service_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `service_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 --
 -- AUTO_INCREMENT for table `staff`
 --
 ALTER TABLE `staff`
-  MODIFY `staff_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `staff_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- Constraints for dumped tables
 --

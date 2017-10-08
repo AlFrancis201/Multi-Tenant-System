@@ -1,0 +1,13 @@
+/* cookie-regular - latin */
+@font-face {
+  font-family: 'Cookie';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../cookie-v7-latin-regular.eot'); /* IE9 Compat Modes */
+  src: local('Cookie-Regular'),
+       url('../cookie-v7-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../cookie-v7-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../cookie-v7-latin-regular.woff') format('woff'), /* Modern Browsers */
+       url('../cookie-v7-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('../cookie-v7-latin-regular.svg#Cookie') format('svg'); /* Legacy iOS */
+}

@@ -18,6 +18,7 @@
                 <input class="form-control" type="text" placeholder="Price" name="price" value="<?php echo $price; ?>" disabled>
                 <!--<input class="form-control" type="submit" value="Submit">-->
                 <!--<button class="form-control view-button">Submit</button>-->
+				<a class="btn btn-info btn-lg" id="aboutbtn" role="button" href="<?php echo base_url ('mts')?>">Back</a>				
             </div>
         </form>
     </div>

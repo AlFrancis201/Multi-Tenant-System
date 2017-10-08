@@ -11,7 +11,7 @@
 <link href="<?php echo base_url('bootstrap/css/bootstrap-theme.css'); ?>" rel="stylesheet" />
 <link href="<?php echo base_url('bootstrap/css/bootstrap.min.css'); ?>" rel="stylesheet" />
 <link href="<?php echo base_url('assets/fonts/font-awesome.min.css'); ?>" rel="stylesheet" />
-<link href="<?php echo base_url('assets/css/styles.css'); ?>" rel="stylesheet" />
+<link href="<?php echo base_url('assets/css/homepage.css'); ?>" rel="stylesheet" />
 <link href="<?php echo base_url('assets/css/Pretty-Footer.css'); ?>" rel="stylesheet" />
 
 <script src="<?php echo base_url('bootstrap/js/jquery.min.js'); ?>"></script>

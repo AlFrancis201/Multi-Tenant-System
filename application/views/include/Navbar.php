@@ -36,7 +36,7 @@
                 </a>
                 <ul class="list-group submenu">
                     <li class="list-group-item">
-                        <a href="#">
+                        <a href="<?php echo base_url('mts/viewStaff'); ?>">
                             <button class="btn btn-default sidebar" type="button"><i class="fa fa-users" id="staff" data-toggle="tooltip" title="Staff"></i></button>
                         </a>
                     </li>

@@ -39,6 +39,7 @@
         </div>
     </div>
 </nav>
+</body>
 <!--<div class="main">
 
 Contents

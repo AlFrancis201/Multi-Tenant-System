@@ -10,6 +10,7 @@
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/fonts/font-awesome.min.css'); ?>">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/dashboard_final.css'); ?>">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/add_service_final.css'); ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/servicess.css'); ?>">
     <script src="<?php echo base_url('assets/js/jquery.min.js'); ?>"></script>
     <script src="<?php echo base_url('assets/js/test.js'); ?>"></script>
 </head>
@@ -60,11 +61,11 @@
                         </div>
                         <div id="sect2" class="tab-pane"></div>
                         <div id="staffTab" class="tab-pane">
-                            <a href="">Add Staff</a>
+                            <button class="view-button" data-method="add_staff">Add Staff</button>
                         </div>
                         <div id="serviceTab" class="tab-pane">
                             <!--<button class="view-button" onclick="addServiceForm()">Add Service</button>-->
-                            <button class="view-button" value="add_service">Add Service</button>
+                            <button class="view-button" data-method="add_service">Add Service</button>
                             <h2>All Services</h2>
                             <?php
                             foreach($service_record as $s){
@@ -103,7 +104,6 @@
                     
                     success: function(data){
                         $(tabPane).html(data);
-                        
                     }
                 });
             });

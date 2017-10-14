@@ -12,6 +12,8 @@ class Mts extends CI_Controller {
             redirect(base_url());
         
         $this->load->model('service_model','Service');
+        $this->load->model('staff_model','Staff');
+        $this->load->model('staff_hours_model','Staff_Hours');
     }
 
 	public function index()
@@ -22,9 +24,85 @@ class Mts extends CI_Controller {
         //$data['addService'] = $this->load->view('contents/add_service','',true);
         //$data['addService'] = trim(preg_replace('/\s\s+/', ' ', $data['addService']));
         //$data['addService'] = trim(preg_replace('/\s+/', ' ', $data['addService']));
-        $data['service_record'] = $this->Service->read();
-        $this->load->view('contents/dashboard_final',$data);
+        //$data['service_record'] = $this->Service->read();
+        //$this->load->view('contents/dashboard_final',$data);
+        $this->load->view('include/header_nav');
+        echo date('h:i',strtotime('0 0.1'));
 	}
+    
+    public function view_service(){
+        $data['service_record'] = $this->Service->read();
+        $this->load->view('include/header_nav');
+        $this->load->view('view_service',$data);
+    }
+    
+    public function add_service(){
+        $this->form_validation->set_rules('svc_name','Service Name','required');
+        $this->form_validation->set_rules('svc_desc','Service Name','required');
+        $this->form_validation->set_rules('duration','Service Name','required');
+        $this->form_validation->set_rules('price','Service Name','required');
+        if($this->form_validation->run() == FALSE){
+            $this->load->view('include/header_nav');
+            $this->load->view('contents/add_service');
+        }
+        else{
+            //echo print_r($_POST);
+            $serviceRecord=array('service_name'=>$_POST['svc_name'],'service_desc'=>$_POST['svc_desc'],'duration'=>$_POST['duration'],'price'=>$_POST['price'],'user_id'=>$this->user_id);
+            $this->Service->create($serviceRecord);
+            redirect(base_url('mts/view_service'));
+            // echo 'success';
+            //echo $this->load->view('contents/test','',TRUE);
+            //echo $this->load->view('contents/add_service','',true);
+        }
+    }
+    
+    public function view_service_profile($service_id){
+        $condition = array('service_id'=>$service_id);
+        $serviceRecord = $this->Service->read($condition);
+        
+        foreach($serviceRecord as $s){
+            $data['svc_name'] = $s['service_name'];
+            $data['svc_desc'] = $s['service_desc'];
+            $data['duration'] = $s['duration'];
+            $data['price'] = $s['price'];
+        }
+        $this->load->view('include/header_nav');
+        $this->load->view('service_profile',$data);
+    }
+    
+    public function view_staff(){
+        $condition = array('user_id'=>$this->user_id);
+        $data['staff_record'] = $this->Staff->read($condition);
+        $this->load->view('include/header_nav');
+        $this->load->view('view_staff',$data);
+    }
+    
+    public function add_staff(){
+		//$this->load->view('include/Navbar');
+		//$this->load->view('include/staff');
+        //$data['title'] = "Dashboard";
+        //echo $this->load->view('contents/add_staff','',true);
+        $rules = array(
+                    array('field'=>'first_name', 'label'=>'First Name', 'rules'=>'required'),
+                    array('field'=>'last_name', 'label'=>'Last Name', 'rules'=>'required'),
+                    array('field'=>'day', 'label'=>'Day', 'rules'=>'required')
+                );
+        $this->form_validation->set_rules($rules);
+        if($this->form_validation->run()==false){
+            $this->load->view('include/header_nav');
+            $this->load->view('contents/add_staff');
+        }
+        else{
+            $staffRecord = array('first_name'=>$_POST['first_name'], 'last_name'=>$_POST['last_name'], 'user_id'=>$this->user_id);
+            $this->Staff->create($staffRecord);
+            $staff_id = $this->Staff->getLastRecordID();
+            foreach($_POST['day'] as $i => $d){
+                $staffHoursRecord = array('staff_id'=>$staff_id, 'day'=>$d, 'start_time'=>date('h:i',strtotime($_POST['start_time'][$i])), 'end_time'=>date('h:i',strtotime($_POST['end_time'][$i])));
+                $this->Staff_Hours->create($staffHoursRecord);
+            }
+            redirect(base_url('mts/view_staff'));
+        }
+    }
     
     /*public function addService(){
         $this->form_validation->set_rules('svc_name','Service Name','required');
@@ -47,38 +125,6 @@ class Mts extends CI_Controller {
         }
     }*/
     
-    public function add_service(){
-        $this->form_validation->set_rules('svc_name','Service Name','required');
-        $this->form_validation->set_rules('svc_desc','Service Name','required');
-        $this->form_validation->set_rules('duration','Service Name','required');
-        $this->form_validation->set_rules('price','Service Name','required');
-        if($this->form_validation->run() == FALSE){
-            $data['title'] = "Dashboard";
-            echo $this->load->view('contents/add_service','',true);
-        }
-        else{
-            //echo print_r($_POST);
-            $serviceRecord=array('service_name'=>$_POST['svc_name'],'service_desc'=>$_POST['svc_desc'],'duration'=>$_POST['duration'],'price'=>$_POST['price'],'user_id'=>$this->user_id);
-            $this->Service->create($serviceRecord);
-            echo 'success';
-            //echo $this->load->view('contents/test','',TRUE);
-            //echo $this->load->view('contents/add_service','',true);
-        }
-    }
-    
-    public function view_service_profile($service_id){
-        $condition = array('service_id'=>$service_id);
-        $serviceRecord = $this->Service->read($condition);
-        
-        foreach($serviceRecord as $s){
-            $data['svc_name'] = $s['service_name'];
-            $data['svc_desc'] = $s['service_desc'];
-            $data['duration'] = $s['duration'];
-            $data['price'] = $s['price'];
-        }
-        echo $this->load->view('contents/service_profile',$data,TRUE);
-    }
-    
     public function login(){
 		$this->load->view('include/login');			
         $this->load->view('contents/login_view');
@@ -88,13 +134,6 @@ class Mts extends CI_Controller {
         $this->load->view('contents/register_view');
     }
 	
-	public function add_staff(){
-		//$this->load->view('include/Navbar');
-		//$this->load->view('include/staff');
-        $data['title'] = "Dashboard";
-		$this->load->view('include/header_nav',$data);
-        $this->load->view('contents/add_service');
-    }
     
     public function viewStaff(){
         //$this->load->view('include/dashhead');		

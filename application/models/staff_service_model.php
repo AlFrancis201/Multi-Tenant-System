@@ -30,5 +30,27 @@ class Staff_service_model extends CI_Model {
     function del($where_array){
         $this->db->delete($this->table,$where_array);
     }
+    
+    function readStaffIdOnly($condition=null){
+        $this->db->select('staff_id');
+        $this->db->from($this->table);
+        
+        if(isset($condition))
+            $this->db->where($condition);
+        
+        $query = $this->db->get();
+        
+        
+        if($query->num_rows()>0){
+            $idArray = array();
+            foreach($query->result_array() as $q){
+                $idArray[]=$q['staff_id'];
+            }
+            return $idArray;
+        }
+        else
+            return false;
+        
+    }
 }
 ?>

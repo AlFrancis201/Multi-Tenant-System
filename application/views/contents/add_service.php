@@ -10,17 +10,43 @@
                     <input class="form-control" type="text" placeholder="Enter Service Name" name="svc_name">
                     <input class="form-control" type="text" placeholder="Service Description" id="desc" name="svc_desc">
                 </div>
-                <div class="col-lg-3 col-md-3"></div>
+                
                 <div class="col-md-9">
-                    <input class="form-control" type="text" placeholder="Duration" name="duration">
+                    <input class="form-control" type="text" placeholder="Duration (mins)" name="duration">
                     <input class="form-control" type="text" placeholder="Price" name="price">
                     <!--<input class="form-control" type="submit" value="Submit">-->    
+
+                    <h1 class="text-info">Service Provider</h1>
+                    <div class="checkbox">
+                        <label><input id="all_staff" type="checkbox" />All Staff</label>
+                    </div>
+                    <?php 
+                        foreach($staffRecord as $s){
+                            echo '<div class="checkbox">';
+                            echo '<label><input type="checkbox" name="staff[]" value="'.$s['staff_id'].'" />'.$s['first_name'].' '.$s['last_name'].'</label>';
+                            echo '</div>';
+                        }
+                    ?>
+
+                    <button class="form-control view-button">Submit</button>
                 </div>
-                <button class="form-control view-button">Submit</button>
             </form>
         </div>
     </div>
 </div>
+
+<script>
+$(document).ready(function(){
+    $('#all_staff').click(function(){
+        if($(this).prop('checked') == true){
+            $('input[name="staff[]"]').prop('checked',true);
+        }
+        else{
+            $('input[name="staff[]"]').prop('checked',false);
+        }
+    });
+});
+</script>
 
 <!--<script>
     $(document).ready(function(){

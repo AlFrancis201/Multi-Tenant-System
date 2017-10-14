@@ -32,10 +32,12 @@ class Service_model extends CI_Model {
     }
     
     function getLastRecordID(){
-        $this->db->select_max('user_id');
+        $this->db->select_max('service_id');
         $query = $this->db->get($this->table,1);
+        $lastID = $query->row_array();
+        $lastID = $lastID['service_id'];
         
-        return $query->row_array();
+        return $lastID;
     }
 }
 ?>

@@ -47,6 +47,19 @@ $(document).ready(function(){
     });
 });
 </script>
+<script>
+$(document).ready(function(){
+    $('input[name="staff[]"]').click(function(){
+        if($('input[name="staff[]"]:checked').length == $('input[name="staff[]"]').length){
+            $('input[type="checkbox"').prop('checked',true);
+        }
+        else
+            $('#all_staff').prop('checked',false);
+    });
+});
+</script>
+</body>
+</html>
 
 <!--<script>
     $(document).ready(function(){

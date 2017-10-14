@@ -32,7 +32,8 @@ class Mts extends CI_Controller {
 	}
     
     public function view_service(){
-        $data['service_record'] = $this->Service->read();
+        $condition = array('user_id'=>$this->user_id);
+        $data['service_record'] = $this->Service->read($condition);
         $this->load->view('include/header_nav');
         $this->load->view('view_service',$data);
     }
@@ -64,7 +65,8 @@ class Mts extends CI_Controller {
         }
     }
     
-    public function view_service_profile($service_id){
+    public function view_service_profile($service_id, $errors=null){
+        $data['service_id'] = $service_id;
         $condition = array('service_id'=>$service_id);
         $serviceRecord = $this->Service->read($condition);
         
@@ -74,10 +76,32 @@ class Mts extends CI_Controller {
             $data['duration'] = $s['duration'];
             $data['price'] = $s['price'];
         }
-        $data['staffRecord'] = $this->Staff->read();
+        $data['service_provider'] = $this->Staff_Service->readStaffIdOnly($condition);
+        $condition = array('user_id'=>$this->user_id);
+        $data['staffRecord'] = $this->Staff->read($condition);
+        
         
         $this->load->view('include/header_nav');
         $this->load->view('service_profile',$data);
+    }
+    
+    public function update_service($service_id){
+        $this->form_validation->set_rules('svc_name','Service Name','required');
+        $this->form_validation->set_rules('svc_desc','Service Description','required');
+        $this->form_validation->set_rules('duration','Service Duration','required|numeric');
+        $this->form_validation->set_rules('price','Service Price','required|numeric');
+        if($this->form_validation->run() == false){
+            echo validation_errors();
+        }
+        else{
+            $updatedService = array('service_id'=>$service_id, 'service_name'=>$_POST['svc_name'],'service_desc'=>$_POST['svc_desc'],'duration'=>$_POST['duration'],'price'=>$_POST['price'],'user_id'=>$this->user_id);
+            $this->Service->update($updatedService);
+            foreach($_POST['staff'] as $s){
+                    $staffServiceRecord = array('staff_id'=>$s,'service_id'=>$service_id);
+                    $this->Staff_Service->create($staffServiceRecord);
+            }
+            echo 'success';
+        }
     }
     
     public function view_staff(){

@@ -23,13 +23,13 @@
         </div>
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Dashboard<span class="pull-right hidden-xs showopacity glyphicon glyphicon-home"></span></a></li>
-                <li ><a href="#">Calendar<span class="pull-right hidden-xs showopacity fa fa-calendar-minus-o"></span></a></li>
-                <li ><a href="<?php echo base_url('mts/view_staff'); ?>">Staffs<span class="pull-right hidden-xs showopacity fa fa-users"></span></a></li>               
-                 <li ><a href="<?php echo base_url('mts/view_service'); ?>">Services<span class="pull-right hidden-xs showopacity fa fa-truck"></span></a></li>                 
-                 <li ><a href="<?php echo base_url('mts'); ?>">Customers<span class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a></li>
+                <li class="active"><a href="#">Dashboard<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-home"></span></a></li>
+                <li ><a href="#">Calendar<span style="font-size:16px;" class="pull-right hidden-xs showopacity fa fa-calendar-minus-o"></span></a></li>
+                <li ><a href="<?php echo base_url('mts/view_staff'); ?>">Staffs<span style="font-size:16px;" class="pull-right hidden-xs showopacity fa fa-users"></span></a></li>               
+                 <li ><a href="<?php echo base_url('mts/view_service'); ?>">Services<span style="font-size:16px;" class="pull-right hidden-xs showopacity fa fa-truck"></span></a></li>
+                 <li ><a href="<?php echo base_url('mts/view_service'); ?>">Customers<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a></li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Settings <span class="caret"></span><span class="pull-right hidden-xs showopacity glyphicon glyphicon-cog"></span></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Settings <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-cog"></span></a>
                     <ul class="dropdown-menu forAnimate" role="menu">
                         <li><a href="#">Account Settings<span class="pull-right hidden-xs showopacity glyphicon glyphicon-asterisk"></span></a></li>
                         <li><a href="#">Logout<span class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a></li>
@@ -39,11 +39,9 @@
         </div>
     </div>
 </nav>
-<div class="mainbg">
-</div>
 <!--<div class="main">
 
 Contents
 </div>
 </body>
-</html>
+</html>--> 

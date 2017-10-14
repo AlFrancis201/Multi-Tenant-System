@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 14, 2017 at 08:33 AM
+-- Generation Time: Oct 14, 2017 at 01:41 PM
 -- Server version: 10.1.16-MariaDB
 -- PHP Version: 5.6.24
 
@@ -81,8 +81,9 @@ CREATE TABLE `service` (
 --
 
 INSERT INTO `service` (`service_id`, `service_name`, `service_desc`, `duration`, `price`, `user_id`) VALUES
-(18, 'Service 1', 'lala', 10, 100, 4),
-(19, 'Service 2', 'dsa', 20, 200, 4);
+(24, 'Service 1', 'Service 1', 10, 100, 4),
+(25, 'Service 2', 'Service 1', 20, 200, 4),
+(26, 'Service 3', 'Service 3', 30, 300, 4);
 
 -- --------------------------------------------------------
 
@@ -129,6 +130,16 @@ CREATE TABLE `staff_service` (
   `staff_id` int(11) NOT NULL,
   `service_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `staff_service`
+--
+
+INSERT INTO `staff_service` (`staff_id`, `service_id`) VALUES
+(2, 24),
+(2, 26),
+(4, 25),
+(4, 26);
 
 -- --------------------------------------------------------
 
@@ -232,7 +243,7 @@ ALTER TABLE `client`
 -- AUTO_INCREMENT for table `service`
 --
 ALTER TABLE `service`
-  MODIFY `service_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `service_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 --
 -- AUTO_INCREMENT for table `staff`
 --

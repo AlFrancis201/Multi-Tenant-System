@@ -1,5 +1,5 @@
 <div class="main">
-	<div class="container" >
+	<div class="container">
 		<form class="form-horizontal customerForm" action="">	
 				<div class="form-group ">
 					<span style="font-size:80px;" class="glyphicon glyphicon-user col-md-1"> </span>
@@ -59,9 +59,13 @@
 	        		</div>
 	      		</div>		
 		</form>
+		
+		<a href="<?php echo base_url('mts/edit_customer'); ?>"><button>EDIT</button></a>
+		<a href="<?php echo base_url('mts/view_customer'); ?>"><button>DELETE</button></a>
+		
 </div>
 	
-	<a class="btn btn-primary" href="view_customer" role="button">SUBMIT</a>
+	
 
 </body>
 

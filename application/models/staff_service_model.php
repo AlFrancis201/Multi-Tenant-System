@@ -1,10 +1,10 @@
 <?php
 
-class Staff_model extends CI_Model {
-    private $table = 'staff';
+class Staff_service_model extends CI_Model {
+    private $table = 'staff_service';
     
-    function create($staffRecord){
-        $this->db->insert($this->table, $staffRecord);
+    function create($staffServiceRecord){
+        $this->db->insert($this->table, $staffServiceRecord);
     }
     
     function read($condition=null){
@@ -29,15 +29,6 @@ class Staff_model extends CI_Model {
     
     function del($where_array){
         $this->db->delete($this->table,$where_array);
-    }
-    
-    function getLastRecordID(){
-        $this->db->select_max('staff_id');
-        $query = $this->db->get($this->table,1);
-        $lastID = $query->row_array();
-        $lastID = $lastID['staff_id'];
-        
-        return $lastID;
     }
 }
 ?>

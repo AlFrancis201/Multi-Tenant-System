@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 14, 2017 at 06:46 AM
+-- Generation Time: Oct 14, 2017 at 08:33 AM
 -- Server version: 10.1.16-MariaDB
 -- PHP Version: 5.6.24
 
@@ -168,6 +168,7 @@ ALTER TABLE `appointment`
 -- Indexes for table `business_hours`
 --
 ALTER TABLE `business_hours`
+  ADD PRIMARY KEY (`user_id`,`day`),
   ADD KEY `user_id` (`user_id`);
 
 --

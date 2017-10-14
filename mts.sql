@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 08, 2017 at 12:17 PM
+-- Generation Time: Oct 14, 2017 at 06:46 AM
 -- Server version: 10.1.16-MariaDB
 -- PHP Version: 5.6.24
 
@@ -81,22 +81,8 @@ CREATE TABLE `service` (
 --
 
 INSERT INTO `service` (`service_id`, `service_name`, `service_desc`, `duration`, `price`, `user_id`) VALUES
-(1, 'dsa', 'dsa', 0, 0, 4),
-(2, 'dsafd', 'sdf', 0, 0, 4),
-(3, 'dsa', 'dsa', 421, 421, 4),
-(4, 'dsa', 'dsa', 42, 42, 4),
-(5, 'dsa', 'dsa', 64, 64, 4),
-(6, 'dsa', 'dsa', 75, 5, 4),
-(7, 'dsa', 'dsads', 54, 75, 4),
-(8, 'dsa', 'dsa', 65, 65, 4),
-(9, 'dsa', 'gs', 786, 865, 4),
-(10, 'gd', 'gd', 35, 53, 4),
-(11, 'dsafd', 'dsa', 53, 6, 4),
-(12, 'res', 'res', 42, 42, 4),
-(13, 'hf', 'hf', 75, 75, 4),
-(14, 'ds', 'gf', 56, 87, 4),
-(15, 'ter', 'ter', 54, 64, 4),
-(16, 'test', 'test', 42, 42, 4);
+(18, 'Service 1', 'lala', 10, 100, 4),
+(19, 'Service 2', 'dsa', 20, 200, 4);
 
 -- --------------------------------------------------------
 
@@ -106,7 +92,8 @@ INSERT INTO `service` (`service_id`, `service_name`, `service_desc`, `duration`,
 
 CREATE TABLE `staff` (
   `staff_id` int(11) NOT NULL,
-  `staff_name` varchar(30) NOT NULL,
+  `first_name` varchar(30) NOT NULL,
+  `last_name` varchar(30) NOT NULL,
   `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -114,9 +101,10 @@ CREATE TABLE `staff` (
 -- Dumping data for table `staff`
 --
 
-INSERT INTO `staff` (`staff_id`, `staff_name`, `user_id`) VALUES
-(2, 'alvin', 4),
-(3, 'leo', 5);
+INSERT INTO `staff` (`staff_id`, `first_name`, `last_name`, `user_id`) VALUES
+(2, 'alvin', '', 4),
+(3, 'leo', '', 5),
+(4, 'Leo', 'Pajuyo', 4);
 
 -- --------------------------------------------------------
 
@@ -207,6 +195,7 @@ ALTER TABLE `staff`
 -- Indexes for table `staff_hours`
 --
 ALTER TABLE `staff_hours`
+  ADD PRIMARY KEY (`staff_id`,`day`),
   ADD KEY `staff_id` (`staff_id`);
 
 --
@@ -242,12 +231,12 @@ ALTER TABLE `client`
 -- AUTO_INCREMENT for table `service`
 --
 ALTER TABLE `service`
-  MODIFY `service_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `service_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 --
 -- AUTO_INCREMENT for table `staff`
 --
 ALTER TABLE `staff`
-  MODIFY `staff_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `staff_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `user`
 --

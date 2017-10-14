@@ -104,6 +104,12 @@ class Mts extends CI_Controller {
         }
     }
     
+    public function del_service($service_id){
+        $condition = array('service_id'=>$service_id);
+        $this->Service->del($condition);
+        redirect(base_url('mts/view_service'));
+    }
+    
     public function view_staff(){
         $condition = array('user_id'=>$this->user_id);
         $data['staff_record'] = $this->Staff->read($condition);

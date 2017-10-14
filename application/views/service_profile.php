@@ -1,7 +1,7 @@
 <div class="main">
     <div class="row addService">
         <div class="col-lg-12 col-md-12">
-            <a href="#"><button>Delete Service</button></a>
+            <a href="<?php echo base_url('mts/del_service/'.$service_id); ?>"><button>Delete Service</button></a>
             <button id="edit-button">Edit Service</button>
             <form id="addServiceForm" class="customform" method="post">
                 <div class="col-md-12">

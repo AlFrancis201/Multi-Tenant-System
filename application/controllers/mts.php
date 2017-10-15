@@ -185,7 +185,28 @@ class Mts extends CI_Controller {
     }
     
     public function update_staff($staff_id){
-        
+        $rules = array(
+                    array('field'=>'first_name', 'label'=>'First Name', 'rules'=>'required'),
+                    array('field'=>'last_name', 'label'=>'Last Name', 'rules'=>'required'),
+                    array('field'=>'day[]', 'label'=>'Day', 'rules'=>'required')
+                );
+        $this->form_validation->set_rules($rules);
+        if($this->form_validation->run() == false){
+            echo validation_errors();
+        }
+        else{
+            $newStaffRecord = array('staff_id'=>$staff_id, 'first_name'=>$_POST['first_name'], 'last_name'=>$_POST['last_name'], 'user_id'=>$this->user_id);
+            $this->Staff->update($newStaffRecord);
+            foreach($_POST['day'] as $i => $d){
+                $staffHoursRecord = array('staff_id'=>$staff_id, 'day'=>$d, 'start_time'=>date('H:i',strtotime($_POST['start_time'][$i])), 'end_time'=>date('H:i',strtotime($_POST['end_time'][$i])));
+                $this->Staff_Hours->create($staffHoursRecord);
+            }
+            foreach($_POST['service'] as $s){
+                $staffServiceRecord = array('staff_id'=>$staff_id, 'service_id'=>$s);
+                $this->Staff_Service->create($staffServiceRecord);
+            }
+            echo 'success';
+        }
     }
     
     /*public function addService(){

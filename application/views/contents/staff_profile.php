@@ -5,7 +5,7 @@
             <button id="edit-button">Edit Service</button>
             <form id="addStaffForm" class="customform">
                 <h1 class="text-info">Staff Profile</h1>
-                <?php echo validation_errors(); ?>
+                <div id="errors"></div>
                 <div class="col-md-7 inputColumn">
                     <input class="form-control" type="text" name="first_name" placeholder="First Name" value="<?=$first_name?>" disabled />
                 </div>
@@ -856,21 +856,19 @@ $(document).ready(function(){
     });
 });
 </script>
-<script>
+<!--<script>
 $(document).ready(function(){
     $('#cancel-button').click(function(event){
         //event.preventDefault();
         //location.reload();
     });
 });
-</script>
+</script>-->
 <script>
     $(document).ready(function(){
         $('form').submit(function(event){
             event.preventDefault();
-            //alert($(this).closest('.tab-pane').html());
             var formData = $('#addStaffForm').serialize();
-            //alert(formData);
             $.ajax({
                     url: "<?php echo base_url('mts/update_staff/'.$staff_id); ?>",
                     data: formData,
@@ -880,10 +878,12 @@ $(document).ready(function(){
                     success: function(data){
                         if(data=='success'){
                             //alert('Service Added.');
-                            window.location.assign("<?php base_url('mts/view_service'); ?>");
+                            window.location.assign("<?php base_url('mts/view_staff'); ?>");
                         }
-                        else
+                        else{
                             $('#errors').html(data);
+                            $('html, body').scrollTop(0);
+                        }
                     },
                 });
         });

@@ -52,5 +52,27 @@ class Staff_service_model extends CI_Model {
             return false;
         
     }
+    
+    function readServiceIdOnly($condition=null){
+        $this->db->select('service_id');
+        $this->db->from($this->table);
+        
+        if(isset($condition))
+            $this->db->where($condition);
+        
+        $query = $this->db->get();
+        
+        
+        if($query->num_rows()>0){
+            $idArray = array();
+            foreach($query->result_array() as $q){
+                $idArray[]=$q['service_id'];
+            }
+            return $idArray;
+        }
+        else
+            return false;
+        
+    }
 }
 ?>

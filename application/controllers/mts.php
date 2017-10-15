@@ -28,7 +28,7 @@ class Mts extends CI_Controller {
         //$data['service_record'] = $this->Service->read();
         //$this->load->view('contents/dashboard_final',$data);
         $this->load->view('include/header_nav');
-        echo date('h:i',strtotime('17.0'));
+        echo date('G.i',strtotime('08:00:00'));
 	}
     
     public function view_calendar(){
@@ -157,7 +157,36 @@ class Mts extends CI_Controller {
         }
     }
     
+    public function view_staff_profile($staff_id){
+        $data['staff_id'] = $staff_id;
+        $condition = array('staff_id'=>$staff_id);
+        $staffRecord = $this->Staff->read($condition);
+        $data['first_name'] = $staffRecord['first_name'];
+        $data['last_name'] = $staffRecord['last_name'];
+        $data['service'] = $this->Service->read(array('user_id'=>$this->user_id));
+        $data['serviceProvided'] = $this->Staff_Service->readServiceIdOnly($condition);
+        
+        //print_r($serviceProvided);
+        $this->load->view('include/header_nav');
+        $this->load->view('contents/staff_profile',$data);
+    }
     
+    public function ajax_get_staff_hours($staff_id){
+        $staffHours = $this->Staff_Hours->read(array('staff_id'=>$staff_id));
+        $data = array();
+        
+        foreach($staffHours as $s){
+            $d['day'] = $s['day'];
+            $d['start_time'] = date('G.i',strtotime($s['start_time']));
+            $d['end_time'] = date('G.i',strtotime($s['end_time']));
+            $data[] = $d;
+        }
+        echo json_encode($data); //Array ( [0] => Array ( [day] => monday [start_time] => 8.00 [end_time] => 17.00 ) )
+    }
+    
+    public function update_staff($staff_id){
+        
+    }
     
     /*public function addService(){
         $this->form_validation->set_rules('svc_name','Service Name','required');

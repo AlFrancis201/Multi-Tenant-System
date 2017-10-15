@@ -16,33 +16,49 @@
 				<div class="form-group">
 					<label class="control-label col-md-1" for="email">Mobile:</label>
 	      			<div class="col-md-11">
-	        			<input type="text" class="form-control" id="" placeholder="" >
+	        			<input type="text" class="form-control" id="" placeholder="09*********" >
 	        		</div>
 	      		</div>	
 				<div class="form-group">
 					<label class="control-label col-md-1" for="email">Office:</label>
 	      			<div class="col-md-11">
-	        			<input type="text" class="form-control" id="" placeholder="Phone">
+	        			<input type="text" class="form-control" id="" placeholder="Office">
 	        		</div>
 	      		</div>					
 	      		<div class="form-group">
 					<label class="control-label col-md-1" for="email">Home:</label>
 	      			<div class="col-md-11">
-	        			<input type="text" class="form-control" id="" placeholder="Phone">
+	        			<input type="text" class="form-control" id="" placeholder="Home">
 	        		</div>
 	      		</div>		      		
 	      		<div class="form-group">
 					<label class="control-label col-md-1" for="address">Address:</label>
 	      			<div class="col-md-11">
 	        			<input type="text" class="form-control" id="" placeholder="Adress" >
-	        			<p>City</p>
-	        			<p>State</p>
-	        			<p>Zip</p>
 	        		</div>
 	      		</div>	
+				<div class="form-group">
+					<label class="control-label col-md-1" for="email">City:</label>
+	      			<div class="col-md-11">
+	        			<input type="text" class="form-control" id="" placeholder="City">
+	        		</div>
+	      		</div>
+				<div class="form-group">
+					<label class="control-label col-md-1" for="email">State:</label>
+	      			<div class="col-md-11">
+	        			<input type="text" class="form-control" id="" placeholder="State">
+	        		</div>
+	      		</div>
+				<div class="form-group">
+					<label class="control-label col-md-1" for="email">Zip:</label>
+	      			<div class="col-md-11">
+	        			<input type="text" class="form-control" id="" placeholder="Zip">
+	        		</div>
+	      		</div>		
 		</form>
 </div>
-
+	
+	<a class="btn btn-primary" href="view_customer" role="button">SUBMIT</a>
 
 </body>
 

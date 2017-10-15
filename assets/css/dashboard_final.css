@@ -1,7 +1,5 @@
     body,html{
     height: 100%;
-    font-family: Arial,Helvetica,sans-serif;
-    background:url(../../assets/img/5.png);    
   }
 
   #logo{
@@ -11,15 +9,14 @@
    margin-top:-30px;
   }
 
-  .nav li a span{
-    font-size:16px;"
-  }
-
-.row{
+  .main .row{
     padding: 0px;
     margin: 0px;
   }
 
+  .sidebar{
+    background-color: #74afad;
+  }
 
   nav.sidebar.navbar {
     border-radius: 0px;
@@ -131,6 +128,11 @@
     }
   }
 
+  nav.sidebar .navbar-nav .open .dropdown-menu>li>a:hover, nav.sidebar .navbar-nav .open .dropdown-menu>li>a:focus {
+    color: #CCC;
+    background-color: transparent;
+  }
+
   nav:hover .forAnimate{
     opacity: 1;
   }
@@ -138,15 +140,3 @@
     padding-left: 15px;
   }
 
-  .sidebar ul li a:hover{
-    background-color:#75768C;
-    color:#C5C6DC;
-  }
-
-  .sidebar a{
-    color:#E3E4FA;
-  }
-
-  .sidebar{
-    background-color:#9394aa;
-  }

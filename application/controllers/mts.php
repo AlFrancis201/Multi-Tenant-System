@@ -209,6 +209,12 @@ class Mts extends CI_Controller {
         }
     }
     
+    public function del_staff($staff_id){
+        $condition = array('staff_id'=>$staff_id);
+        $this->Staff->del($condition);
+        redirect(base_url('mts/view_staff'));
+    }
+    
     /*public function addService(){
         $this->form_validation->set_rules('svc_name','Service Name','required');
         $this->form_validation->set_rules('svc_desc','Service Name','required');

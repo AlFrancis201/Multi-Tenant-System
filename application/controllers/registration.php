@@ -3,7 +3,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Registration extends CI_Controller {
     public function index(){
-        $this->form_validation->set_rules('name','Name','required');
+        $this->form_validation->set_rules('fname','First Name','required');
+        $this->form_validation->set_rules('lname','Last Name','required');
         $this->form_validation->set_rules('email','Email','required');
         $this->form_validation->set_rules('password','Password','required');
         if($this->form_validation->run()==FALSE){
@@ -21,7 +22,7 @@ class Registration extends CI_Controller {
         $this->User->create($userRecord);
         $result = $this->User->getLastRecordID();
         $this->load->model('staff_model','Staff');
-        $staffRecord = array('staff_name'=>$accountData['name'],'user_id'=>$result['user_id']);
+        $staffRecord = array('first_name'=>$accountData['fname'],'last_name'=>$accountData['lname'],'user_id'=>$result['user_id']);
         $this->Staff->create($staffRecord);
         redirect(base_url('home'));
     }

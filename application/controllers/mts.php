@@ -31,6 +31,11 @@ class Mts extends CI_Controller {
         echo date('h:i',strtotime('0 0.1'));
 	}
     
+    public function view_calendar(){
+        $this->load->view('include/header_nav');
+        $this->load->view('calendar_view');
+    }
+    
     public function view_service(){
         $condition = array('user_id'=>$this->user_id);
         $data['service_record'] = $this->Service->read($condition);
@@ -45,6 +50,7 @@ class Mts extends CI_Controller {
         $this->form_validation->set_rules('svc_desc','Service Description','required');
         $this->form_validation->set_rules('duration','Service Duration','required|numeric');
         $this->form_validation->set_rules('price','Service Price','required|numeric');
+        $this->form_validation->set_rules('staff[]','Service Provider','required');
         if($this->form_validation->run() == FALSE){
             $this->load->view('include/header_nav');
             $this->load->view('contents/add_service',$data);
@@ -90,6 +96,7 @@ class Mts extends CI_Controller {
         $this->form_validation->set_rules('svc_desc','Service Description','required');
         $this->form_validation->set_rules('duration','Service Duration','required|numeric');
         $this->form_validation->set_rules('price','Service Price','required|numeric');
+        $this->form_validation->set_rules('staff[]','Service Provider','required');
         if($this->form_validation->run() == false){
             echo validation_errors();
         }

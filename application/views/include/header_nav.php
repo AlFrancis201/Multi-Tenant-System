@@ -10,7 +10,10 @@
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/dashboard_final.css'); ?>">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/staffss.css'); ?>">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/add_service_final.css'); ?>">
-    <script src="<?php echo base_url('assets/js/jquery.min.js'); ?>"></script>
+    <link rel='stylesheet' type="text/css" href="<?php echo base_url('fullcalendar/fullcalendar.css');?>" />
+    <script src='<?php echo base_url('fullcalendar/lib/jquery.min.js');?>'></script>
+    <script src='<?php echo base_url('fullcalendar/lib/moment.min.js');?>'></script>
+    <script src='<?php echo base_url('fullcalendar/fullcalendar.js');?>'></script>
     <script src="<?php echo base_url('assets/js/test.js'); ?>"></script>
 </head>
 
@@ -24,7 +27,7 @@
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
                 <li class="active"><a href="#">Dashboard<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-home"></span></a></li>
-                <li ><a href="#">Calendar<span style="font-size:16px;" class="pull-right hidden-xs showopacity fa fa-calendar-minus-o"></span></a></li>
+                <li ><a href="<?php echo base_url('mts/view_calendar'); ?>">Calendar<span style="font-size:16px;" class="pull-right hidden-xs showopacity fa fa-calendar-minus-o"></span></a></li>
                 <li ><a href="<?php echo base_url('mts/view_staff'); ?>">Staffs<span style="font-size:16px;" class="pull-right hidden-xs showopacity fa fa-users"></span></a></li>               
                  <li ><a href="<?php echo base_url('mts/view_service'); ?>">Services<span style="font-size:16px;" class="pull-right hidden-xs showopacity fa fa-truck"></span></a></li>
                  <li ><a href="<?php echo base_url('mts/view_service'); ?>">Customers<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a></li>

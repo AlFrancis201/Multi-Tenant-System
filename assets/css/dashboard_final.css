@@ -11,10 +11,6 @@
    margin-top:-30px;
   }
 
-  .nav li a span{
-    font-size:16px;"
-  }
-
 .row{
     padding: 0px;
     margin: 0px;
@@ -90,8 +86,8 @@
       padding: 0 0px 0 0px;
     }
 
-    .navbar-nav .open .dropdown-menu>li>a {
-      color: #777;
+    .navbar-nav .dropdown-menu>li>a {
+      color: #E3E4FA;
     }
 
     nav.sidebar{
@@ -141,7 +137,8 @@
   .sidebar ul li a:hover{
     background-color:#75768C;
     color:#C5C6DC;
-  }
+  }  
+
 
   .sidebar a{
     color:#E3E4FA;
@@ -150,3 +147,19 @@
   .sidebar{
     background-color:#9394aa;
   }
+
+  .sidebar ul li a:active{
+    background-color:#75768C;
+    color:#C5C6DC;
+  }  
+
+  .navbar .nav > li.dropdown.open.active > a:hover, 
+  .navbar .nav > li.dropdown.open > a
+  {
+   color:#C5C6DC;
+   background-color: #75768C;
+  }
+  .navbar .nav > li.dropdown.open.active > a:visited{
+    background-color:#75768C;
+  }  
+

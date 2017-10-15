@@ -1,0 +1,21 @@
+.customerForm .form-control{
+  width: 250px;
+}
+
+#costHead{
+  border:none;
+  background:none;
+  font-size:30px;
+  margin-top:45px;
+}
+
+.customerForm{
+  margin:30px 50px;
+}
+
+.customerForm p{
+  display:block;
+  float:left;
+  margin-left:35px;
+  margin-top: 3px;
+}

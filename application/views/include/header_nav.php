@@ -10,8 +10,11 @@
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/dashboard_final.css'); ?>">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/staffss.css'); ?>">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/add_service_final.css'); ?>">
-    <script src="<?php echo base_url('assets/js/jquery.min.js'); ?>"></script>
+    <script src="<?php echo base_url('jqui/external/jquery/jquery.js'); ?>"></script>   
+    <script src="<?php echo base_url('bootstrap/js/bootstrap.js'); ?>"></script>
     <script src="<?php echo base_url('assets/js/test.js'); ?>"></script>
+
+ 
 </head>
 
 <body>
@@ -27,11 +30,12 @@
                 <li ><a href="#">Calendar<span style="font-size:16px;" class="pull-right hidden-xs showopacity fa fa-calendar-minus-o"></span></a></li>
                 <li ><a href="<?php echo base_url('mts/view_staff'); ?>">Staffs<span style="font-size:16px;" class="pull-right hidden-xs showopacity fa fa-users"></span></a></li>               
                  <li ><a href="<?php echo base_url('mts/view_service'); ?>">Services<span style="font-size:16px;" class="pull-right hidden-xs showopacity fa fa-truck"></span></a></li>
+                 <li ><a href="<?php echo base_url('mts/view_customers'); ?>">Customers<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Settings <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-cog"></span></a>
                     <ul class="dropdown-menu forAnimate" role="menu">
-                        <li><a href="#">Logout</a></li>
-                        <li><a href="#">Account Settings</a></li>
+                        <li><a href="#">Account Settings<span class="pull-right hidden-xs showopacity glyphicon glyphicon-asterisk"></span></a></li>
+                        <li><a href="#">Logout<span class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a></li>
                     </ul>
                 </li>
             </ul>

@@ -5,7 +5,8 @@
     if($customer != false){
         foreach($customer as $c){
             echo '<ul>';
-            echo '<li><a href="'.base_url('mts/view_service_profile/'.$c['cust_id']).'">'.$c['cust_name'].'</a></li>';
+            echo '<li><a href="'.base_url('mts/view_customer_profile/'.$c['cust_id']).'">'.$c['cust_name'].'</a></li>';
+
             echo '</ul>';
         }
     }

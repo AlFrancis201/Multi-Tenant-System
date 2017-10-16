@@ -1,54 +1,70 @@
+.modal{
+  position: absolute;
+  left:20%;
+  top:10%;
+
+}
 .modal-content{
-  min-width:500px;
+  max-width:400px;
+  max-height: 700px;
 }
 
 .modal-header h4{
   font-weight:normal;
-  font-size:30px;
-  text-align:center;
-}
-
-.modal-body .nav li a{
-  font-family:'Raleway';
-}
-
-.nav-tabs li a{
-  color:#010101;
-  text-decoration:none;
-  opacity:.5;
-}
-
-.nav-tabs li a:hover, .nav-tabs li a:focus{
-  color:#030303;
-  opacity:1;
-}
-
-#tab-1 .row .col-md-6 span{
-  color:black;
-  text-align:right;
-}
-
-.tab-content h1{
-  font-weight:normal;
-  font-size:15px;
-  text-align:right;
-}
-
-.row textarea{
-  min-height:150px;
-  min-width:350px;
-}
-
-.appnt{
-  margin:15px 0;
-}
-
-.tab-content button, .tab-content input{
-  min-width:350px;
+  font-size:20px;
   text-align:left;
+  margin-left:10px;
 }
 
-.modal-footer .btn{
-  margin:center;
+.appntTab li a{
+  font-size:12px;
 }
 
+.appntTab{
+  margin-bottom: 15px;
+}
+
+.tab-content label{
+  font-weight:normal;
+  font-size:14px;
+  text-align:right;
+
+}
+
+.appointmentForm input ,.appointmentForm select{
+  border-radius: 2px;
+  border:.5px solid #D3D3D3;
+  height: 30px;
+  padding:5px;
+  margin-top:2px;
+}
+
+.appointmentForm select{
+  width: 260px;
+}
+
+#appntcont{
+  height:40px; 
+  width:150px;
+  margin-left: 200px;
+  margin-top: 15px;
+}
+
+#searchTab input{
+  margin-left:20px;
+  border-radius: 2px;
+  border:.5px solid #D3D3D3;
+  height: 30px;
+  width: 290px;
+  padding:5px;
+}
+
+#searchTab span{
+  margin-right:15px;
+  border-top: .5px solid #D3D3D3;  
+  border-right: .5px solid #D3D3D3;  
+  border-bottom: .5px solid #D3D3D3;
+  padding:8px;
+  border-radius: 2px;
+  margin-top: -2px;
+}

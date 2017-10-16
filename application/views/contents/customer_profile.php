@@ -1,6 +1,6 @@
 <div class="main">
 	<div class="container">
-        <?php echo validation_errors(); ?>
+        <div id="errors"></div>
         <a href="<?php echo base_url('mts/del_customer/'.$cust_id); ?>"><button>Delete Customer</button></a>
         <button id="edit-button">Edit Customer</button>
 		<form id="addCustomerForm" class="form-horizontal customerForm">	
@@ -63,5 +63,42 @@
 	      		</div>
 		</form>
 </div>
+
+<script>
+$(document).ready(function(){
+    $('#edit-button').click(function(){
+        $('input').prop('disabled',false);
+        $('form').append('<button id="submit-button" class="form-control">Submit</button>');
+        $('form').append('<button id="cancel-button" class="form-control">Cancel</button>');
+    });
+});
+</script>
+<script>
+$(document).on('click','#cancel-button',function(event){
+    event.preventDefault();
+    location.reload();
+});
+</script>
+<script>
+$(document).on('click','#submit-button',function(event){
+    event.preventDefault();
+    formData = $('#addCustomerForm').serialize();
+    $.ajax({
+        url: "<?php echo base_url('mts/update_customer/'.$cust_id); ?>",
+        data: formData,
+        type: "POST",
+        async: false,
+        
+        success: function(data){
+            if(data=='success'){
+                location.reload();
+            }
+            else
+                $('#errors').html(data);
+        }
+    });
+});
+</script>
+
 </body>
 </html>

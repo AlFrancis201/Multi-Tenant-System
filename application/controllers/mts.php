@@ -283,6 +283,12 @@ class Mts extends CI_Controller {
         }
     }
     
+    public function del_customer($cust_id){
+        $condition = array('cust_id'=>$cust_id);
+        $this->Customer->del($condition);
+        redirect(base_url('mts/view_customer'));
+    }
+    
     /*public function addService(){
         $this->form_validation->set_rules('svc_name','Service Name','required');
         $this->form_validation->set_rules('svc_desc','Service Name','required');

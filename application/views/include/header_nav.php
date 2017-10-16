@@ -10,6 +10,7 @@
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/dashboard_final.css'); ?>">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/staffss.css'); ?>">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/add_service_final.css'); ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/customer_form.css'); ?>">
     <script src="<?php echo base_url('jqui/external/jquery/jquery.js'); ?>"></script>   
     <script src="<?php echo base_url('bootstrap/js/bootstrap.js'); ?>"></script>
     <link rel='stylesheet' type="text/css" href="<?php echo base_url('fullcalendar/fullcalendar.css');?>" />

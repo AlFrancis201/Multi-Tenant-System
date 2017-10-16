@@ -6,10 +6,10 @@
             </div>
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="active"  role="presentation"><a href="<?php echo base_url('login'); ?>">SIGN IN </a></li>
+                    <li class="active"  role="presentation"><a href="<?php echo base_url('login'); ?>">SIGN IN</a></li>
                  </ul>
 			<ul class="nav navbar-nav navbar-right">
-					<li class="active" role="presentation"><a href="<?php echo base_url('registration'); ?>">CREATE AN ACCOUNT </a></li>
+					<li class="active" role="presentation"><a href="<?php echo base_url('registration'); ?>">CREATE AN ACCOUNT</a></li>
                 </ul>
             </div>
 			

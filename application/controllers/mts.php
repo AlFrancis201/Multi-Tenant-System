@@ -234,12 +234,38 @@ class Mts extends CI_Controller {
             $this->load->view('contents/add_customer');
         }
         else{
-            $custRecord = array('user_id'=>$this->user_id, 'cust_name'=>$_POST['cname'], 'mobile_no'=>$_POST['mobile'], 'email'=>$_POST['email'], 'office_no'=>$_POST['office'], 'home_no'=>$_POST['home'], 'address'=>$_POST['address'], 'city'=>$_POST['city'], 'state'=>$_POST['state'], 'zip'=>$_POST['zip']);
+            $custRecord = array('user_id'=>$this->user_id, 'cust_name'=>$_POST['cname'], 'mobile_no'=>$_POST['mobile'], 'email'=>$_POST['email'], 
+                          'office_no'=>$_POST['office'], 'home_no'=>$_POST['home'], 'address'=>$_POST['address'], 'city'=>$_POST['city'],
+                          'state'=>$_POST['state'], 'zip'=>$_POST['zip']);
             $this->Customer->create($custRecord);
             redirect(base_url('mts/view_customer'));
         }
     }
     
+    public function view_customer_profile($cust_id){
+        $data['cust_id'] = $cust_id;
+        $customerRecord = $this->Customer->read(array('cust_id'=>$cust_id));
+        foreach($customerRecord as $c){
+            $data['cname'] = $c['cust_name'];
+            $data['mobile'] = $c['mobile_no'];
+            $data['email'] = $c['email'];
+            if($c['office_no'] == 0)
+                $data['office'] = "";
+            else
+                $data['office'] = $c['office_no'];
+            if($c['home_no'] == 0)
+                $data['home'] = "";
+            else
+                $data['home'] = $c['home_no'];
+            $data['address'] = $c['address'];
+            $data['city'] = $c['city'];
+            $data['state'] = $c['state'];
+            $data['zip'] = $c['zip'];
+        }
+        
+        $this->load->view('include/header_nav');
+        $this->load->view('contents/customer_profile',$data);
+    }
     /*public function addService(){
         $this->form_validation->set_rules('svc_name','Service Name','required');
         $this->form_validation->set_rules('svc_desc','Service Name','required');

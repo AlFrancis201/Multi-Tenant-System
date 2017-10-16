@@ -6,22 +6,26 @@
             </div>
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li role="presentation"><a href="<?php echo base_url('login'); ?>">SIGN IN</a></li>
-                    <li class="active" role="presentation"><a href="<?php echo base_url('registration'); ?>">CREATE AN ACCOUNT</a></li>
+                    <li class="active"  role="presentation"><a href="<?php echo base_url('login'); ?>">SIGN IN</a></li>
+                 </ul>
+			<ul class="nav navbar-nav navbar-right">
+					<li class="active" role="presentation"><a href="<?php echo base_url('registration'); ?>">CREATE AN ACCOUNT</a></li>
                 </ul>
             </div>
+			
         </div>
     </nav>
     <div id="bg">
         <div id="text">
-            <h1 class="title">Lorem Impsum</h1>
+            <h1 class="title">Lorem Ipsum</h1>
             <div class="row">
                 <div class="col-md-6">
-                    <p id="p1"><strong>Lorem Ipsum</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it
-                        to make a type specimen book.&nbsp; </p>
+                    <p id="p1"><strong>Lorem Ipsum</strong> It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content
+            here, content here', making it look like readable English.&nbsp;</p>
                 </div>
                 <div class="col-md-6" id="btn">
-                    <button class="btn btn-primary btn-lg" type="submit">SIGN UP NOW!</button>
+                    <a href="<?php echo base_url('registration'); ?>" <button class="btn btn-primary btn-lg" type="submit">SIGN UP NOW!</button></a>
+					
                 </div>
             </div>
         </div>

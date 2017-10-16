@@ -17,11 +17,12 @@
        
             <div class="login-card">
                 <p class="profile-name-card">CREATE AN ACCOUNT</p>
-    <!--             <?php echo validation_errors(); ?>
-                <?php echo form_open('registration','class="form-signin"'); ?> -->
+              <?php echo validation_errors(); ?>
+                <?php echo form_open('registration','class="form-signin"'); ?> 
                 <form class="form-signin"><!--  action="<?php //echo base_url('registration'); ?>" method="post"> -->
                     <span class="reauth-email"> </span>
-                    <input class="form-control" type="text" name="name" placeholder="Name" id="inputName" name="name">
+                    <input class="form-control" type="text" placeholder="First name" id="inputName" name="fname">
+                    <input class="form-control" type="text" placeholder="Last name" id="inputName" name="lname">
                     <input class="form-control" type="email" name="email" required="" placeholder="Email address" id="inputEmail" >
                     <input class="form-control" type="password" name="password" required="" placeholder="Password" id="inputPassword" name="password">
                     <div class="checkbox"></div>

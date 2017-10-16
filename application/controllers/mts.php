@@ -220,7 +220,7 @@ class Mts extends CI_Controller {
     
     public function view_customer(){
         $condition = array('user_id'=>$this->user_id);
-        $data['customer'] = $this->Customer->read();
+        $data['customer'] = $this->Customer->read($condition);
         $this->load->view('include/header_nav');
         $this->load->view('view_customer',$data);
     }

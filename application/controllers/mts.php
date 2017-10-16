@@ -15,6 +15,7 @@ class Mts extends CI_Controller {
         $this->load->model('staff_model','Staff');
         $this->load->model('staff_hours_model','Staff_Hours');
         $this->load->model('staff_service_model','Staff_Service');
+        $this->load->model('customer_model','Customer');
     }
 
 	public function index()
@@ -217,6 +218,13 @@ class Mts extends CI_Controller {
         redirect(base_url('mts/view_staff'));
     }
     
+    public function view_customer(){
+        $condition = array('user_id'=>$this->user_id);
+        $data['customer'] = $this->Customer->read();
+        $this->load->view('include/header_nav');
+        $this->load->view('view_customer',$data);
+    }
+    
     /*public function addService(){
         $this->form_validation->set_rules('svc_name','Service Name','required');
         $this->form_validation->set_rules('svc_desc','Service Name','required');
@@ -238,81 +246,7 @@ class Mts extends CI_Controller {
         }
     }*/
     
-    public function login(){
-		$this->load->view('include/login');			
-        $this->load->view('contents/login_view');
-    }
-    
-    public function register(){
-        $this->load->view('contents/register_view');
-    }
-	
-    
-    public function viewStaff(){
-        //$this->load->view('include/dashhead');		
-        //$this->load->view('include/navbar');
-        $header_data['title'] = "View Staff";
-        $this->load->view('include/header_nav',$header_data);
-        $this->load->view('contents/staff_view');
-    }
-    
-    public function viewAppointment(){
+    public function test(){
         $this->load->view('contents/appointment');
-    }
-	
-	public function view_customer(){
-        $condition = array('user_id'=>$this->user_id);
-        $data['service_record'] = $this->Service->read($condition);
-        $this->load->view('include/header_nav');
-        $this->load->view('view_customer',$data);
-    }
-    
-	public function add_customer(){
-        $condition = array('user_id'=>$this->user_id);
-        $data['staffRecord'] = $this->Staff->read($condition);
-        $this->form_validation->set_rules('svc_name','Service Name','required');
-        $this->form_validation->set_rules('svc_desc','Service Description','required');
-        $this->form_validation->set_rules('duration','Service Duration','required|numeric');
-        $this->form_validation->set_rules('price','Service Price','required|numeric');
-        $this->form_validation->set_rules('staff[]','Service Provider','required');
-        if($this->form_validation->run() == FALSE){
-            $this->load->view('include/header_nav');
-            $this->load->view('contents/Customer_form',$data);
-        }
-        else{
-            //print_r($_POST);
-            $serviceRecord=array('service_name'=>$_POST['svc_name'],'service_desc'=>$_POST['svc_desc'],'duration'=>$_POST['duration'],'price'=>$_POST['price'],'user_id'=>$this->user_id);
-            $this->Service->create($serviceRecord);
-            $service_id = $this->Service->getLastRecordID();
-            foreach($_POST['staff'] as $s){
-                $staffServiceRecord = array('staff_id'=>$s,'service_id'=>$service_id);
-                $this->Staff_Service->create($staffServiceRecord);
-            }
-            redirect(base_url('mts/view_customer'));
-            // echo 'success';
-            //echo $this->load->view('contents/test','',TRUE);
-            //echo $this->load->view('contents/add_service','',true);
-        }
-    }
-	
-	public function edit_customer(){
-      
-            $this->load->view('include/header_nav');
-            $this->load->view('contents/Customer_form');
-       
-    }
-	
-	public function delete_customer(){
-      
-            $this->load->view('include/header_nav');
-            $this->load->view('contents/Customer_form');
-       
-    }
-	
-	public function customer_profile(){
-      
-            $this->load->view('include/header_nav');
-            $this->load->view('contents/customer_profile');
-       
     }
 }

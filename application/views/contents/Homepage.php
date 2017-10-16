@@ -14,11 +14,10 @@
     </nav>
     <div id="bg">
         <div id="text">
-            <h1 class="title">Lorem Impsum</h1>
+            <h1 class="title">Tempus</h1>
             <div class="row">
                 <div class="col-md-6">
-                    <p id="p1"><strong>Lorem Ipsum</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it
-                        to make a type specimen book.&nbsp; </p>
+                    <p id="p1">A scheduling website for all, that makes your work easier and more convenient. &nbsp;</p>
                 </div>
                 <div class="col-md-6" id="btn">
                     <button class="btn btn-primary btn-lg" type="submit">SIGN UP NOW!</button>
@@ -27,8 +26,12 @@
         </div>
     </div>
     <div class="jumbotron" id="ad1">
-        <h1>Lorem Ipsum </h1>
-        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content
-            here, content here', making it look like readable English.&nbsp; </p>
+        <h1>Calendar</h1>
+        <p>Set your dates with notes using our calendar si that you won't miss the important part of your business, like meet-ups, meetings, 
+		and other major fucking whatever of your business.&nbsp; </p>
+    </div>
+	<div class="jumbotron" id="ad1">
+        <h2>Services and Staffs will be monitored</h2>
+        <p>Make your employees' working hours organized.&nbsp; </p>
     </div>
 

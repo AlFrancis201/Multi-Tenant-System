@@ -1,54 +1,105 @@
+.modal{
+  position: absolute;
+  left:20%;
+  top:10%;
+
+}
 .modal-content{
-  min-width:500px;
+  max-width:400px;
+  max-height: 700px;
 }
 
 .modal-header h4{
   font-weight:normal;
-  font-size:30px;
-  text-align:center;
+  font-size:20px;
+  text-align:left;
+  margin-left:10px;
 }
 
-.modal-body .nav li a{
-  font-family:'Raleway';
+.appntTab li a{
+  font-size:12px;
 }
-
-.nav-tabs li a{
+/*.appointmentTab .nav-tabs li a{
   color:#010101;
   text-decoration:none;
   opacity:.5;
+  font-size:100px;
 }
 
-.nav-tabs li a:hover, .nav-tabs li a:focus{
+.appointmentTab .nav-tabs li a:hover, .nav-tabs li a:focus{
   color:#030303;
   opacity:1;
 }
-
-#tab-1 .row .col-md-6 span{
-  color:black;
-  text-align:right;
+*/
+.appntTab{
+  margin-bottom: 15px;
 }
 
 .tab-content h1{
   font-weight:normal;
-  font-size:15px;
+  font-size:14px;
   text-align:right;
+
 }
 
-.row textarea{
-  min-height:150px;
-  min-width:350px;
+.appnt textarea{
+  max-height:30px;
+  min-width:250px;
+  overflow: scroll;
+  overflow-x:hidden;
+  margin-top:5px;
+  border-radius: 2px;
+  padding:5px;
+}
+
+.appnt input{
+  border-radius: 2px;
+  border:.5px solid #D3D3D3;
+  height: 30px;
+  padding:5px;
 }
 
 .appnt{
-  margin:15px 0;
+  margin:10px 0;
+
 }
 
-.tab-content button, .tab-content input{
-  min-width:350px;
+.appnt button{
+  min-width:250px;
   text-align:left;
+  background-color: transparent;
+  color:black;
+  border-radius: 2px;
+  border:.5px solid #D3D3D3;
 }
 
-.modal-footer .btn{
-  margin:center;
+.appnt button:hover{
+  background-color: transparent;
+  color:black;
 }
 
+#appntcont{
+  height:40px; 
+  width:150px;
+  margin-left: 200px;
+  margin-top: 15px;
+}
+
+#searchTab input{
+  margin-left:20px;
+  border-radius: 2px;
+  border:.5px solid #D3D3D3;
+  height: 30px;
+  width: 290px;
+  padding:5px;
+}
+
+#searchTab span{
+  margin-right:15px;
+  border-top: .5px solid #D3D3D3;  
+  border-right: .5px solid #D3D3D3;  
+  border-bottom: .5px solid #D3D3D3;
+  padding:8px;
+  border-radius: 2px;
+  margin-top: -2px;
+}

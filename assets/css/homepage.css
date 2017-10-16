@@ -37,6 +37,7 @@
 
 #nav{
   min-height:100px;
+  
 }
 
 #btn{
@@ -46,6 +47,8 @@
 
 ul.nav.navbar-nav.navbar-right{
   margin-top:20px;
+  /* background-color: #666; */
+  margin-left:5px;
 }
 
 #ad1{

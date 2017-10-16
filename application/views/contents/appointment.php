@@ -26,47 +26,41 @@
                         </ul>
                         <div class="tab-content">
                             <div class="tab-pane active" role="tabpanel" id="tab-1">
-                                <div class="row">
-                                    <div class="col-md-3">
-                                        <h1>Provider </h1></div>
-                                    <div class="col-md-9 appnt">
-                                        <div class="dropdown">
-                                            <button class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button">User </button>
-                                            <ul class="dropdown-menu" role="menu">
-                                                <li role="presentation"><a href="#">User </a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-3">
-                                        <h1>Service </h1></div>
-                                    <div class="col-md-9 appnt">
-                                        <div class="dropdown">
-                                            <button class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button">Sample Service</button>
-                                            <ul class="dropdown-menu" role="menu">
-                                                <li role="presentation"><a href="#">First Item</a></li>
-                                                <li role="presentation"><a href="#">Second Item</a></li>
-                                                <li role="presentation"><a href="#">Third Item</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-3">
-                                        <h1>Day/Time </h1></div>
-                                    <div class="col-md-9 appnt">
-                                        <input type="date">
-                                    </div>
-                                </div>
-                                <div class="row">   
-                                    <div class="col-md-3">
-                                        <h1>Notes </h1></div>
-                                    <div class="col-md-9 appnt">
-                                        <textarea placeholder="Notes for the Customer"></textarea>
-                                    </div>
-                                </div>
-                                <button class="btn btn-primary btn-sm" id="appntcont" type="button">Continue </button>                               
+                                <form class="form-horizontal appointmentForm" action="">                    
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3" for="">Provider:</label>
+                                            <div class="col-md-9">
+                                                <select>
+                                                    <option value=""> Test</option>
+                                                    <option value=""> Test2</option>
+                                                    <option value=""> Test3</option>
+                                                </select>
+                                            </div>
+                                        </div>      
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3" for="">Service:</label>
+                                            <div class="col-md-9">
+                                                <select>
+                                                    <option value=""> Test</option>
+                                                    <option value=""> Test2</option>
+                                                    <option value=""> Test3</option>
+                                                </select>
+                                            </div>
+                                        </div>  
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3" for="">Day/Time:</label>
+                                            <div class="col-md-9">
+                                                <input type="date" class="form-control" id="" placeholder="">
+                                            </div>
+                                        </div>                  
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3" for="">Notes:</label>
+                                            <div class="col-md-9">
+                                                <input type="text" class="form-control" id="" placeholder="Notes for the Customer">
+                                            </div>
+                                        </div>                  
+                                </form>
+                                <button class="btn btn-primary btn-sm" id="appntcont" type="button">Continue </button>  
                             </div>
                             <div class="tab-pane" role="tabpanel" id="tab-2">
                                 <div id="searchTab">

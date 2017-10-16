@@ -25,7 +25,9 @@ div.row{
 
 .addStaff .form-control{
   border:1px solid #dbdbdb;
+  
 }
+
 
 .addStaff btn-primary{
   border-radius:2px;
@@ -40,4 +42,6 @@ div.row{
   margin:20px 15px;
   outline:none;
 }
+
+.w{width: 200px;}
 

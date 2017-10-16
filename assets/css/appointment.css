@@ -19,63 +19,28 @@
 .appntTab li a{
   font-size:12px;
 }
-/*.appointmentTab .nav-tabs li a{
-  color:#010101;
-  text-decoration:none;
-  opacity:.5;
-  font-size:100px;
-}
 
-.appointmentTab .nav-tabs li a:hover, .nav-tabs li a:focus{
-  color:#030303;
-  opacity:1;
-}
-*/
 .appntTab{
   margin-bottom: 15px;
 }
 
-.tab-content h1{
+.tab-content label{
   font-weight:normal;
   font-size:14px;
   text-align:right;
 
 }
 
-.appnt textarea{
-  max-height:30px;
-  min-width:250px;
-  overflow: scroll;
-  overflow-x:hidden;
-  margin-top:5px;
-  border-radius: 2px;
-  padding:5px;
-}
-
-.appnt input{
+.appointmentForm input ,.appointmentForm select{
   border-radius: 2px;
   border:.5px solid #D3D3D3;
   height: 30px;
   padding:5px;
+  margin-top:2px;
 }
 
-.appnt{
-  margin:10px 0;
-
-}
-
-.appnt button{
-  min-width:250px;
-  text-align:left;
-  background-color: transparent;
-  color:black;
-  border-radius: 2px;
-  border:.5px solid #D3D3D3;
-}
-
-.appnt button:hover{
-  background-color: transparent;
-  color:black;
+.appointmentForm select{
+  width: 260px;
 }
 
 #appntcont{

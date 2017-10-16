@@ -37,6 +37,7 @@
 
 #nav{
   min-height:100px;
+  
 }
 
 #btn{
@@ -46,14 +47,16 @@
 
 ul.nav.navbar-nav.navbar-right{
   margin-top:20px;
+  /* background-color: #666; */
+  margin-left:3px;
 }
 
 #ad1{
-  max-width:850px;
+   max-width:850px; 
   text-align:center;
   margin:0 auto;
-  margin-bottom:50px;
-  margin-top:50px;
+   margin-bottom:50px; 
+   margin-top:50px; 
 }
 
 #ad1 h1{

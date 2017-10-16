@@ -161,8 +161,10 @@ class Mts extends CI_Controller {
         $data['staff_id'] = $staff_id;
         $condition = array('staff_id'=>$staff_id);
         $staffRecord = $this->Staff->read($condition);
-        $data['first_name'] = $staffRecord['first_name'];
-        $data['last_name'] = $staffRecord['last_name'];
+        foreach($staffRecord as $s){
+            $data['first_name'] = $s['first_name'];
+            $data['last_name'] = $s['last_name'];
+        }
         $data['service'] = $this->Service->read(array('user_id'=>$this->user_id));
         $data['serviceProvided'] = $this->Staff_Service->readServiceIdOnly($condition);
         

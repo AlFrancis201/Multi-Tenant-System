@@ -10,6 +10,7 @@
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/dashboard_final.css'); ?>">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/staffss.css'); ?>">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/add_service_final.css'); ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/customer_form.css'); ?>">
     <script src="<?php echo base_url('jqui/external/jquery/jquery.js'); ?>"></script>   
     <script src="<?php echo base_url('bootstrap/js/bootstrap.js'); ?>"></script>
     <link rel='stylesheet' type="text/css" href="<?php echo base_url('fullcalendar/fullcalendar.css');?>" />
@@ -39,7 +40,7 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Settings <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-cog"></span></a>
                     <ul class="dropdown-menu forAnimate" role="menu">
                         <li><a href="#">Account Settings<span class="pull-right hidden-xs showopacity glyphicon glyphicon-asterisk"></span></a></li>
-                        <li><a href="#">Logout<span class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a></li>
+                        <li><a href="<?php echo base_url('login/logout'); ?>">Logout<span class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a></li>
                     </ul>
                 </li>
             </ul>

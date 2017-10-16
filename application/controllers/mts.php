@@ -225,6 +225,21 @@ class Mts extends CI_Controller {
         $this->load->view('view_customer',$data);
     }
     
+    public function add_customer(){
+        $this->form_validation->set_rules('cname','Customer Name','required');
+        $this->form_validation->set_rules('mobile','Mobile Number','required');
+        $this->form_validation->set_rules('email','Email','required');
+        if($this->form_validation->run() == false){
+            $this->load->view('include/header_nav');
+            $this->load->view('contents/add_customer');
+        }
+        else{
+            $custRecord = array('user_id'=>$this->user_id, 'cust_name'=>$_POST['cname'], 'mobile_no'=>$_POST['mobile'], 'email'=>$_POST['email'], 'office_no'=>$_POST['office'], 'home_no'=>$_POST['home'], 'address'=>$_POST['address'], 'city'=>$_POST['city'], 'state'=>$_POST['state'], 'zip'=>$_POST['zip']);
+            $this->Customer->create($custRecord);
+            redirect(base_url('mts/view_customer'));
+        }
+    }
+    
     /*public function addService(){
         $this->form_validation->set_rules('svc_name','Service Name','required');
         $this->form_validation->set_rules('svc_desc','Service Name','required');

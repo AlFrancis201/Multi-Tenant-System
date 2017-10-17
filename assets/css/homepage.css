@@ -2,6 +2,9 @@
   margin-left:150px;
   margin-top:50px;
 }
+#text h1{
+font-size: 50px;
+}
 
 #p1{
   font-size:25px;
@@ -12,20 +15,26 @@
   font-weight:normal;
   font-size:52px;
 }
+a.top{
+	max-height:15px;
+	color: #fff;
+}
 
 #bg{
   background:url(../../assets/img/bg.jpg) no-repeat center;
-  background-size:cover;
-  min-height:300px;
-  padding:10px;
+  background-size: cover;
+  min-height:720px;
+  border:1px green;
+  padding-top:100px;
+  margin-top:-50px;
+  
 }
 
 #logo{
-  max-height:80px;
-  max-width:80px;
-  margin-top:-3px;
+  width:150px;
+  margin-top:-10px;
   margin-right:10px;
-  margin-left:100px;
+  margin-left:50px;
 }
 
 #logo2{
@@ -35,22 +44,28 @@
   margin-left:50px;
 }
 
-#nav{
-  min-height:100px;
+.nav{
+  max-height:100px;
   
 }
 
 #btn{
-  margin-top:130px;
+  margin-top:200px;
   padding:18px 28px;
 }
 
-ul.nav.navbar-nav.navbar-right{
-  margin-top:20px;
-  /* background-color: #666; */
-  margin-left:5px;
+#btn2{
+  margin-top:13px;
+  padding-left: 10px;
 }
 
+nav.navbar-nav.navbar-right{
+  margin-top:10px;
+  /* background-color: #666; */
+  margin-left:5px;
+  padding-top:0px;
+
+}
 #ad1{
   max-width:850px;
   text-align:center;
@@ -70,4 +85,5 @@ ul.nav.navbar-nav.navbar-right{
   margin:0 auto;
   margin-bottom:50px;
 }
+
 

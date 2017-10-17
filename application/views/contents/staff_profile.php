@@ -856,38 +856,32 @@ $(document).ready(function(){
     });
 });
 </script>
-<!--<script>
-$(document).ready(function(){
-    $('#cancel-button').click(function(event){
-        //event.preventDefault();
-        //location.reload();
+<script>
+$(document).on('click','#cancel-button',function(event){
+    event.preventDefault();
+    location.reload();
+});
+</script>
+<script>
+$(document).on('click','#submit-button',function(event){
+    event.preventDefault();
+    formData = $('#addStaffForm').serialize();
+    $.ajax({
+        url: "<?php echo base_url('mts/update_staff/'.$staff_id); ?>",
+        data: formData,
+        type: "POST",
+        async: false,
+        
+        success: function(data){
+            if(data=='success'){
+                location.reload();
+            }
+            else
+                $('#errors').html(data);
+                $('html, body').scrollTop(0);
+        }
     });
 });
-</script>-->
-<script>
-    $(document).ready(function(){
-        $('form').submit(function(event){
-            event.preventDefault();
-            var formData = $('#addStaffForm').serialize();
-            $.ajax({
-                    url: "<?php echo base_url('mts/update_staff/'.$staff_id); ?>",
-                    data: formData,
-                    type: "POST",
-                    async: false,
-                    
-                    success: function(data){
-                        if(data=='success'){
-                            //alert('Service Added.');
-                            window.location.assign("<?php base_url('mts/view_staff'); ?>");
-                        }
-                        else{
-                            $('#errors').html(data);
-                            $('html, body').scrollTop(0);
-                        }
-                    },
-                });
-        });
-    });
 </script>
 </body>
 </html>

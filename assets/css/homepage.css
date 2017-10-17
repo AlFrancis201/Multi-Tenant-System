@@ -31,7 +31,7 @@
 #logo2{
   max-height:80px;
   max-width:80px;
-  margin-top:-3px;
+  margin-top:-5px;
   margin-left:50px;
 }
 
@@ -48,15 +48,15 @@
 ul.nav.navbar-nav.navbar-right{
   margin-top:20px;
   /* background-color: #666; */
-  margin-left:3px;
+  margin-left:5px;
 }
 
 #ad1{
-   max-width:850px; 
+  max-width:850px;
   text-align:center;
   margin:0 auto;
-   margin-bottom:50px; 
-   margin-top:50px; 
+  margin-bottom:50px;
+  margin-top:50px;
 }
 
 #ad1 h1{

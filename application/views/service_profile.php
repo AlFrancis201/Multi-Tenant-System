@@ -3,7 +3,7 @@
         <div class="col-lg-12 col-md-12">
             <a href="<?php echo base_url('mts/del_service/'.$service_id); ?>"><button>Delete Service</button></a>
             <button id="edit-button">Edit Service</button>
-            <form id="addServiceForm" class="customform" method="post">
+            <form id="addServiceForm" class="customform">
                 <div class="col-md-12">
                     <h1 class="text-info">Service Details</h1></div>
                 <!--<div class="col-lg-3 col-lg-offset-0 col-md-3"><i class="fa fa-user serviceIcon"></i></div>-->
@@ -81,37 +81,30 @@ $(document).ready(function(){
 });
 </script>
 <script>
-$(document).ready(function(){
-    $('#cancel-button').click(function(event){
-        event.preventDefault()
-        location.reload();
-    });
+$(document).on('click','#cancel-button',function(event){
+    event.preventDefault();
+    location.reload();
 });
 </script>
 <script>
-    $(document).ready(function(){
-        $('form').submit(function(event){
-            event.preventDefault();
-            //alert($(this).closest('.tab-pane').html());
-            var formData = $('#addServiceForm').serialize();
-            //alert(formData);
-            $.ajax({
-                    url: "<?php echo base_url('mts/update_service/'.$service_id); ?>",
-                    data: formData,
-                    type: "POST",
-                    async: false,
-                    
-                    success: function(data){
-                        if(data=='success'){
-                            //alert('Service Added.');
-                            window.location.assign("<?php base_url('mts/view_service'); ?>");
-                        }
-                        else
-                            $('#errors').html(data);
-                    },
-                });
-        });
-    });</script>
-
+$(document).on('click','#submit-button',function(event){
+    event.preventDefault();
+    formData = $('#addServiceForm').serialize();
+    $.ajax({
+        url: "<?php echo base_url('mts/update_service/'.$service_id); ?>",
+        data: formData,
+        type: "POST",
+        async: false,
+        
+        success: function(data){
+            if(data=='success'){
+                location.reload();
+            }
+            else
+                $('#errors').html(data);
+        }
+    });
+});
+</script>
 </body>
 </html>

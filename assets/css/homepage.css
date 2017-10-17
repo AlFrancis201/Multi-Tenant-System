@@ -31,12 +31,13 @@
 #logo2{
   max-height:80px;
   max-width:80px;
-  margin-top:-3px;
+  margin-top:-5px;
   margin-left:50px;
 }
 
 #nav{
   min-height:100px;
+  
 }
 
 #btn{
@@ -46,6 +47,8 @@
 
 ul.nav.navbar-nav.navbar-right{
   margin-top:20px;
+  /* background-color: #666; */
+  margin-left:5px;
 }
 
 #ad1{

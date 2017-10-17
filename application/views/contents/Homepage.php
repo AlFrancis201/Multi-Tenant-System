@@ -6,10 +6,13 @@
             </div>
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li role="presentation"><a href="<?php echo base_url('login'); ?>">SIGN IN</a></li>
-                    <li class="active" role="presentation"><a href="<?php echo base_url('registration'); ?>">CREATE AN ACCOUNT</a></li>
+                    <li class="active"  role="presentation"><a href="<?php echo base_url('login'); ?>">SIGN IN </a></li>
+                 </ul>
+			<ul class="nav navbar-nav navbar-right">
+					<li class="active" role="presentation"><a href="<?php echo base_url('registration'); ?>"> CREATE AN ACCOUNT</a></li>
                 </ul>
             </div>
+			
         </div>
     </nav>
     <div id="bg">
@@ -20,7 +23,8 @@
                     <p id="p1">A scheduling website for all, that makes your work easier and more convenient. &nbsp;</p>
                 </div>
                 <div class="col-md-6" id="btn">
-                    <button class="btn btn-primary btn-lg" type="submit">SIGN UP NOW!</button>
+                    <a href="<?php echo base_url('registration'); ?>" <button class="btn btn-primary btn-lg" type="submit">SIGN UP NOW!</button></a>
+					
                 </div>
             </div>
         </div>

@@ -1,0 +1,77 @@
+body {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.navbar .container-fluid{
+	margin:0 50px;	
+}
+
+
+.loginbtn a{
+
+}
+
+.appntNav{
+	margin-bottom: 80px;
+}
+
+.breadcrumb{
+	background-color: transparent;
+	border-bottom: 5px solid #B5B5B5;
+	border-radius:0px;
+	margin: 30px 0;
+}
+
+.busHours div input{
+	width:100px;
+	margin: 2px 0;
+	border:none;
+}
+
+.busHours div label{
+	font-weight: normal;
+	margin:2px 0;
+	margin-left:10px;
+}
+
+.busHours p{
+	font-weight: bold;
+}
+
+.appntBody h1{
+	font-weight: normal;
+	font-size:30px;
+}
+
+.appntBody h2{
+	font-weight: normal;
+	font-size:25px;
+}
+
+.appntBody h3{
+	font-weight: nomal;
+	font-size:18px;
+	margin:20px 0;
+}
+
+.busHours  {
+	margin-top:40px;
+}
+
+.serviceTable tr{
+	border-bottom: 1px solid #B5B5B5;
+}
+
+.sideBar2{
+	border-right: 1px solid #B5B5B5;
+	padding: 80px 0;
+}
+
+.sideBar2 li a{
+	margin: 10px 0;
+	margin-bottom: 1px solid #B5B5B5;
+}
+
+.flex-column a{
+	font-size: 20px;
+}

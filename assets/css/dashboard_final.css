@@ -163,3 +163,7 @@
     background-color:#75768C;
   }  
 
+  .navbar .nav > li.dropdown a:visited{
+    background-color:#9394aa; 
+  }
+

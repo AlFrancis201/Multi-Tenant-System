@@ -1,28 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<title><?php echo $title; ?></title>
-
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
-<link href="<?php echo base_url('bootstrap/css/bootstrap.css'); ?>" rel="stylesheet" />
-<link href="<?php echo base_url('bootstrap/css/bootstrap-theme.css'); ?>" rel="stylesheet" />
-<link href="<?php echo base_url('bootstrap/css/bootstrap.min.css'); ?>" rel="stylesheet" />
-<link href="<?php echo base_url('assets/fonts/font-awesome.min.css'); ?>" rel="stylesheet" />
-<link href="<?php echo base_url('assets/css/homepage.css'); ?>" rel="stylesheet" />
-<link href="<?php echo base_url('assets/css/Pretty-Footer.css'); ?>" rel="stylesheet" />
-<link href="<?php echo base_url('assets/css/logo.css'); ?>" rel="stylesheet" />
-
-<script src="<?php echo base_url('bootstrap/js/jquery.min.js'); ?>"></script>
-<script src="<?php echo base_url('bootstrap/js/bootstrap.min.js'); ?>"></script>
-
-</head>
-<body>
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Generator: Adobe Illustrator 18.1.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg class= "tempus" version="1.1" 
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 1342 500" enable-background="new 0 0 1342 500" xml:space="preserve">
 <rect x="80.1" y="75.4" fill="none" width="247.6" height="349.2"/>
 <text transform="matrix(1 0 0 1 80.0575 354.8839)" fill="#27AAE1" stroke="#27AAE1" stroke-miterlimit="10" font-family="'Cambria'" font-size="400">T</text>
@@ -72,4 +50,3 @@
 		C448.8,234.3,449.1,234.6,449.1,234.6z"/>
 </g>
 </svg>
-

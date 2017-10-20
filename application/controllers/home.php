@@ -6,6 +6,6 @@ class Home extends CI_Controller {
         $header_data['title'] = "Homepage";
 		$this->load->view('include/header',$header_data);
 		$this->load->view('contents/Homepage');
-		$this->load->view('include/footer');
+		
     }
 }

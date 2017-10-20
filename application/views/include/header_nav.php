@@ -27,12 +27,12 @@
     <link rel="stylesheet" href="<?php echo base_url('adminlte/dist/css/skins/_all-skins.min.css'); ?>">
     <script src="<?php echo base_url('adminlte/bower_components/jquery/dist/jquery.min.js'); ?>"></script>
     <script src="<?php echo base_url('adminlte/bower_components/bootstrap/dist/js/bootstrap.min.js'); ?>"></script>
-    <script src="<?php echo base_url('adminlte/bower_components/fastclick/lib/fastclick.js'); ?>">"></script>
-    <script src="<?php echo base_url('adminlte/dist/js/adminlte.min.js'); ?>">"></script>
-    <script src="<?php echo base_url('adminlte/bower_components/jquery-sparkline/dist/jquery.sparkline.min.js'); ?>">"></script>
-    <script src="<?php echo base_url('adminlte/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js'); ?>">"></script>
-    <script src="<?php echo base_url('adminlte/plugins/jvectormap/jquery-jvectormap-world-mill-en.js'); ?>">"></script>
-    <script src="<?php echo base_url('adminlte/bower_components/jquery-slimscroll/jquery.slimscroll.min.js'); ?>">"></script>
+    <script src="<?php echo base_url('adminlte/bower_components/fastclick/lib/fastclick.js'); ?>"></script>
+    <script src="<?php echo base_url('adminlte/dist/js/adminlte.min.js'); ?>"></script>
+    <script src="<?php echo base_url('adminlte/bower_components/jquery-sparkline/dist/jquery.sparkline.min.js'); ?>"></script>
+    <script src="<?php echo base_url('adminlte/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js'); ?>"></script>
+    <script src="<?php echo base_url('adminlte/plugins/jvectormap/jquery-jvectormap-world-mill-en.js'); ?>"></script>
+    <script src="<?php echo base_url('adminlte/bower_components/jquery-slimscroll/jquery.slimscroll.min.js'); ?>"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">    
 
  

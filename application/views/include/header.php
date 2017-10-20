@@ -12,11 +12,12 @@
 <link href="<?php echo base_url('bootstrap/css/bootstrap.min.css'); ?>" rel="stylesheet" />
 <link href="<?php echo base_url('assets/fonts/font-awesome.min.css'); ?>" rel="stylesheet" />
 <link href="<?php echo base_url('assets/css/homepage.css'); ?>" rel="stylesheet" />
-<link href="<?php echo base_url('assets/css/Pretty-Footer.css'); ?>" rel="stylesheet" />
-<link href="<?php echo base_url('assets/css/logo.css'); ?>" rel="stylesheet" />
 
+<link href="<?php echo base_url('assets/css/jquery.fullPage.css'); ?>" />
+<script src="<?php echo base_url('assets/js/jquery.fullPage.min.js'); ?>"></script>
 <script src="<?php echo base_url('bootstrap/js/jquery.min.js'); ?>"></script>
 <script src="<?php echo base_url('bootstrap/js/bootstrap.min.js'); ?>"></script>
+<script src="<?php echo base_url('assets/js/jquery.fullPage.min.js'); ?>"></script>
 
 
 </head>

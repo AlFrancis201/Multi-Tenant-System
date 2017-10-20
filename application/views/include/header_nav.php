@@ -74,7 +74,11 @@
       <!-- Sidebar user panel -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
+<<<<<<< HEAD
+        <li <?php echo (!isset($active)) ? 'class="active"' : '';?>>
+=======
         <li <?php echo (!isset($active)) ? 'class="active"' : ''; $active="";?>>
+>>>>>>> 62f0940ffdd0229a67e1588c27abafda2369ae07
           <a href="<?php echo base_url('mts');?>">
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
           </a>

@@ -1,4 +1,15 @@
-<div class="main">
+<div class="content-wrapper">
+    <section class="content-header">
+      <h1>
+        Staff Profile
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="<?php echo base_url('mts'); ?>"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="<?php echo base_url('mts/view_staff'); ?>"><i class="fa fa-user"></i> Staff Management</a></li>
+        <li class="active">Staff Profile</li>
+      </ol>
+    </section>
+
     <div class="row addStaff">
         <div class="col-md-3">
             <a href="<?php echo base_url('mts/del_staff/'.$staff_id); ?>"><button>Delete Service</button></a>

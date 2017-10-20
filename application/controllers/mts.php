@@ -269,7 +269,8 @@ class Mts extends CI_Controller {
         $condition = array('user_id'=>$this->user_id);
         $header['active'] = 'customer';
         $data['customer'] = $this->Customer->read($condition);
-        $this->load->view('include/header_nav');
+        $header_data['active'] = 'customer';
+        $this->load->view('include/header_nav',$header_data);
         $this->load->view('view_customer',$data);
     }
     

@@ -1,4 +1,16 @@
-<div class="main">
+<div class="content-wrapper">
+    <section class="content-header">
+      <h1>
+        Staff Management
+        <small>Control panel</small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="<?php echo base_url('mts'); ?>"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Staff</li>
+      </ol>
+    </section>
+
+
     <a href="<?php echo base_url('mts/add_staff'); ?>"><button>Add Staff</button></a>
     <h2>All Staff</h2>
     <?php

@@ -1,4 +1,15 @@
-<div class="main">
+<div class="content-wrapper">
+    <section class="content-header">
+      <h1>
+        Add Staff
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="<?php echo base_url('mts'); ?>"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="<?php echo base_url('mts/view_staff'); ?>"><i class="fa fa-user"></i> Staff Management</a></li>
+        <li class="active">Add Staff</li>
+      </ol>
+    </section>
+
     <div class="row addStaff">
         <div class="col-md-5">
             <form class="customform" action="<?php echo base_url('mts/add_staff'); ?>" method="post">

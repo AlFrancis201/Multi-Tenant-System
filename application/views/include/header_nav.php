@@ -5,19 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <title>Scheduler</title>
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url('bootstrap/css/bootstrap.min.css'); ?>">
+    <!--<link rel="stylesheet" type="text/css" href="<?php echo base_url('bootstrap/css/bootstrap.min.css'); ?>">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/fonts/Cookie.css'); ?>">
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/fonts/font-awesome.min.css'); ?>">
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/staffss.css'); ?>">
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/add_service_final.css'); ?>">
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/customer_form.css'); ?>">
-    <script src="<?php echo base_url('jqui/external/jquery/jquery.js'); ?>"></script>   
-    <script src="<?php echo base_url('bootstrap/js/bootstrap.js'); ?>"></script>
-    <link rel='stylesheet' type="text/css" href="<?php echo base_url('fullcalendar/fullcalendar.css');?>" />
-    <script src='<?php echo base_url('fullcalendar/lib/jquery.min.js');?>'></script>
-    <script src='<?php echo base_url('fullcalendar/lib/moment.min.js');?>'></script>
-    <script src='<?php echo base_url('fullcalendar/fullcalendar.js');?>'></script>
-    <script src="<?php echo base_url('assets/js/test.js'); ?>"></script>
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/fonts/font-awesome.min.css'); ?>">-->
     
     <link rel="stylesheet" href="<?php echo base_url('adminlte/bower_components/bootstrap/dist/css/bootstrap.min.css'); ?>">
     <link rel="stylesheet" href="<?php echo base_url('adminlte/bower_components/font-awesome/css/font-awesome.min.css'); ?>">
@@ -25,14 +15,31 @@
     <link rel="stylesheet" href="<?php echo base_url('adminlte/bower_components/jvectormap/jquery-jvectormap.css'); ?>">
     <link rel="stylesheet" href="<?php echo base_url('adminlte/dist/css/AdminLTE.min.css'); ?>">
     <link rel="stylesheet" href="<?php echo base_url('adminlte/dist/css/skins/_all-skins.min.css'); ?>">
+    <link rel="stylesheet" href="<?php echo base_url('adminlte/bower_components/bootstrap-datepicker/less/datepicker.less'); ?>">
+    <link rel="stylesheet" href="<?php echo base_url('adminlte\bower_components\fullcalendar\dist\fullcalendar.min.css'); ?>">
+    
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/staffss.css'); ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/add_service_final.css'); ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/customer_form.css'); ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/appointment.css'); ?>">
+    
     <script src="<?php echo base_url('adminlte/bower_components/jquery/dist/jquery.min.js'); ?>"></script>
+    <script src="<?php echo base_url('adminlte\bower_components\moment\moment.js'); ?>"></script>
     <script src="<?php echo base_url('adminlte/bower_components/bootstrap/dist/js/bootstrap.min.js'); ?>"></script>
-    <script src="<?php echo base_url('adminlte/bower_components/fastclick/lib/fastclick.js'); ?>">"></script>
-    <script src="<?php echo base_url('adminlte/dist/js/adminlte.min.js'); ?>">"></script>
-    <script src="<?php echo base_url('adminlte/bower_components/jquery-sparkline/dist/jquery.sparkline.min.js'); ?>">"></script>
-    <script src="<?php echo base_url('adminlte/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js'); ?>">"></script>
-    <script src="<?php echo base_url('adminlte/plugins/jvectormap/jquery-jvectormap-world-mill-en.js'); ?>">"></script>
-    <script src="<?php echo base_url('adminlte/bower_components/jquery-slimscroll/jquery.slimscroll.min.js'); ?>">"></script>
+    <script src="<?php echo base_url('adminlte/dist/js/adminlte.min.js'); ?>"></script>
+    <script src="<?php echo base_url('adminlte\bower_components\fullcalendar\dist\fullcalendar.min.js'); ?>"></script>
+    <script src="<?php echo base_url('adminlte/bower_components/fastclick/lib/fastclick.js'); ?>"></script>
+    <script src="<?php echo base_url('adminlte/bower_components/bootstrap-datepicker/js/bootstrap-datepicker.js'); ?>"></script>
+    <script src="<?php echo base_url('adminlte/bower_components/jquery-sparkline/dist/jquery.sparkline.min.js'); ?>"></script>
+    <script src="<?php echo base_url('adminlte/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js'); ?>"></script>
+    <script src="<?php echo base_url('adminlte/plugins/jvectormap/jquery-jvectormap-world-mill-en.js'); ?>"></script>
+    <script src="<?php echo base_url('adminlte/bower_components/jquery-slimscroll/jquery.slimscroll.min.js'); ?>"></script>
+    
+    <!--<script src="<?php echo base_url('jqui/external/jquery/jquery.js'); ?>"></script>   
+    <script src="<?php echo base_url('bootstrap/js/bootstrap.js'); ?>"></script>
+    <script src='<?php echo base_url('fullcalendar/lib/jquery.min.js');?>'></script>
+    <script src='<?php echo base_url('fullcalendar/lib/moment.min.js');?>'></script>
+    <script src='<?php echo base_url('fullcalendar/fullcalendar.js');?>'></script>-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">    
 
  

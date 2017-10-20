@@ -74,22 +74,26 @@
       <!-- Sidebar user panel -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
+<<<<<<< HEAD
         <li <?php echo (!isset($active)) ? 'class="active"' : '';?>>
+=======
+        <li <?php echo (!isset($active)) ? 'class="active"' : ''; $active="";?>>
+>>>>>>> 62f0940ffdd0229a67e1588c27abafda2369ae07
           <a href="<?php echo base_url('mts');?>">
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
           </a>
-        </li>
+        </li <?php echo ($active=='calendar') ? 'class="active"' : '';?>>
         <li>
           <a href="<?php echo base_url('mts/view_calendar'); ?>">
             <i class="fa fa-calendar"></i> <span>Calendar</span>
           </a>
-        </li>
+        </li <?php echo ($active=='staff') ? 'class="active"' : '';?>>
         <li>
           <a href="<?php echo base_url('mts/view_staff'); ?>">
             <i class="fa fa-user"></i> <span>Staffs</span>
           </a>
         </li>         
-        <li>
+        <li <?php echo ($active=='service') ? 'class="active"' : '';?>>
           <a href="<?php echo base_url('mts/view_service'); ?>">
             <i class="fa fa-tasks"></i> <span>Services</span>
           </a>

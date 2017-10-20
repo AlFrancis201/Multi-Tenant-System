@@ -36,7 +36,8 @@ class Mts extends CI_Controller {
     public function view_calendar(){
         $condition = array('user_id'=>$this->user_id);
         $data['provider'] = $this->Staff->read($condition);
-        $this->load->view('include/header_nav');
+        $header_data['active'] = 'calendar';
+        $this->load->view('include/header_nav',$header_data);
         $this->load->view('calendar_view',$data);
     }
     
@@ -81,7 +82,8 @@ class Mts extends CI_Controller {
     public function view_service(){
         $condition = array('user_id'=>$this->user_id);
         $data['service_record'] = $this->Service->read($condition);
-        $this->load->view('include/header_nav');
+        $header_data['active'] = 'service';
+        $this->load->view('include/header_nav',$header_data);
         $this->load->view('view_service',$data);
     }
     
@@ -94,7 +96,8 @@ class Mts extends CI_Controller {
         $this->form_validation->set_rules('price','Service Price','required|numeric');
         $this->form_validation->set_rules('staff[]','Service Provider','required');
         if($this->form_validation->run() == FALSE){
-            $this->load->view('include/header_nav');
+            $header_data['active'] = 'service';
+            $this->load->view('include/header_nav',$header_data);
             $this->load->view('contents/add_service',$data);
         }
         else{
@@ -128,8 +131,8 @@ class Mts extends CI_Controller {
         $condition = array('user_id'=>$this->user_id);
         $data['staffRecord'] = $this->Staff->read($condition);
         
-        
-        $this->load->view('include/header_nav');
+        $header_data['active'] = 'service';
+        $this->load->view('include/header_nav',$header_data);
         $this->load->view('service_profile',$data);
     }
     
@@ -162,7 +165,8 @@ class Mts extends CI_Controller {
     public function view_staff(){
         $condition = array('user_id'=>$this->user_id);
         $data['staff_record'] = $this->Staff->read($condition);
-        $this->load->view('include/header_nav');
+        $header_data['active'] = 'staff';
+        $this->load->view('include/header_nav',$header_data);
         $this->load->view('view_staff',$data);
     }
     
@@ -180,7 +184,8 @@ class Mts extends CI_Controller {
         $condition = array('user_id'=>$this->user_id);
         $data['service']=$this->Service->read($condition);
         if($this->form_validation->run()==false){
-            $this->load->view('include/header_nav');
+            $header_data['active'] = 'staff';
+            $this->load->view('include/header_nav',$header_data);
             $this->load->view('contents/add_staff',$data);
         }
         else{
@@ -211,7 +216,8 @@ class Mts extends CI_Controller {
         $data['serviceProvided'] = $this->Staff_Service->readServiceIdOnly($condition);
         
         //print_r($serviceProvided);
-        $this->load->view('include/header_nav');
+        $header_data['active'] = 'staff';
+        $this->load->view('include/header_nav',$header_data);
         $this->load->view('contents/staff_profile',$data);
     }
     
@@ -261,6 +267,7 @@ class Mts extends CI_Controller {
     
     public function view_customer(){
         $condition = array('user_id'=>$this->user_id);
+        $header['active'] = 'customer';
         $data['customer'] = $this->Customer->read($condition);
         $header_data['active'] = 'customer';
         $this->load->view('include/header_nav',$header_data);
@@ -272,7 +279,8 @@ class Mts extends CI_Controller {
         $this->form_validation->set_rules('mobile','Mobile Number','required');
         $this->form_validation->set_rules('email','Email','required');
         if($this->form_validation->run() == false){
-            $this->load->view('include/header_nav');
+            $header['active'] = 'customer';
+            $this->load->view('include/header_nav',$header_data);
             $this->load->view('contents/add_customer');
         }
         else{
@@ -305,7 +313,8 @@ class Mts extends CI_Controller {
             $data['zip'] = $c['zip'];
         }
         
-        $this->load->view('include/header_nav');
+        $header['active'] = 'customer';
+        $this->load->view('include/header_nav',$header_data);
         $this->load->view('contents/customer_profile',$data);
     }
     

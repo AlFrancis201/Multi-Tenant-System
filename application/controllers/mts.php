@@ -16,6 +16,7 @@ class Mts extends CI_Controller {
         $this->load->model('staff_hours_model','Staff_Hours');
         $this->load->model('staff_service_model','Staff_Service');
         $this->load->model('customer_model','Customer');
+        $this->load->model('appointment_model','Appointment');
     }
 
 	public function index()
@@ -33,8 +34,48 @@ class Mts extends CI_Controller {
 	}
     
     public function view_calendar(){
+        $condition = array('user_id'=>$this->user_id);
+        $data['provider'] = $this->Staff->read($condition);
         $this->load->view('include/header_nav');
-        $this->load->view('calendar_view');
+        $this->load->view('calendar_view',$data);
+    }
+    
+    public function ajax_get_staff_service($staff_id){
+        $serviceIds = $this->Staff_Service->readServiceIdOnly(array('staff_id'=>$staff_id));
+        $services = array();
+        foreach($serviceIds as $s){
+            $d['service_id'] = $s;
+            $serviceRecord = $this->Service->read(array('service_id'=>$s));
+            foreach($serviceRecord as $ss){
+                $d['service_name'] = $ss['service_name'];
+            }
+            $services[] = $d;
+        }
+        echo json_encode($services);
+    }
+    
+    public function ajax_get_customer_form(){
+        echo $this->load->view('contents/add_customerForModal','',true);
+    }
+    
+    public function add_appointment(){
+        $custRecord = array('user_id'=>$this->user_id, 'cust_name'=>$_POST['cname'], 'mobile_no'=>$_POST['mobile'], 'email'=>$_POST['email'], 
+                          'office_no'=>$_POST['office'], 'home_no'=>$_POST['home'], 'address'=>$_POST['address'], 'city'=>$_POST['city'],
+                          'state'=>$_POST['state'], 'zip'=>$_POST['zip']);
+        $this->Customer->create($custRecord);
+        $cust_id = $this->Customer->getLastRecordID();
+        $appntRecord = array('date'=>$_POST['date'], 'time'=>$_POST['time'], 'cust_id'=>$cust_id, 'staff_id'=>$_POST['provider'], 'service_id'=>$_POST['service'], 'user_id'=>$this->user_id);
+        $this->Appointment->create($appntRecord);
+        redirect(base_url('mts/view_calendar'));
+    }
+    
+    public function get_appointment(){
+        $appntRecord=$this->Appointment->read(array('user_id'=>$this->user_id));
+        $array = array();
+        foreach($appntRecord as $a){
+            $array[] = array('title'=>'appointment'.$a['appointment_id'], 'start'=>$a['date'].'T'.$a['time']);
+        }
+        echo json_encode($array);
     }
     
     public function view_service(){
@@ -221,7 +262,8 @@ class Mts extends CI_Controller {
     public function view_customer(){
         $condition = array('user_id'=>$this->user_id);
         $data['customer'] = $this->Customer->read($condition);
-        $this->load->view('include/header_nav');
+        $header_data['active'] = 'customer';
+        $this->load->view('include/header_nav',$header_data);
         $this->load->view('view_customer',$data);
     }
     
@@ -311,6 +353,6 @@ class Mts extends CI_Controller {
     }*/
     
     public function test(){
-        $this->load->view('contents/appointment');
+        print_r($_POST);
     }
 }

@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="<?php echo base_url('adminlte/bower_components/jvectormap/jquery-jvectormap.css'); ?>">
     <link rel="stylesheet" href="<?php echo base_url('adminlte/dist/css/AdminLTE.min.css'); ?>">
     <link rel="stylesheet" href="<?php echo base_url('adminlte/dist/css/skins/_all-skins.min.css'); ?>">
-    <link rel="stylesheet" href="<?php echo base_url('adminlte/bower_components/bootstrap-datepicker/less/datepicker.less'); ?>">
+    <link rel="stylesheet" href="<?php echo base_url('adminlte\bower_components\bootstrap-datepicker\dist\css\bootstrap-datepicker.min.css'); ?>">
     <link rel="stylesheet" href="<?php echo base_url('adminlte\bower_components\fullcalendar\dist\fullcalendar.min.css'); ?>">
     
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/staffss.css'); ?>">
@@ -43,9 +43,6 @@
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">    
 </head>
-
-<body>
-
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
   <header class="main-header">
@@ -77,7 +74,7 @@
       <!-- Sidebar user panel -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
-        <li class="active">
+        <li <?php echo (!isset($active)) ? 'class="active"' : '';?>>
           <a href="<?php echo base_url('mts');?>">
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
           </a>
@@ -97,7 +94,7 @@
             <i class="fa fa-tasks"></i> <span>Services</span>
           </a>
         </li>         
-        <li>
+        <li <?php echo ($active=='customer') ? 'class="active"' : '';?>>
           <a href="<?php echo base_url('mts/view_customer'); ?>">
             <i class="fa fa-users"></i> <span>Customers</span>
           </a>
@@ -118,27 +115,3 @@
     </section>
     <!-- /.sidebar -->
   </aside>
-
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-<!--     <section class="content-header">
-      <h1> Dashboard </h1>
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Dashboard</li>
-      </ol>
-    </section> -->
-
-    <!-- Main content -->
-    <section class="content">
-
-  
-
- <!--   <footer class="main-footer">
-    <div class="pull-right hidden-xs">
-      <b>Version</b> 2.4.0
-    </div>
-    <strong>Copyright &copy; 2014-2016 <a href="https://adminlte.io">Almsaeed Studio</a>.</strong> All rights
-    reserved.
-  </footer> -->   

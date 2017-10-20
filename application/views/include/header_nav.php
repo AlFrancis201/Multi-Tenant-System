@@ -34,15 +34,14 @@
     <script src="<?php echo base_url('adminlte/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js'); ?>"></script>
     <script src="<?php echo base_url('adminlte/plugins/jvectormap/jquery-jvectormap-world-mill-en.js'); ?>"></script>
     <script src="<?php echo base_url('adminlte/bower_components/jquery-slimscroll/jquery.slimscroll.min.js'); ?>"></script>
-    
+ 
     <!--<script src="<?php echo base_url('jqui/external/jquery/jquery.js'); ?>"></script>   
     <script src="<?php echo base_url('bootstrap/js/bootstrap.js'); ?>"></script>
     <script src='<?php echo base_url('fullcalendar/lib/jquery.min.js');?>'></script>
     <script src='<?php echo base_url('fullcalendar/lib/moment.min.js');?>'></script>
     <script src='<?php echo base_url('fullcalendar/fullcalendar.js');?>'></script>-->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">    
 
- 
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">    
 </head>
 
 <body>

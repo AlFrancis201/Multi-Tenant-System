@@ -279,7 +279,7 @@ class Mts extends CI_Controller {
         $this->form_validation->set_rules('mobile','Mobile Number','required');
         $this->form_validation->set_rules('email','Email','required');
         if($this->form_validation->run() == false){
-            $header['active'] = 'customer';
+            $header_data['active'] = 'customer';
             $this->load->view('include/header_nav',$header_data);
             $this->load->view('contents/add_customer');
         }

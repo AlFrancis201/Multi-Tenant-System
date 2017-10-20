@@ -43,7 +43,11 @@
   width: 260px;
 }
 
-#appntcont{
+.new-cust{
+	margin-left: 100px;
+}
+
+#appntcont, #appntsave{
   height:40px; 
   width:150px;
   margin-left: 200px;

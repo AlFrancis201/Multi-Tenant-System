@@ -24,6 +24,7 @@ class Registration extends CI_Controller {
         $this->load->model('staff_model','Staff');
         $staffRecord = array('first_name'=>$accountData['fname'],'last_name'=>$accountData['lname'],'user_id'=>$result['user_id']);
         $this->Staff->create($staffRecord);
-        redirect(base_url('home'));
+        $this->session->set_userdata('user_id', $result['user_id']);
+        redirect(base_url('mts'));
     }
 }

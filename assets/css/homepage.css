@@ -1,89 +1,73 @@
-#text{
-  margin-left:150px;
-  margin-top:50px;
-}
-#text h1{
-font-size: 50px;
+  body {
+    padding-top: 100px;
+  }
+
+.nav{
+  height: 80px;
+  border-radius: 0px;
+  -webkit-box-shadow:0px 2px 0px #D3D3D3;
+  -moz-box-shadow:0px 2px 0px #D3D3D3;
+  box-shadow:0px 2px 0px #D3D3D3;
+  }
 }
 
-#p1{
-  font-size:25px;
-  max-width:500px;
-}
+.bg{
+    background-color:#fff;
 
-.title{
-  font-weight:normal;
-  font-size:52px;
-}
-a.top{
-	max-height:15px;
-	color: #fff;
-}
-
-#bg{
-  background:url(../../assets/img/bg.jpg) no-repeat center;
-  background-size: cover;
-  min-height:720px;
-  border:1px green;
-  padding-top:100px;
-  margin-top:-50px;
-  
 }
 
 #logo{
-  width:150px;
-  margin-top:-10px;
-  margin-right:10px;
-  margin-left:50px;
+    width:150px;
+    margin-top:-10px;
+    margin-right:10px;
+    margin-left:50px;
 }
 
-#logo2{
-  max-height:80px;
-  max-width:80px;
-  margin-top:-5px;
-  margin-left:50px;
+#wrapper section{
+    margin-top:100px;
 }
 
-.nav{
-  max-height:100px;
-  
-}
 
-#btn{
-  margin-top:200px;
-  padding:18px 28px;
-}
-
-#btn2{
-  margin-top:13px;
-  padding-left: 10px;
-}
-
-nav.navbar-nav.navbar-right{
+#myNavbar ul li a{
+  color:#2C3B39;
   margin-top:10px;
-  /* background-color: #666; */
-  margin-left:5px;
-  padding-top:0px;
-
+  text-decoration: none;
+  transition: color 0.3s linear;
+  -webkit-transition: color 0.3s linear;
+  -moz-transition: color 0.3s linear;
+}  
+#myNavbar ul li a:hover{
+  color:#4682B4;
+  margin-top:10px;
 }
-#ad1{
-  max-width:850px;
+
+#kalendaryo{
+  height: 500px;
+  width: 900px;
+}
+
+.container1{
+  width: 800px;
+}
+
+.col-left{
+  float:left;
+  width: 60%;
+}
+
+.top-section {
+  height: 80%;
+}
+
+.bottom-section {
+  height: 20px;
+  margin:10px;
   text-align:center;
-  margin:0 auto;
-  margin-bottom:50px;
-  margin-top:50px;
+  border-top:1px solid #D3D3D3;
+  padding:5px;
+
 }
 
-#ad1 h1{
-  font-weight:normal;
-  margin-bottom:25px;
+.bottom-content {
+  display: inline-block;
 }
-
-#bg2{
-  background:url(../../assets/img/bg2z.jpg);
-  min-height:500px;
-  margin:0 auto;
-  margin-bottom:50px;
-}
-
-

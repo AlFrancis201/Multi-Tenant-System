@@ -11,48 +11,127 @@
 
 }
 
-ul.nav.navbar-nav.navbar-right{
-  margin-top:20px;
+.margin-top{
+	margin-top:100px;
+	
 }
 
-@media (min-width:768px) {
-  .navbar{
-    border-radius:0px;
+body {
+    padding-top: 100px;
   }
+
+.nav{
+  height: 80px;
+  border-radius: 0px;
+  -webkit-box-shadow:0px 2px 0px #D3D3D3;
+  -moz-box-shadow:0px 2px 0px #D3D3D3;
+  box-shadow:0px 2px 0px #D3D3D3;
+  }
+
+  .navbar-default1{
+  background-color: white;}
+
+#bg{
+	/* background-size:cover; */
+	width: 150px;
+	margin-left: 500px;
+
+}
+#bg1{
+    width:1400px;
+	height:620px;
+    margin-top:-18px;
+    /* margin-right:10px; */
+    /* margin-left:50px; */
 }
 
-.bgsignin{
-  background:url(../../assets/img/bg11.png);
-  min-height:700px;
+
+#logo1{
+    width:151px;
+    margin-top:10px;
+    margin-right:10px;
+    margin-left:35px;
 }
 
-.nav > li > a{
-  position:relative;
-  display:block;
-  padding:10px 15px;
-  border:2px solid #ddd;
+#device{
+    width:700px;
+    /* margin-top:10px; */
+    /* margin-right:10px; */
+    /* margin-left:35px; */
 }
 
-.navbar-nav > li > a:hover{
-  border:2px solid #ddd;
+
+
+#wrapper section{
+    margin-top:100px;
 }
 
-.navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus{
-  color:#E5E4E2;
-  background-color:transparent;
-  opacity:1;
+
+#myNavbar ul li a{
+  color:#2C3B39;
+  margin-top:10px;
+  text-decoration: none;
+  transition: color 0.3s linear;
+  -webkit-transition: color 0.3s linear;
+  -moz-transition: color 0.3s linear;
+}  
+#myNavbar ul li a:hover{
+ color:#4682B4;
+  margin-top:10px;
 }
 
-.navbar-inverse .navbar-nav > li > a{
-  color:#E5E4E2;
-  opacity:.75;
+#kalendaryo{
+  height: 500px;
+  width: 900px;
+}
+#kalendaryo1{
+  height: 150px;
+  width: 150px;
 }
 
+
+.container1{
+  width: 1400px;
+}
+
+.col-left{
+  float:left;
+  width: 40%;
+}
+
+.top-section {
+  height: 80%;
+}
+
+.bottom-section {
+  height: 20px;
+  margin:10px;
+  text-align:center;
+  border-top:1px solid #D3D3D3;
+  padding:5px;
+
+}
+
+.bottom-content {
+  display: inline-block;
+}
+
+h1{
+	color: white;
+}
+.align-center{
+	text-align:center;
+}
+
+
+
+/* CREATE AN ACCOUNT */
 .login-card {
   max-width:350px;
   padding:40px 40px;
   margin:0 auto 25px;
-  margin-top:150px;
+  margin-top:50px;
+  margin-right:30px;
   border-radius:5px;
   background:url(../../assets/img/bg10.png);
 }
@@ -130,6 +209,95 @@ ul.nav.navbar-nav.navbar-right{
 }
 
 .login-card .forgot-password:hover, .login-card .forgot-password:active, .login-card .forgot-password:focus{
+  text-decoration:underline;
+}
+
+
+/* SIGN IN */
+.login-card1 {
+  height:400px;
+  width:350px;
+  padding:40px 40px;
+  margin:0 auto 25px;
+  margin-top:50px;
+  /* margin-right:30px; */
+  border-radius:5px;
+  background:url(../../assets/img/bg10.png);
+}
+
+.login-card1 p{
+  color:#D1D0CE;
+}
+
+.login-card1 .profile-name-card1{
+  font-size:25px;
+  font-weight:normal;
+  text-align:center;
+  margin:10px 0 0;
+  min-height:1em;
+  margin-bottom:10px;
+}
+
+.login-card1 .reauth-email1{
+  display:block;
+  color:#404040;
+  line-height:2;
+  margin-bottom:10px;
+  font-size:14px;
+  text-align:center;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  box-sizing:border-box;
+}
+
+.login-card1 .form-signin1 input[type=email], .login-card1 .form-signin1 input[type=password], .login-card1 .form-signin1 input[type=text], .login-card1 .form-signin1 button{
+ height:44px;
+  font-size:16px;
+  width:100%;
+  display:block;
+  margin-bottom:10px;
+  z-index:1;
+  position:relative;
+  box-sizing:border-box;
+}
+
+.login-card1 label{
+   color:#000000;
+}
+
+.login-card1 .form-signin1 .form-control1:focus{
+  border-color:rgb(104, 145, 162);
+  outline:0;
+  -webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgb(104, 145, 162);
+  box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgb(104, 145, 162);
+}
+
+.login-card1 .btn.btn-signin1{
+  font-weight:700;
+  height:36px;
+  line-height:36px;
+  font-size:14px;
+  background:#98AFC7;
+  border-radius:3px;
+  border:none;
+  transition:all 0.218s;
+  padding:0;
+  opacity:.5;
+  color:white;
+}
+
+.login-card1 .btn.btn-signin1:hover, .login-card1 .btn.btn-signin1:active, .login-card1 .btn.btn-signin1:focus{
+ background-color:#98AFC7;
+  opacity:1;
+}
+
+.login-card1 .forgot-password1{
+  color:rgb(205,205,205);
+  font-size:15px;
+}
+
+.login-card1 .forgot-password1:hover, .login-card1 .forgot-password1:active, .login-card1 .forgot-password1:focus{
   text-decoration:underline;
 }
 

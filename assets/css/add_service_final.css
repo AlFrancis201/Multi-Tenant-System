@@ -5,7 +5,7 @@ html,body{
 .sidebar2 {
   width: 200px;
   background-color:#3D4A4E;
-    position: absolute;
+  position: absolute;
   top:15%;
   bottom: 0;
 }

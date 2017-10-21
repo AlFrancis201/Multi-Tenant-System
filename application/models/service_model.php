@@ -23,9 +23,8 @@ class Service_model extends CI_Model {
         
     }
     
-    function update($newRecord, $service_id){
-        $this->db->where('service_id', $service_id);
-        $this->db->update($this->table,$newRecord);
+    function update($newRecord){
+        $this->db->replace($this->table,$newRecord);
     }
     
     function del($where_array){

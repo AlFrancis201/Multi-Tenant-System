@@ -9,14 +9,23 @@
   float: left;
   position: relative;
   display:inline-block;
-  left:35%;
+  left:29.5%;
 }
 
-#back{
-  float:right;
-  position: relative;
+.addStaffbtn{
+  text-align: right;
+  right:7%;
+  margin:10px 0;
 }
 
+.addStaffbtn button{
+  height: 50px;
+  width: 100px;
+}
+
+.addStaffform{
+  margin:50px 0;
+}
 .staff_name{
   margin:8px;
 }
@@ -36,6 +45,10 @@
   font-size:24px;
   margin-left:20px;
   color:#414a4c;
+}
+
+.working_hours{
+  border-left:1px solid grey;
 }
 
 .working_hours p {
@@ -79,4 +92,6 @@
   font-size:17px;
   margin: 0 10px;
 }
+
+
 

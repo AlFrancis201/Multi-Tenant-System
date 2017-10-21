@@ -18,7 +18,7 @@
                 <div id="errors"></div>
                 <div class="row ">
                     <div class="col-md-5 name_service">
-                <h1 class="text-info">Name</h1>                       
+                    <h1>Name</h1>                       
                         <div class="col-md-7 staff_name">
                             <input class="form-control info" type="text" name="first_name" placeholder="First Name" value="<?=$first_name?>" disabled />
                         </div>
@@ -28,7 +28,7 @@
                         
 
                         <div class="col-md-12 service_prov">
-                        <h1 class="text-info">Services Provided</h1>                            
+                        <h1>Services Provided</h1>                            
                                 <div class="checkbox">
                                     <label><input id="all_service" type="checkbox" disabled />All Services</label>
                                 </div>
@@ -49,11 +49,11 @@
 
 
 
-                </div>
-                <div class="col-md-7">
+                    </div>
+                    <div class="col-md-7">
                         <div class="row working_hours">
 
-                            <h1 class="text-info">&nbsp; Working Hours</h1>                        
+                            <h1>&nbsp; Working Hours</h1>                        
                             <div class="checkbox">
                                 <div class="row">
                                     <div class="col-md-3">
@@ -182,6 +182,7 @@
                                     <div class="col-md-1">
                                         <label>
                                             <input type="checkbox" name="day[]" value="tuesday" disabled />
+                                        </label>
                                     </div>
                                     <div class="col-md-8">
                                         <div class="select-style">                                        

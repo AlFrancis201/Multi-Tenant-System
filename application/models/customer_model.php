@@ -23,8 +23,9 @@ class Customer_model extends CI_Model {
         
     }
     
-    function update($newRecord){
-        $this->db->replace($this->table,$newRecord);
+    function update($newRecord, $cust_id){
+        $this->db->where('cust_id', $cust_id);
+        $this->db->update($this->table,$newRecord);
     }
     
     function del($where_array){

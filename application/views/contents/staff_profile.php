@@ -963,7 +963,7 @@ $(document).ready(function(){
 $(document).ready(function(){
     $('input[name="service[]"]').click(function(){
         if($('input[name="service[]"]:checked').length == $('input[name="service[]"]').length){
-            $('input[type="checkbox"').prop('checked',true);
+            $('#all_service').prop('checked',true);
         }
         else
             $('#all_service').prop('checked',false);

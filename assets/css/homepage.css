@@ -19,12 +19,18 @@ body {
 }
 #bg1{
     width:1400px;
-	height:620px;
+	height:570px;
     margin-top:-18px;
     /* margin-right:10px; */
     /* margin-left:50px; */
 }
 
+
+
+
+#bg2{
+	background-color: #d9d9d9;
+}
 
 #logo{
     width:151px;
@@ -55,10 +61,14 @@ body {
 #kalendaryo{
   height: 500px;
   width: 900px;
+
 }
-#kalendaryo1{
-  height: 150px;
-  width: 150px;
+#bilog{
+  height: 200px;
+  width: 200px;
+border-radius: 100%;
+border: 5px solid #3498db;	
+box-shadow: 7px 10px 10px #bebebe; 
 }
 
 
@@ -88,14 +98,19 @@ body {
   display: inline-block;
 }
 
-.col-left{
-	float:left;
-	width:35%;
-}
+
+
 h1{
 	color: white;
 }
 .align-center{
 	text-align:center;
+	float:center;
 }
-
+.top{
+margin-top:90px;
+}
+.btton{
+width:175px;
+height :50px;
+}

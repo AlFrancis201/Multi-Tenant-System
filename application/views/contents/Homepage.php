@@ -28,23 +28,17 @@
 				<img id="bg1" src="<?php echo base_url('assets/img/qqq.jpg')?>" />
 				</div>
 		       				
-                <div class="col-left col-md-11">
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				 <h1>Remember when to take a shit with Tempus</h1>
-                    <a href="<?php echo base_url('registration'); ?>" class="btn btn-info" role="button">TRY IT NOW!</a>
+                <div class="top col-left col-md-11" />
+				 <h1>Make it in time using Tempus</h1>
+                    <a href="<?php echo base_url('registration'); ?>" class="btton btn btn-info" role="button">TRY IT NOW!</a>
                 </div>
             </div>
         </div>
     </div>
 
         <div class="section">
-            <div class="container">
-                <div class="row">
+            <div class="bg2 container">
+				<div class="row">
                     <div class="col-md-3">
                         <h2>Never ask "what time is my meeting?" again</h2>
                         <p>Clients can use our built-in calendar where you can see your real-time calendar availability and you can also put some notes on the date you like.</p>
@@ -54,10 +48,11 @@
                     </div>
                 </div>
             </div>
-        </div>  
+         </div>
 		
     <div class="section">
         <div class="container">
+		<div class="row">
 			<div class="col-md-10">
 			<img id="kalendaryo" src="<?php echo base_url('assets/img/Kalendaryo.png')?>" alt="calendar" width="100%" height="100%">
            
@@ -68,33 +63,65 @@
 		</div>
 		</div>
 	</div>
+	</div>
+	
 		
 	<div class="section">
 		<div class="container">
-			<div class="align-center">
-			<h2>HOW IT WORKS</h2>
-			</div>
-			<div class="col-md-4">
-			<img id="kalendaryo1" src="<?php echo base_url('assets/img/logo.png')?>">
-			<h3> asdkjghasdjkgsahd</h3>
-			</div>
-			<div class="col-md-4">
-			<img id="kalendaryo1" src="<?php echo base_url('assets/img/logo.png')?>">
-			<h3>asdkjhaskdjagdjksag</h3>
-			</div>
-			<div class="col-md-4">
-			<img id="kalendaryo1" src="<?php echo base_url('assets/img/logo.png')?>">
-			<h3>asdlkjashdkjasgdsakg</h3>
+			
+				<div class="align-center">
+				<h2>How it works.</h2>
+				</div>
+				<div class="row">
+					<div class="align-center col-md-4">
+						<img id="bilog" src="<?php echo base_url('assets/img/icon1.png')?>">
+						<h3>Suggest Options</h3>
+						<p>Select things like dates, provider, customer and even time of your appointment.</p>
+					</div>
+					<div class="align-center col-md-4">
+						<img id="bilog" src="<?php echo base_url('assets/img/icon2.png')?>">
+						<h3>Manage your staff</h3>
+						<p>You get to choose what kind of labor the appointed staff will do.</p>
+					</div>
+					<div class="align-center col-md-4">
+						<img id="bilog" src="<?php echo base_url('assets/img/icon3.png')?>">
+						<h3>Monitor staff services</h3>
+						<p>You can input duration, description, price and service provider in that specific kind of service.</p>
+					</div>
+				
 			</div>
 			</div>
 		</div>
-	
+<div class="section">
+	<div class="container">
+	<div class="row">
+		<div class="align-center">
+			<h4>FOR INQUIRIES</h4>
+		</div>
+			<div class="row">
+			<div class="align-center col-md-4">
+				<p>Contact Number: 09217194765</p>
+				<a>facebook.com/TempusCompany</a>
+			</div>
+			<div class="align-center col-md-4">
+				<p>IG: <a>@TempusCompany</a></p>
+				<p>TWTTR: <a>@TempusCompany</a></p>
+			</div>
+			<div class="align-center col-md-4">
+				<p>Email: <a>tempuscompany@gmail.com</a></p>
+			</div>
+		</div>
+	</div>
+</div>
+		
+			
 	<div class="bottom-section">
             <div class="bottom-content">
                 <p><strong>Tempus </strong>Multi-Tenant System</p>    
             </div>
         </div>
-</div>   
+	</div> 
+</div>  
 
 
 

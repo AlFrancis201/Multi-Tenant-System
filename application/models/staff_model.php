@@ -25,8 +25,9 @@ class Staff_model extends CI_Model {
         
     }
     
-    function update($newRecord){
-        $this->db->replace($this->table,$newRecord);
+    function update($newRecord, $staff_id){
+        $this->db->where('staff_id', $staff_id);
+        $this->db->update($this->table,$newRecord);
     }
     
     function del($where_array){

@@ -1,4 +1,4 @@
-  body {
+body {
     padding-top: 100px;
   }
 
@@ -11,9 +11,18 @@
   }
 }
 
-.bg{
-    background-color:#fff;
+#bg{
+	/* background-size:cover; */
+	width: 150px;
+	margin-left: 500px;
 
+}
+#bg1{
+    width:1400px;
+	height:620px;
+    margin-top:-18px;
+    /* margin-right:10px; */
+    /* margin-left:50px; */
 }
 
 #logo{
@@ -22,6 +31,7 @@
     margin-right:10px;
     margin-left:50px;
 }
+
 
 #wrapper section{
     margin-top:100px;
@@ -45,14 +55,19 @@
   height: 500px;
   width: 900px;
 }
+#kalendaryo1{
+  height: 150px;
+  width: 150px;
+}
+
 
 .container1{
-  width: 800px;
+  width: 1400px;
 }
 
 .col-left{
   float:left;
-  width: 60%;
+  width: 40%;
 }
 
 .top-section {
@@ -71,3 +86,15 @@
 .bottom-content {
   display: inline-block;
 }
+
+.col-left{
+	float:left;
+	width:35%;
+}
+h1{
+	color: white;
+}
+.align-center{
+	text-align:center;
+}
+

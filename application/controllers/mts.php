@@ -146,13 +146,44 @@ class Mts extends CI_Controller {
             echo validation_errors();
         }
         else{
-            $updatedService = array('service_id'=>$service_id, 'service_name'=>$_POST['svc_name'],'service_desc'=>$_POST['svc_desc'],'duration'=>$_POST['duration'],'price'=>$_POST['price'],'user_id'=>$this->user_id);
-            $this->Service->update($updatedService);
-            foreach($_POST['staff'] as $s){
+            //$updatedService = array('service_name'=>$_POST['svc_name'],'service_desc'=>$_POST['svc_desc'],'duration'=>$_POST['duration'],'price'=>$_POST['price'],'user_id'=>$this->user_id);
+            //$this->Service->update($updatedService, $service_id);
+            $updatedService = array('service_name'=>$_POST['svc_name'],'service_desc'=>$_POST['svc_desc'],'duration'=>$_POST['duration'],'price'=>$_POST['price'],'user_id'=>$this->user_id);
+            $this->Service->update($updatedService, $service_id);
+            /*foreach($_POST['staff'] as $s){
                     $staffServiceRecord = array('staff_id'=>$s,'service_id'=>$service_id);
                     $this->Staff_Service->create($staffServiceRecord);
+            }*/
+            
+            $curr = $this->Staff_Service->readStaffIdOnly(array('service_id'=>$service_id));
+            $diff = array_diff($curr,$_POST['staff']);
+            if(empty($diff))
+                $diff = array_diff($_POST['staff'],$curr);
+            
+            $success = true;
+            $errorMsg = "";
+            foreach($diff as $d){
+                if(in_array($d, $_POST['staff'])){
+                    $staffServiceRecord = array('staff_id'=>$d,'service_id'=>$service_id);
+                    $this->Staff_Service->create($staffServiceRecord);
+                }
+                else{
+                    $appointments = $this->Appointment->read(array('staff_id'=>$d, 'service_id'=>$service_id, 'is_done'=>'0'));
+                    if($appointments != FALSE){
+                        $success = false;
+                        $staffRecord = $this->Staff->read(array('staff_id'=>$d));
+                        foreach($staffRecord as $s){
+                            $errorMsg .= "Cannot uncheck Staff: ".$s['first_name'].' '.$s['last_name'].". Staff: ".$s['first_name'].' '.$s['last_name']." has pending appointments for this service.<br />";
+                        }
+                    }
+                    else
+                        $this->Staff_Service->del(array('staff_id'=>$d, 'service_id'=>$service_id));
+                }
             }
-            echo 'success';
+            if($success)
+                echo 'success';
+            else
+                echo $errorMsg;
         }
     }
     
@@ -245,17 +276,49 @@ class Mts extends CI_Controller {
             echo validation_errors();
         }
         else{
-            $newStaffRecord = array('staff_id'=>$staff_id, 'first_name'=>$_POST['first_name'], 'last_name'=>$_POST['last_name'], 'user_id'=>$this->user_id);
-            $this->Staff->update($newStaffRecord);
-            foreach($_POST['day'] as $i => $d){
-                $staffHoursRecord = array('staff_id'=>$staff_id, 'day'=>$d, 'start_time'=>date('H:i',strtotime($_POST['start_time'][$i])), 'end_time'=>date('H:i',strtotime($_POST['end_time'][$i])));
+            $newStaffRecord = array('first_name'=>$_POST['first_name'], 'last_name'=>$_POST['last_name'], 'user_id'=>$this->user_id);
+            $this->Staff->update($newStaffRecord, $staff_id);
+            
+            $this->Staff_Hours->del(array('staff_id'=>$staff_id));
+            foreach($_POST['day'] as $i => $day){
+                $staffHoursRecord = array('staff_id'=>$staff_id, 'day'=>$day, 'start_time'=>date('H:i',strtotime($_POST['start_time'][$i])), 'end_time'=>date('H:i',strtotime($_POST['end_time'][$i])));
                 $this->Staff_Hours->create($staffHoursRecord);
             }
-            foreach($_POST['service'] as $s){
+            
+            /*foreach($_POST['service'] as $s){
                 $staffServiceRecord = array('staff_id'=>$staff_id, 'service_id'=>$s);
                 $this->Staff_Service->create($staffServiceRecord);
             }
-            echo 'success';
+            echo 'success';*/
+            $currServiceIds = $this->Staff_Service->readServiceIdOnly(array('staff_id'=>$staff_id));
+            $diff = array_diff($currServiceIds,$_POST['service']);
+            if(empty($diff))
+                $diff = array_diff($_POST['service'],$currServiceIds);
+            
+            $success = true;
+            $errorMsg = "";
+            foreach($diff as $d){
+                if(in_array($d, $_POST['service'])){
+                    $staffServiceRecord = array('service_id'=>$d,'staff_id'=>$staff_id);
+                    $this->Staff_Service->create($staffServiceRecord);
+                }
+                else{
+                    $appointments = $this->Appointment->read(array('service_id'=>$d, 'staff_id'=>$staff_id, 'is_done'=>'0'));
+                    if($appointments != FALSE){
+                        $success = false;
+                        $serviceRecord = $this->Service->read(array('service_id'=>$d));
+                        foreach($serviceRecord as $s){
+                            $errorMsg .= "Cannot uncheck Service: ".$s['service_name'].". This staff has pending appointments for Service: ".$s['service_name']."<br />";
+                        }
+                    }
+                    else
+                        $this->Staff_Service->del(array('service_id'=>$d, 'staff_id'=>$staff_id));
+                }
+            }
+            if($success)
+                echo 'success';
+            else
+                echo $errorMsg;
         }
     }
     
@@ -313,7 +376,7 @@ class Mts extends CI_Controller {
             $data['zip'] = $c['zip'];
         }
         
-        $header['active'] = 'customer';
+        $header_data['active'] = 'customer';
         $this->load->view('include/header_nav',$header_data);
         $this->load->view('contents/customer_profile',$data);
     }
@@ -326,10 +389,10 @@ class Mts extends CI_Controller {
             echo validation_errors();
         }
         else{
-            $newCustomerRecord = array('cust_id'=>$cust_id, 'user_id'=>$this->user_id, 'cust_name'=>$_POST['cname'], 'mobile_no'=>$_POST['mobile'], 
+            $newCustomerRecord = array('user_id'=>$this->user_id, 'cust_name'=>$_POST['cname'], 'mobile_no'=>$_POST['mobile'], 
                                 'email'=>$_POST['email'], 'office_no'=>$_POST['office'], 'home_no'=>$_POST['home'], 'address'=>$_POST['address'],
                                 'city'=>$_POST['city'], 'state'=>$_POST['state'], 'zip'=>$_POST['zip']);
-            $this->Customer->update($newCustomerRecord);
+            $this->Customer->update($newCustomerRecord, $cust_id);
             echo 'success';
         }
     }
@@ -362,6 +425,8 @@ class Mts extends CI_Controller {
     }*/
     
     public function test(){
-        print_r($_POST);
+        //$r = array( [service_id] => 26 [service_name] => Service 3 [service_desc] => Service 3 [duration] => 30 [price] => 3000 [user_id] => 4 )
+        //$updatedService = array('service_name'=>'Service 3','service_desc'=>'Service 3','duration'=>'30','price'=>'3000','user_id'=>'4');
+        //$this->Service->update($updatedService, '26');
     }
 }

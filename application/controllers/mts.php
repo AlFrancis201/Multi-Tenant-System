@@ -357,10 +357,10 @@ class Mts extends CI_Controller {
             echo validation_errors();
         }
         else{
-            $newCustomerRecord = array('cust_id'=>$cust_id, 'user_id'=>$this->user_id, 'cust_name'=>$_POST['cname'], 'mobile_no'=>$_POST['mobile'], 
+            $newCustomerRecord = array('user_id'=>$this->user_id, 'cust_name'=>$_POST['cname'], 'mobile_no'=>$_POST['mobile'], 
                                 'email'=>$_POST['email'], 'office_no'=>$_POST['office'], 'home_no'=>$_POST['home'], 'address'=>$_POST['address'],
                                 'city'=>$_POST['city'], 'state'=>$_POST['state'], 'zip'=>$_POST['zip']);
-            $this->Customer->update($newCustomerRecord);
+            $this->Customer->update($newCustomerRecord, $cust_id);
             echo 'success';
         }
     }

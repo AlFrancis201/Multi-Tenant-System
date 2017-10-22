@@ -13,13 +13,13 @@
 }
 
 .margin-top{
-	margin-top:100px;
+	margin-top:150px;
 	
 }
 
 body {
-	
-    padding-top: 100px;
+    padding-top: 60px;
+
   }
 
 .nav{
@@ -131,7 +131,7 @@ h1{
 
 /* CREATE AN ACCOUNT */
 .login-card {
-  max-width:350px;
+  max-width:400px;
   padding:40px 40px;
   margin:0 auto 25px;
   margin-top:50px;
@@ -215,7 +215,6 @@ h1{
 .login-card .forgot-password:hover, .login-card .forgot-password:active, .login-card .forgot-password:focus{
   text-decoration:underline;
 }
-
 
 /* SIGN IN */
 .login-card1 {
@@ -309,3 +308,104 @@ h1{
 	
 }
 
+/* radio button */
+ul li{
+  color: #AAAAAA;
+  display: block;
+  position: relative;
+  /* float: left; */
+  margin-left:-50px;
+  width: 100%;
+  height: 100px;
+  margin-top:-15px;
+	/* border-bottom: 1px solid #333; */
+}
+
+ul li input[type=radio]{
+  position: absolute;
+  visibility: hidden;
+}
+
+ul li label{
+  display: block;
+  position: relative;
+  font-weight: 300;
+  font-size: 1.35em;
+  padding: 27px 25px 25px 50px;
+  margin: 10px auto;
+  height: 30px;
+  z-index: 9;
+  cursor: pointer;
+  -webkit-transition: all 0.25s linear;
+}
+
+ul li:hover label{
+	color: #3498DB;
+}
+
+ul li .check{
+  display: block;
+  position: absolute;
+  border: 5px solid #AAAAAA;
+  border-radius: 100%;
+  height: 25px;
+  width: 25px;
+  top: 30px;
+  left: 20px;
+	/* z-index: 5; */
+	/* transition: border .25s linear; */
+	/* -webkit-transition: border .25s linear; */
+}
+
+ul li:hover .check {
+  border: 5px solid #3498DB;
+}
+
+ul li .check::before {
+  display: block;
+  position: absolute;
+  content: '';
+  border-radius: 100%;
+  height: 11px;
+  width: 11px;
+  top: 2px;
+  left: 2px;
+  /* margin: auto; */
+	/* transition: background 0.25s linear; */
+	/* -webkit-transition: background 0.25s linear; */
+}
+h5{
+	color:black;
+	text-align:center;
+	font-size:35px;
+	/* font-family: Agency FB; */
+	/* font-family: Berlin Sans FB; */
+	/* font-family: Bell MT; */
+	/* font-family: Book Antiqua; */
+	/* font-family: Bookman Old Style; */
+	/* font-family: Cambria Math; */
+	font-family: Century Gothic; 
+}
+
+input[type=radio]:checked ~ .check {
+  border: 5px solid #3498DB;
+}
+
+input[type=radio]:checked ~ .check::before{
+  background: #3498DB;
+}
+
+input[type=radio]:checked ~ label{
+  color: #3498DB;
+}
+
+.white{
+	/* background:url(../../assets/img/white.png); */
+	height:105px;
+	width:318px;
+	margin-left:12px;
+	margin-top:30px;
+	background-color:white;
+	border-radius:10px;
+	
+}

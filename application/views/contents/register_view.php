@@ -24,9 +24,35 @@
         <a href="<?php echo base_url('home'); ?>"> <img src="<?php echo base_url('assets/img/Ico.svg')?>" id="logo1" class="logo"/>
       </a>
     </div>
-    <div class="collapse navbar-collapse nav navbar-nav pull-right" id="myNavbar">    
+ 
     
-      <li><a href="<?php echo base_url('login'); ?>">SIGN IN</a></li>
+      <button type="button" onclick="document.getElementById('id01').style.display='block'" style="width:auto;" class="button1 right">SIGN IN</button>
+
+	<div id="id01" class="modal">
+  
+  <form class="modal-content animate" action="<?php echo base_url('login')?>" method='post'>
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+      <img src="<?php echo base_url('assets/img/signin.png')?>" alt="Avatar" class="avatar">
+    </div>
+
+    <div class="container">
+      <label><b>Username</b></label></br>
+      <input type="text" placeholder="Enter Username" name="email" required></br>
+
+      <label><b>Password</b></label></br>
+      <input type="password" placeholder="Enter Password" name="password" required></br>
+        
+      <button type="submit">Login</button>
+    </div>
+
+	
+    <div class="container" >
+      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+      
+    </div>
+  </form>
+</div>
     
     </div>
   </div>
@@ -100,7 +126,17 @@
         </div>
         </div>
     
+<script>
+// Get the modal
+var modal = document.getElementById('id01');
 
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
 </body>
 
 </html>

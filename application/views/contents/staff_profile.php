@@ -12,8 +12,8 @@
 
     <div class="row staff_profile">
         <div class="col-md-12">
-            <a href="<?php echo base_url('mts/del_staff/'.$staff_id); ?>"><button class="rightside" >Delete Service</button></a>
-            <button class="rightside" id="edit-button">Edit Service</button>
+            <a href="<?php echo base_url('mts/del_staff/'.$staff_id); ?>"><button class="rightside btn btn-primary" >Delete Service</button></a>
+            <button class="rightside btn btn-primary" id="edit-button">Edit Service</button>
             <form id="addStaffForm">
                 <div id="errors"></div>
                 <div class="row ">
@@ -27,8 +27,9 @@
                         </div>
                         
 
-                        <div class="col-md-12 service_prov">
-                        <h1>Services Provided</h1>                            
+                        <div class="col-md-12">
+                        <h1>Services Provided</h1>     
+                            <div class="service_prov">                                                  
                                 <div class="checkbox">
                                     <label><input id="all_service" type="checkbox" disabled />All Services</label>
                                 </div>
@@ -45,7 +46,8 @@
                                     }
                                 }
                             ?>
-                            </div>                        
+                            </div>   
+                        </div>                     
 
 
 
@@ -889,11 +891,12 @@
                                 </div>
                             </div>
                         </div>
- <!--                        <a href="<?php echo base_url('mts/view_staff'); ?>"><button class="rightside" id="back" >Back</button></a> -->
+
                 </div>
             </form>
         </div>
         </div>
+                                    <a href="<?php echo base_url('mts/view_staff');?>" ><button class="btn btn-primary rightside backStaff">Back</button> </a>
     </div>
 </div>
 
@@ -929,8 +932,8 @@ $(document).ready(function(){
             $('select[data-day="'+day+'"]').prop('disabled',false);
         });
         
-        $('form').append('<button id="submit-button" class="form-control">Submit</button>');
-        $('form').append('<button id="cancel-button" class="form-control">Cancel</button>');
+        $('form').append('<button id="submit-button" class="form-control btn btn-primary">Submit</button>');
+        $('form').append('<button id="cancel-button" class="form-control btn btn-primary">Cancel</button>');
     });
 });
 </script>

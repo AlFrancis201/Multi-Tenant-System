@@ -10,35 +10,42 @@
       </ol>
     </section>
     <section class="content">
-      <div class="row">
-        <div class="col-md-3">
-          <div class="box box-solid box-default sidebar2">
-                <ul class="sidebar-menu sad" data-widget="tree">
-                  <li class="header2">SERVICE LIST </li>
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+          <div class="box tableService">
+            <div class="box-header with-border">
+              <h3 class="box-title">Service List</h3>
+           <a class="pull-right" href="<?php echo base_url('mts/add_service'); ?>"><button class="btn btn-primary" id="serviceAdd">Add Service</button></a> 
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <table class="table table-bordered">
+                <tr>
+                  <th>Service Name</th>
+                  <th style="width: 60px"></th>
+                </tr>
+
+
                               <?php
                                   if($service_record != false){
                                       foreach($service_record as $s){
-                                          echo '<li><a class="nav-link" href="'.base_url('mts/view_service_profile/'.$s['service_id']).'">'.$s['service_name'].'</a></li>';
+                                        echo '<tr>';
+                                        echo '<td>'.$s['service_name'].'</a></td>';
+                                        echo '<td><a href="'.base_url('mts/view_service_profile/'.$s['service_id']).'"> View</a></td>';
+                                        echo '</tr>';
                                       }
                                   }
                               ?>
-                </ul>
-          </div> 
-           <a href="<?php echo base_url('mts/add_service'); ?>"><button class="btn" id="serviceAdd">Add Service</button></a> 
-        </div>
-        <div class="col-md-9">
-          <div class="box box-solid box-default">
-            <ul class=" sidebar-menu sad">
-              <li class="header2"> CONTENT </li>
-            </ul>
-            <div class="container">
-                  CONTENT
-            </div>
+
+              </table>
             </div>
           </div>
         </div>
-      </div>
+        <div class="col-md-2"></div> 
     </section>
+
+
+
 
 </div>
 </body>

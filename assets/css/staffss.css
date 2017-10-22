@@ -1,26 +1,36 @@
-.rightside , .staff_profile > div > #submit-button, .staff_profile > div > #cancel-button{
+.rightside , #submit-button,  #cancel-button{
   height: 50px;
-  width: 100px;
+  width: 120px;
   margin:20px 0;
   margin-left: 20px;
 }
 
-.staff_profile > div > #cancel-button , .staff_profile > div >  #submit-button {
+#cancel-button , #submit-button, .backstaff {
   float: left;
   position: relative;
   display:inline-block;
   left:29.5%;
 }
-
+.backStaff{
+  top:80%;
+  left:84.5%;
+  position: absolute;
+  display: inline-block;
+}
 .addStaffbtn{
-  text-align: right;
   right:7%;
   margin:10px 0;
-}
-
-.addStaffbtn button{
   height: 50px;
   width: 100px;
+}
+.addStaffbtn1{
+  margin:10px 0;
+  height: 50px;
+  width: 100px;
+  position: relative;
+  bottom: 120px;
+  left:55%;
+
 }
 
 .addStaffform{
@@ -31,7 +41,7 @@
 }
 
 .staff_name input{
-  border-radius: 1px;
+  border-radius: 2px;
   height: 40px;
   width: 400px;
 }
@@ -93,5 +103,13 @@
   margin: 0 10px;
 }
 
+.service_prov{
+  overflow: auto;
+  max-height: 160px;
+  margin-top: 10px;
+}
 
-
+.tableStaff{
+  overflow:auto;
+  max-height: 500px;
+}

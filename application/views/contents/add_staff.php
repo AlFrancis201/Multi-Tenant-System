@@ -23,8 +23,9 @@
                         <div class="col-md-7 staff_name">
                             <input class="form-control" type="text" name="last_name" placeholder="Last Name" value="<?php echo set_value('last_name'); ?>">
                         </div>
-                        <div class="col-md-12 service_prov">
-                            <h1>Services Provided</h1>                    
+                        <div class="col-md-12">
+                            <h1>Services Provided</h1>   
+                            <div class="service_prov">                 
                                 <div class="checkbox">
                                     <label><input id="all_service" type="checkbox" />All Services</label>
                                 </div>
@@ -37,6 +38,7 @@
                                         }
                                     }
                                 ?>
+                            </div>
                         </div>
                     </div>
                     
@@ -881,16 +883,10 @@
 
                         </div>
                     </div>
-                                <div class="col-md-12 addStaffbtn">
-                                    <button class="btn btn-primary active" type="submit">Add </button>
-                                </div>                    
+                                    <button class="addStaffbtn btn btn-primary" type="submit">Add </button>
                 </div>
-                
-
-
-                
-
-            </form>
+             </form>
+                         <a href="<?php echo base_url('mts/view_staff');?>"><button class="addStaffbtn1 btn btn-primary">Back</button></a>
         </div>
     </div>
 </div>

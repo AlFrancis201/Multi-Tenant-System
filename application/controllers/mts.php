@@ -30,7 +30,7 @@ class Mts extends CI_Controller {
         //$data['service_record'] = $this->Service->read();
         //$this->load->view('contents/dashboard_final',$data);
         $this->load->view('include/header_nav');
-        echo date('G.i',strtotime('08:00:00'));
+        $this->load->view('contents/dashboard');
 	}
     
     public function view_calendar(){

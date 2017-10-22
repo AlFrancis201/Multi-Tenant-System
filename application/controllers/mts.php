@@ -361,6 +361,8 @@ class Mts extends CI_Controller {
             }
             echo 'success';*/
             $currServiceIds = $this->Staff_Service->readServiceIdOnly(array('staff_id'=>$staff_id));
+            if($currServiceIds == false)
+                $currServiceIds = array();
             $service = array();
             if(isset($_POST['service']))
                 $service = $_POST['service'];

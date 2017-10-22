@@ -10,6 +10,7 @@
       </ol>
     </section>
     <section class="sidebar sidebar2">
+           <a href="<?php echo base_url('mts/add_service'); ?>"><button>Add Service</button></a>
           <!-- Sidebar user panel -->
           <ul class="sidebar-menu sad" data-widget="tree">
             <li class="header2">STAFF LIST</li>

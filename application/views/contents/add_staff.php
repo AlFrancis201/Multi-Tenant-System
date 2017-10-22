@@ -18,10 +18,10 @@
                     <div class="col-md-5">            
                         <h1>Name</h1>
                         <div class="col-md-7 staff_name">
-                            <input class="form-control" type="text" name="first_name" placeholder="First Name">
+                            <input class="form-control" type="text" name="first_name" placeholder="First Name" value="<?php echo set_value('first_name'); ?>">
                         </div>
                         <div class="col-md-7 staff_name">
-                            <input class="form-control" type="text" name="last_name" placeholder="Last Name">
+                            <input class="form-control" type="text" name="last_name" placeholder="Last Name" value="<?php echo set_value('last_name'); ?>">
                         </div>
                         <div class="col-md-12 service_prov">
                             <h1>Services Provided</h1>                    
@@ -32,7 +32,7 @@
                                     if($service != false){
                                         foreach($service as $s){
                                             echo '<div class="checkbox">';
-                                            echo '<label><input type="checkbox" name="service[]" value="'.$s['service_id'].'" />'.$s['service_name'].'</label>';
+                                            echo '<label><input type="checkbox" name="service[]" value="'.$s['service_id'].'" '.set_checkbox('service',$s['service_id']).' />'.$s['service_name'].'</label>';
                                             echo '</div>';
                                         }
                                     }
@@ -895,6 +895,13 @@
     </div>
 </div>
 
+<script>
+$(document).ready(function(){ //check all services checkbox when all the others are also checked (after loading)
+    if($('input[name="service[]"]:checked').length == $('input[name="service[]"]').length){
+        $('#all_service').prop('checked',true);
+    }
+});
+</script>
 <script> // disable/enable time dropdowns for clicked day checkbox
     $(document).ready(function(){
         $('input[name="day[]"]').click(function(event){
@@ -924,7 +931,7 @@ $(document).ready(function(){
 $(document).ready(function(){
     $('input[name="service[]"]').click(function(){
         if($('input[name="service[]"]:checked').length == $('input[name="service[]"]').length){
-            $('input[type="checkbox"').prop('checked',true);
+            $('#all_service').prop('checked',true);
         }
         else
             $('#all_service').prop('checked',false);

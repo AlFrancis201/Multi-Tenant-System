@@ -1,11 +1,11 @@
-.rightside ,#submit-button, #cancel-button{
+.rightside , .staff_profile > div > #submit-button, .staff_profile > div > #cancel-button{
   height: 50px;
   width: 100px;
   margin:20px 0;
   margin-left: 20px;
 }
 
-#cancel-button , #submit-button {
+.staff_profile > div > #cancel-button , .staff_profile > div >  #submit-button {
   float: left;
   position: relative;
   display:inline-block;

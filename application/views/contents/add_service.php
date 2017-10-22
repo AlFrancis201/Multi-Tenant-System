@@ -13,18 +13,17 @@
     <div class="row addService">
         <div class="col-lg-12 col-md-12">
             <form id="addServiceForm" class="customform" action="<?php echo base_url('mts/add_service'); ?>" method="post">
+                    <?php echo validation_errors(); ?>                
                 <div class="col-md-12">
-                    <h1 class="text-info">Add New Service</h1></div>
-                <!--<div class="col-lg-3 col-lg-offset-0 col-md-3"><i class="fa fa-user serviceIcon"></i></div>-->
-                <div class="col-md-9">
-                    <?php echo validation_errors(); ?>
-                    <input class="form-control" type="text" placeholder="Enter Service Name" name="svc_name">
-                    <input class="form-control" type="text" placeholder="Service Description" id="desc" name="svc_desc">
+                    <h1 class="text-info">Service Details</h1>
                 </div>
+                <!--<div class="col-lg-3 col-lg-offset-0 col-md-3"><i class="fa fa-user serviceIcon"></i></div>-->
+                    <input class="form-control" type="text" placeholder="Enter Service Name" name="svc_name" value="<?php echo set_value('svc_name'); ?>">
+                    <input class="form-control" type="text" placeholder="Service Description" id="desc" name="svc_desc" value="<?php echo set_value('svc_desc'); ?>">
                 
-                <div class="col-md-9">
-                    <input class="form-control" type="text" placeholder="Duration (mins)" name="duration">
-                    <input class="form-control" type="text" placeholder="Price" name="price">
+
+                    <input class="form-control" type="text" placeholder="Duration (mins)" name="duration" value="<?php echo set_value('duration'); ?>">
+                    <input class="form-control" type="text" placeholder="Price" name="price" value="<?php echo set_value('price'); ?>">
                     <!--<input class="form-control" type="submit" value="Submit">-->    
 
                     <h1 class="text-info">Service Provider</h1>
@@ -34,13 +33,13 @@
                     <?php 
                         foreach($staffRecord as $s){
                             echo '<div class="checkbox">';
-                            echo '<label><input type="checkbox" name="staff[]" value="'.$s['staff_id'].'" />'.$s['first_name'].' '.$s['last_name'].'</label>';
+                            echo '<label><input type="checkbox" name="staff[]" value="'.$s['staff_id'].'" '.set_checkbox('staff',$s['staff_id']).' />'.$s['first_name'].' '.$s['last_name'].'</label>';
                             echo '</div>';
                         }
                     ?>
 
                     <button class="form-control view-button">Submit</button>
-                </div>
+
             </form>
         </div>
     </div>

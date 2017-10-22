@@ -1,0 +1,154 @@
+.login-card1 {
+  height:400px;
+  width:350px;
+  padding:40px 40px;
+  margin:0 auto 25px;
+  margin-top:50px;
+  margin-right:100px; 
+  border-radius:5px;
+  /* /* background:url(../../assets/img/bg10.png); */ 
+}
+
+.login-card1 p{
+  color:#D1D0CE;
+}
+
+.login-card1 .profile-name-card1{
+  font-size:55px;
+  font-weight:normal;
+  text-align:left;
+  margin:10px 0 0;
+  min-height:1em;
+  margin-bottom:10px;
+  margin-left:40px;
+}
+
+.login-card1 .reauth-email1{
+  display:block;
+  color:#404040;
+  line-height:2;
+  margin-bottom:10px;
+  font-size:14px;
+  text-align:center;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  box-sizing:border-box;
+}
+
+.login-card1 .form-signin1 input[type=email], .login-card1 .form-signin1 input[type=password], .login-card1 .form-signin1 input[type=text], .login-card1 .form-signin1 button{
+ height:44px;
+  font-size:16px;
+  width:100%;
+  display:block;
+  margin-bottom:10px;
+  z-index:1;
+  position:relative;
+  box-sizing:border-box;
+}
+
+.login-card1 label{
+   color:#000000;
+}
+
+.login-card1 .form-signin1 .form-control1:focus{
+  border-color:rgb(104, 145, 162);
+  outline:0;
+  -webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgb(104, 145, 162);
+  box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgb(104, 145, 162);
+}
+
+.login-card1 .btn.btn-signin1{
+  font-weight:700;
+  height:36px;
+  line-height:36px;
+  font-size:14px;
+  background:#98AFC7;
+  border-radius:3px;
+  border:none;
+  transition:all 0.218s;
+  padding:0;
+  opacity:.5;
+  color:white;
+}
+
+.login-card1 .btn.btn-signin1:hover, .login-card1 .btn.btn-signin1:active, .login-card1 .btn.btn-signin1:focus{
+ background-color:#98AFC7;
+  opacity:1;
+}
+
+.login-card1 .forgot-password1{
+  color:rgb(205,205,205);
+  font-size:15px;
+}
+
+.login-card1 .forgot-password1:hover, .login-card1 .forgot-password1:active, .login-card1 .forgot-password1:focus{
+  text-decoration:underline;
+}
+body {
+	background-image:url(../../assets/img/login.jpg);
+	background-repeat:no-repeat;
+	background-size: cover;
+	 height:100%;
+	 width:100%;
+}
+.container1{
+	margin-left:-15px;
+	
+}
+#logo1{
+	height:250px;
+	width:500px;
+	margin-top:-10px;
+}
+h2 {
+	text-align:left;
+	margin-left: 140px;
+}
+p {
+	text-align: left;
+	margin-left:140px;
+	
+	
+}
+.top{
+	margin-top:-20px;
+	float:center;
+}
+.top2{
+	margin-top:10px;
+}
+.verticalLine {
+  border-left: 1px solid gray;
+  float:left;
+  height:300px;
+  margin-top:-40px;
+}
+.center{
+	float:center;
+}
+.left{ 
+	 margin-left:90px; 
+ } 
+ #left{ 
+	 margin-left:170px; 
+ } 
+ .top1{
+	margin-top:-20px;
+ }
+ .left1{
+	 margin-left:80px;
+ }
+ #left1{
+	 margin-left:160px;
+ }
+ .profile-name-card2{
+	 font-size:20px;
+  font-weight:normal;
+  color:black;
+  text-align:left;
+  margin:10px 0 0;
+  min-height:1em;
+  margin-bottom:10px;
+  margin-left:90px;
+ }

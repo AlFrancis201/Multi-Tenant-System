@@ -64,7 +64,7 @@
   <div class="white">
     <input type="radio" id="f-option" name="selector">
     <label for="f-option">Monthly</label>
-    <h5>Php 1000</h5>
+    <h5>Php 1,000</h5>
     <div class="check">
 	</div>
     </div>
@@ -74,7 +74,7 @@
   <div class="white">
     <input type="radio" id="s-option" name="selector">
     <label for="s-option">Semi-Annual</label>
-    <h5>PRICE 2</h5>
+    <h5>Php 5,000</h5>
     <div class="check">
 	</div>
 	</div>
@@ -84,7 +84,7 @@
   <div class="white">
     <input type="radio" id="t-option" name="selector">
     <label for="t-option">Annual</label>
-	<h5>PRICE 3</h5>
+	<h5>Php 8,000</h5>
     
     <div class="check">
 	</div>

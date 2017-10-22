@@ -16,10 +16,17 @@
 </head>
 
 <body>
+	<div class="collapse navbar-collapse" id="myNavbar">    
+    <ul class="nav navbar-nav pull-right">
+      
+      <li><a href="<?php echo base_url('registration');?>">CREATE AN ACCOUNT</a></li>
+    </ul>
+    </div>
     <div class="container1 container-fluid">
 	<a class="navbar-brand">
 		<a href="<?php echo base_url('home');?>"><img src="<?php echo base_url('assets/img/Ico.svg')?>" id="logo1" class="logo"/>
-		</a>
+		</a></a>
+		
 	<div class="row">
 		<div class="col-md-6">
 			<div class="top col-md-12">
@@ -29,6 +36,7 @@
 				<p style="color:#817776;">lorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsum</p>
 			</div>
 		</div>
+		
 			<div class="col-md-6">
 				<div class="verticalLine">
 				<div class="top1">
@@ -44,7 +52,8 @@
 						</div>
 				</div>
 			</div>
-			
+	</div>	
+	</div>	
 			 
 			
 			

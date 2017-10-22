@@ -17,6 +17,7 @@ class Mts extends CI_Controller {
         $this->load->model('staff_service_model','Staff_Service');
         $this->load->model('customer_model','Customer');
         $this->load->model('appointment_model','Appointment');
+        $this->load->model('user_model','User');
     }
 
 	public function index()
@@ -29,8 +30,12 @@ class Mts extends CI_Controller {
         //$data['addService'] = trim(preg_replace('/\s+/', ' ', $data['addService']));
         //$data['service_record'] = $this->Service->read();
         //$this->load->view('contents/dashboard_final',$data);
+        $user = $this->User->read(array('user_id'=>$this->user_id));
+        foreach($user as $u){
+            $data['comp_name'] = $u['company_name'];
+        }
         $this->load->view('include/header_nav');
-        $this->load->view('contents/dashboard');
+        $this->load->view('contents/dashboard',$data);
 	}
     
     public function view_calendar(){
@@ -121,16 +126,16 @@ class Mts extends CI_Controller {
     }
     
     public function add_appointment(){
-        $this->form_validation->set_rules('provider', 'Service Provider', 'required');
-        $this->form_validation->set_rules('service', 'Service Provided', 'required');
+        $this->form_validation->set_rules('provider', 'Service Provider', 'required|numeric');
+        $this->form_validation->set_rules('service', 'Service Provided', 'required|numeric');
         $this->form_validation->set_rules('date', 'Date', 'required');
         $this->form_validation->set_rules('time', 'Time', 'required');
         if(isset($_POST['customer']))
-            $this->form_validation->set_rules('customer', 'Customer', 'required');
+            $this->form_validation->set_rules('customer', 'Customer', 'required|numeric');
         else{
-            $this->form_validation->set_rules('cname','Customer Name','required');
-            $this->form_validation->set_rules('mobile','Mobile Number','required');
-            $this->form_validation->set_rules('email','Email','required');
+            $this->form_validation->set_rules('cname','Customer Name','required|alpha');
+            $this->form_validation->set_rules('mobile','Mobile Number','required|numeric');
+            $this->form_validation->set_rules('email','Email','required|valid_email|is_unique[customer.email]');
         }
         
         if($this->form_validation->run() == FALSE){
@@ -173,16 +178,16 @@ class Mts extends CI_Controller {
     }
     
     public function update_appointment($appnt_id){
-        $this->form_validation->set_rules('provider', 'Service Provider', 'required');
-        $this->form_validation->set_rules('service', 'Service Provided', 'required');
+        $this->form_validation->set_rules('provider', 'Service Provider', 'required|numeric');
+        $this->form_validation->set_rules('service', 'Service Provided', 'required|numeric');
         $this->form_validation->set_rules('date', 'Date', 'required');
         $this->form_validation->set_rules('time', 'Time', 'required');
         if(isset($_POST['customer']))
-            $this->form_validation->set_rules('customer', 'Customer', 'required');
+            $this->form_validation->set_rules('customer', 'Customer', 'required|numeric');
         else{
-            $this->form_validation->set_rules('cname','Customer Name','required');
-            $this->form_validation->set_rules('mobile','Mobile Number','required');
-            $this->form_validation->set_rules('email','Email','required');
+            $this->form_validation->set_rules('cname','Customer Name','required|alpha');
+            $this->form_validation->set_rules('mobile','Mobile Number','required|numeric');
+            $this->form_validation->set_rules('email','Email','required|valid_email|is_unique[customer.email]');
         }
         
         if($this->form_validation->run() == FALSE){
@@ -244,7 +249,7 @@ class Mts extends CI_Controller {
         $this->form_validation->set_rules('svc_desc','Service Description','required');
         $this->form_validation->set_rules('duration','Service Duration','required|numeric');
         $this->form_validation->set_rules('price','Service Price','required|numeric');
-        $this->form_validation->set_rules('staff[]','Service Provider','required');
+        $this->form_validation->set_rules('staff[]','Service Provider','required|numeric');
         if($this->form_validation->run() == FALSE){
             $header_data['active'] = 'service';
             $this->load->view('include/header_nav',$header_data);
@@ -291,7 +296,7 @@ class Mts extends CI_Controller {
         $this->form_validation->set_rules('svc_desc','Service Description','required');
         $this->form_validation->set_rules('duration','Service Duration','required|numeric');
         $this->form_validation->set_rules('price','Service Price','required|numeric');
-        $this->form_validation->set_rules('staff[]','Service Provider','required');
+        $this->form_validation->set_rules('staff[]','Service Provider','required|numeric');
         if($this->form_validation->run() == false){
             echo validation_errors();
         }
@@ -357,9 +362,9 @@ class Mts extends CI_Controller {
         //$data['title'] = "Dashboard";
         //echo $this->load->view('contents/add_staff','',true);
         $rules = array(
-                    array('field'=>'first_name', 'label'=>'First Name', 'rules'=>'required'),
-                    array('field'=>'last_name', 'label'=>'Last Name', 'rules'=>'required'),
-                    array('field'=>'day[]', 'label'=>'Day', 'rules'=>'required')
+                    array('field'=>'first_name', 'label'=>'First Name', 'rules'=>'required|alpha'),
+                    array('field'=>'last_name', 'label'=>'Last Name', 'rules'=>'required|alpha'),
+                    array('field'=>'day[]', 'label'=>'Day', 'rules'=>'required|alpha')
                 );
         $this->form_validation->set_rules($rules);
         $condition = array('user_id'=>$this->user_id);
@@ -419,9 +424,9 @@ class Mts extends CI_Controller {
     
     public function update_staff($staff_id){
         $rules = array(
-                    array('field'=>'first_name', 'label'=>'First Name', 'rules'=>'required'),
-                    array('field'=>'last_name', 'label'=>'Last Name', 'rules'=>'required'),
-                    array('field'=>'day[]', 'label'=>'Day', 'rules'=>'required')
+                    array('field'=>'first_name', 'label'=>'First Name', 'rules'=>'required|alpha'),
+                    array('field'=>'last_name', 'label'=>'Last Name', 'rules'=>'required|alpha'),
+                    array('field'=>'day[]', 'label'=>'Day', 'rules'=>'required|alpha')
                 );
         $this->form_validation->set_rules($rules);
         if($this->form_validation->run() == false){
@@ -495,9 +500,9 @@ class Mts extends CI_Controller {
     }
     
     public function add_customer(){
-        $this->form_validation->set_rules('cname','Customer Name','required');
-        $this->form_validation->set_rules('mobile','Mobile Number','required');
-        $this->form_validation->set_rules('email','Email','required');
+        $this->form_validation->set_rules('cname','Customer Name','required|alpha');
+        $this->form_validation->set_rules('mobile','Mobile Number','required|numeric');
+        $this->form_validation->set_rules('email','Email','required|valid_email|is_unique[customer.email]');
         if($this->form_validation->run() == false){
             $header_data['active'] = 'customer';
             $this->load->view('include/header_nav',$header_data);
@@ -539,9 +544,9 @@ class Mts extends CI_Controller {
     }
     
     public function update_customer($cust_id){
-        $this->form_validation->set_rules('cname','Customer Name','required');
-        $this->form_validation->set_rules('mobile','Mobile Number','required');
-        $this->form_validation->set_rules('email','Email','required');
+        $this->form_validation->set_rules('cname','Customer Name','required|alpha');
+        $this->form_validation->set_rules('mobile','Mobile Number','required|numeric');
+        $this->form_validation->set_rules('email','Email','required|valid_email|is_unique[customer.email]');
         if($this->form_validation->run() == false){
             echo validation_errors();
         }

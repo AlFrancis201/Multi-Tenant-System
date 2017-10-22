@@ -81,10 +81,11 @@
                 <?php echo form_open('registration','class="form-signin"'); ?> 
                 <form class="form-signin"><!--  action="<?php //echo base_url('registration'); ?>" method="post"> -->
                     <span class="reauth-email"> </span>
-                    <input class="form-control" type="text" placeholder="First name" id="inputName" name="fname">
-                    <input class="form-control" type="text" placeholder="Last name" id="inputName" name="lname">
-                    <input class="form-control" type="email" name="email" required="" placeholder="Email address" id="inputEmail" >
-                    <input class="form-control" type="password" name="password" required="" placeholder="Password" id="inputPassword" name="password">
+                    <input class="form-control" type="text" placeholder="Company name" id="inputName" name="cname"  value="<?php echo set_value('cname'); ?>">
+                    <input class="form-control" type="text" placeholder="First name" id="inputName" name="fname"  value="<?php echo set_value('fname'); ?>">
+                    <input class="form-control" type="text" placeholder="Last name" id="inputName" name="lname"  value="<?php echo set_value('lname'); ?>">
+                    <input class="form-control" type="email" name="email" required="" placeholder="Email address" id="inputEmail"  value="<?php echo set_value('email'); ?>">
+                    <input class="form-control" type="password" name="password" required="" placeholder="Password" id="inputPassword" name="password"  value="<?php echo set_value('password'); ?>">
 
                     <div class="checkbox"></div>
                     <input class="btn btn-default btn-block btn-lg btn-signin" type="submit" value="Register"> <!--Register </button>-->

@@ -1,5 +1,6 @@
 body {
     padding-top: 100px;
+    overflow-x:hidden;    
   }
 
 .nav{
@@ -10,26 +11,13 @@ body {
   box-shadow:0px 2px 0px #D3D3D3;
   }
 
+.section1 {
+  background-image:url(../../assets/img/login.jpg);
+  background-repeat:no-repeat;
+  background-size: cover;
+  background-position: 100% top;
+  background-attachment: fixed;
 
-#bg{
-	/* background-size:cover; */
-	width: 150px;
-	margin-left: 500px;
-
-}
-#bg1{
-    width:1360px;
-	height:530px;
-    margin-top:-18px;
-    /* margin-right:10px; */
-    /* margin-left:50px; */
-}
-
-
-
-
-#bg2{
-	margin-left:100px;
 }
 
 #logo{
@@ -37,11 +25,6 @@ body {
     margin-top:-10px;
     margin-right:10px;
     margin-left:50px;
-}
-
-
-#wrapper section{
-    margin-top:100px;
 }
 
 
@@ -53,6 +36,7 @@ body {
   -webkit-transition: color 0.3s linear;
   -moz-transition: color 0.3s linear;
 }  
+
 #myNavbar ul li a:hover{
   color:#4682B4;
   margin-top:10px;
@@ -60,28 +44,42 @@ body {
 
 #kalendaryo{
   height: 500px;
-  width: 900px;
-
+  width: 700px;
 }
-.bg21{
-	background-image:url('../../assets/img/1.png');
-	height:110px;
 
+.section2 .col-md-5{
+  margin-top:120px;
 }
+
+.section3 .col-md-4{
+  margin-top:120px;
+}
+
+.full-page h2{
+  text-align: left;
+  font-weight: normal;
+  font-size: 40px;
+}
+
+.full-page p{
+  font-size:20px;
+}
+
 #control{
   height: 515px;
-  width:900px;
+  width:800px;
   margin-left:-51px;
   
 
 }
 #bilog{
-  height: 200px;
-  width: 200px;
+height: 200px;
+width: 200px;
 border-radius: 100%;
 border: 5px solid #3498db;	
 box-shadow: 7px 10px 10px #bebebe; 
 }
+
 #logoo{
   height:20px;
   width:20px;
@@ -93,55 +91,47 @@ box-shadow: 7px 10px 10px #bebebe;
   margin-left:60px;
 }
 
-
-.container1{
-  width: 1400px;
-}
-
-.col-left {
-  float:left;
-  width: 40%;
-}
-
-.top-section {
-  height: 80%;
-}
-
-.bottom-section {
- height: 20px;
-   margin:30px; 
-  text-align:center;
-  border-top:1px solid #D3D3D3;
-   padding:5px; 
-
-}
-
-.bottom-content {
-  display: inline-block;
-}
-
-
 h1{
 	color:white;
 }
-.align-center{
-	text-align:center;
-	float:center;
+
+.perks{
+  margin-left:15px;
+  text-align: center;
 }
-.top{
-margin-top:115px;
+
+
+.footer {
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: #efefef;
+  text-align: center;
 }
-.btton{
-width:210px;
-height :50px;
+.left{
+	margin-left:100px;
 }
-.align-right{
-	
-	float:right;
-}
-.fuck{
-	margin-top:10px;
-}
-.fuck1{
-	margin-top:-8px;
+.jumb1 , .jumb2{
+    background: rgba(255,255,255,0.75);
+    padding:10px;
+    text-align: left;
+    width: 550px;
+    margin:20px 1px;
+    color:  #817776;
+
+ }
+
+ .jumb1{
+  height:190px;
+ }
+ #login1{
+margin-top:10px;
+ 	width: 100px;
+ 	background-color:#4863A0;
+ 	border:none;
+ }
+.loginformm{
+	margin-top:110px;
+	margin-left:175px;
 }

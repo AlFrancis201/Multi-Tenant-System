@@ -979,7 +979,7 @@ $(document).on('click','#cancel-button',function(event){
 <script>
 $(document).on('click','#submit-button',function(event){
     event.preventDefault();
-    formData = $('#addStaffForm').serialize();
+    var formData = $('#addStaffForm').serialize();
     $.ajax({
         url: "<?php echo base_url('mts/update_staff/'.$staff_id); ?>",
         data: formData,

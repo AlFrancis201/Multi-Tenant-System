@@ -46,13 +46,15 @@ class Mts extends CI_Controller {
         $condition = array('staff_id'=>$staff_id);
         $serviceIds = $this->Staff_Service->readServiceIdOnly($condition);
         $services = array();
-        foreach($serviceIds as $s){
-            $d['service_id'] = $s;
-            $serviceRecord = $this->Service->read(array('service_id'=>$s));
-            foreach($serviceRecord as $ss){
-                $d['service_name'] = $ss['service_name'];
+        if($serviceIds != false){
+            foreach($serviceIds as $s){
+                $d['service_id'] = $s;
+                $serviceRecord = $this->Service->read(array('service_id'=>$s));
+                foreach($serviceRecord as $ss){
+                    $d['service_name'] = $ss['service_name'];
+                }
+                $services[] = $d;
             }
-            $services[] = $d;
         }
         
         $daysDisabled = array();
@@ -68,12 +70,32 @@ class Mts extends CI_Controller {
             }
         }
         
+        $dayTimeRanges = array(); //disabled timeranges array where key=day(as int)
+        
         for($i=0;$i<=6;$i++){
             if(!in_array($i, $activeDaysInt))
                 $daysDisabled[] = $i;
+            $dayTimeRanges[$i] = array();
         }
         
-        echo json_encode(array('services'=>$services, 'daysDisabled'=>$daysDisabled, 'dayHours'=>$dayHours));
+        
+        $appointments = $this->Appointment->read(array('staff_id'=>$staff_id));
+        if($appointments != false){
+            foreach($appointments as $a){
+                $start = date('H:ia',strtotime($a['time']));
+                
+                $service = $this->Service->read(array('service_id'=>$a['service_id']));
+                foreach($service as $serv){
+                    $end = date('H:ia',strtotime($a['time'].'+'.$serv['duration'].'mins'));
+                }
+                
+                $range = array($start, $end);
+                $timeRanges[]=$range;
+                $dayTimeRanges[idate('w',strtotime($a['date']))] = $timeRanges;
+            }
+        }
+        
+        echo json_encode(array('services'=>$services, 'daysDisabled'=>$daysDisabled, 'dayHours'=>$dayHours, 'dayTimeRanges'=>$dayTimeRanges));
     }
     
     public function ajax_get_customer_form($cust_id=null){
@@ -110,7 +132,7 @@ class Mts extends CI_Controller {
         }
         else{
             if(isset($_POST['customer'])){
-                $appntRecord = array('date'=>$_POST['date'], 'time'=>$_POST['time'], 'cust_id'=>$_POST['customer'], 'staff_id'=>$_POST['provider'], 'service_id'=>$_POST['service'], 'user_id'=>$this->user_id);
+                $appntRecord = array('date'=>date('Y-m-d', strtotime($_POST['date'])), 'time'=>$_POST['time'], 'cust_id'=>$_POST['customer'], 'staff_id'=>$_POST['provider'], 'service_id'=>$_POST['service'], 'user_id'=>$this->user_id);
                 $this->Appointment->create($appntRecord);
                 echo 'success';
             }
@@ -142,7 +164,16 @@ class Mts extends CI_Controller {
         $appntRecord=$this->Appointment->read(array('user_id'=>$this->user_id));
         $array = array();
         foreach($appntRecord as $a){
-            $array[] = array('title'=>'appointment'.$a['appointment_id'], 'start'=>$a['date'].'T'.$a['time']);
+            $service = $this->Service->read(array('service_id'=>$a['service_id']));
+            foreach($service as $s){
+                $serviceName = $s['service_name'];
+                $serviceMins = $s['duration'];
+            }
+            $customer = $this->Customer->read(array('cust_id'=>$a['cust_id']));
+            foreach($customer as $c){
+                $custName = $c['cust_name'];
+            }
+            $array[] = array('id'=>$a['appointment_id'], 'title'=>$custName.','.$serviceName, 'start'=>$a['date'].'T'.$a['time'], 'end'=>$a['date'].'T'.date('H:i:s',strtotime($a['time'].'+'.$serviceMins.'mins')));
         }
         echo json_encode($array);
     }
@@ -500,6 +531,10 @@ class Mts extends CI_Controller {
     }*/
     
     public function test(){
-        print_r($_POST);
+        $r = $this->Appointment->read();
+        foreach ($r as $s){
+            $ss = $s['time'];
+        }
+        echo date('H:i',strtotime($ss.'+60'));
     }
 }

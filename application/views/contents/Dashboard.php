@@ -34,7 +34,7 @@
                     <div class="row">
                         <!-- widget here -->
 						<h3 style="text-align:center;">Add Customer</h3>
-						<a href="<?php echo base_url('mts/add_customer'); ?>"><img src="<?php echo base_url('assets/img/add-costumer.png')?>" style="width:200px;height:130px;margin-left:38px; border-radius: 100%;"/></a>
+						<a href="<?php echo base_url('mts/add_customer'); ?>"><img src="<?php echo base_url('assets/img/add-customer.png')?>" style="width:200px;height:130px;margin-left:38px; border-radius: 100%;"/></a>
                     </div>
 	
                 </div>

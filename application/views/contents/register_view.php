@@ -85,39 +85,7 @@
                     <input class="form-control" type="text" placeholder="Last name" id="inputName" name="lname">
                     <input class="form-control" type="email" name="email" required="" placeholder="Email address" id="inputEmail" >
                     <input class="form-control" type="password" name="password" required="" placeholder="Password" id="inputPassword" name="password">
-					 <ul>
-  <li>
-  <div class="white">
-    <input type="radio" id="f-option" name="selector">
-    <label for="f-option">Monthly</label>
-    <h5>Php 1,000</h5>
-    <div class="check">
-	</div>
-    </div>
-  </li>
-  
-  <li>
-  <div class="white">
-    <input type="radio" id="s-option" name="selector">
-    <label for="s-option">Semi-Annual</label>
-    <h5>Php 5,000</h5>
-    <div class="check">
-	</div>
-	</div>
-  </li>
-  
-  <li>
-  <div class="white">
-    <input type="radio" id="t-option" name="selector">
-    <label for="t-option">Annual</label>
-	<h5>Php 8,000</h5>
-    
-    <div class="check">
-	</div>
-	</div>
-  </li>
-</ul>
-					
+
                     <div class="checkbox"></div>
                     <input class="btn btn-default btn-block btn-lg btn-signin" type="submit" value="Register"> <!--Register </button>-->
                  </form>

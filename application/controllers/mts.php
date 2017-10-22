@@ -211,8 +211,8 @@ class Mts extends CI_Controller {
         redirect(base_url('mts/view_calendar'));
     }
     
-    public function get_appointment(){
-        $appntRecord=$this->Appointment->read(array('user_id'=>$this->user_id));
+    public function get_appointment($staff_id){
+        $appntRecord=$this->Appointment->read(array('user_id'=>$this->user_id,'staff_id'=>$staff_id));
         $array = array();
         foreach($appntRecord as $a){
             $service = $this->Service->read(array('service_id'=>$a['service_id']));
@@ -560,6 +560,11 @@ class Mts extends CI_Controller {
         redirect(base_url('mts/view_customer'));
     }
     
+    public function view_settings(){
+        $header_data['active'] = 'account';
+        $this->load->view('include/header_nav', $header_data);
+        $this->load->view('account_settings');
+    }
     /*public function addService(){
         $this->form_validation->set_rules('svc_name','Service Name','required');
         $this->form_validation->set_rules('svc_desc','Service Name','required');
@@ -582,10 +587,6 @@ class Mts extends CI_Controller {
     }*/
     
     public function test(){
-        $r = $this->Appointment->read();
-        foreach ($r as $s){
-            $ss = $s['time'];
-        }
-        echo date('H:i',strtotime($ss.'+60'));
+        $this->load->view('contents/form');
     }
 }

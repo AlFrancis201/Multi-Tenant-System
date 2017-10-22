@@ -2,6 +2,19 @@
     <section class="content">
         <div>
             <button class="btn btn-default" type="button" data-toggle="modal" data-target="#appointment">Make Appointment</button>
+            <button class="printBtn hidden-print">Print</button>
+        </div>
+        <div>
+            <label>Calendar of:</label>
+            <select id="staff-cal">
+            <?php
+                if($provider != false){
+                    foreach($provider as $p){
+                        echo '<option value="'.$p['staff_id'].'">'.$p['first_name'].' '.$p['last_name'].'</option>';
+                    }
+                }
+            ?>
+            </select>
         </div>
         <div id="calendar">
          
@@ -97,47 +110,55 @@
 $(document).ready(function() {
 
     // page is now ready, initialize the calendar...
-
-    $('#calendar').fullCalendar({
-        // put your options and callbacks here
-        events: '<?php echo base_url('mts/get_appointment'); ?>',
-        header: {
-            left:   '',
-            center: 'title',
-            right:  'month,agendaWeek today prev,next' //listDay, listWeek
-        },
-        firstDay: 1,
-        defaultView: 'agendaWeek',
-        displayEventEnd: true,
-        /*eventRender: function(event, element){
-            element.popover({
-                title: event.title,
-                content: '<button id="test" data-id="'+event.title+'">test</button>',
-                html: true,
-                trigger: 'click',
-                placement: 'auto right',
-            });
-        }*/
-        eventClick: function (event, jsEvent, view){
-            window.location.assign("<?php echo base_url('mts/view_appointment_profile/'); ?>"+event.id)
-        },
+    function initializeCal(){
+        var staff_id = $('#staff-cal').val();
+        $('#calendar').fullCalendar({
+            // put your options and callbacks here
+            events: '<?php echo base_url('mts/get_appointment/'); ?>' + staff_id,
+            header: {
+                left:   '',
+                center: 'title',
+                right:  'month,agendaWeek,listWeek today prev,next' //listDay, listWeek
+            },
+            firstDay: 1,
+            defaultView: 'agendaWeek',
+            displayEventEnd: true,
+            /*eventRender: function(event, element){
+                element.popover({
+                    title: event.title,
+                    content: '<button id="test" data-id="'+event.title+'">test</button>',
+                    html: true,
+                    trigger: 'click',
+                    placement: 'auto right',
+                });
+            }*/
+            eventClick: function (event, jsEvent, view){
+                window.location.assign("<?php echo base_url('mts/view_appointment_profile/'); ?>"+event.id)
+            },
+                
             
+            //minTime: '00:00:00',
+            //maxTime: '00:00:00',
+            slotDuration: '00:15:00',
+            //businessHours: true,
+            //hiddenDays
+        })
         
-        //minTime: '00:00:00',
-        //maxTime: '00:00:00',
-        slotDuration: '00:15:00',
-        //businessHours: true,
-        //hiddenDays
-    })
-    
-    $('html').on('click', function(e) {
-        $('.popover').each( function() {
-            if( $(e.target).parents(".fc-time-grid-event").get(0) !== $(this).prev().get(0) ) {
-                $(this).popover('hide');
-            }
+        $('html').on('click', function(e) {
+            $('.popover').each( function() {
+                if( $(e.target).parents(".fc-time-grid-event").get(0) !== $(this).prev().get(0) ) {
+                    $(this).popover('hide');
+                }
+            });
         });
+    }
+    
+    $('#staff-cal').on('change', function(){
+        $('#calendar').fullCalendar('destroy');
+        initializeCal();
     });
-
+    
+    initializeCal();
 });
 </script>
 <script>
@@ -255,6 +276,11 @@ $(document).on('click','#appntsave',function(event){
         }
     });
 });
+</script>
+<script type="text/javascript">
+  $('.printBtn').on('click', function (){
+    window.print();
+  });
 </script>
 <!--<script type="text/javascript">
   $(document).ready(function () {

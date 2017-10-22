@@ -570,6 +570,8 @@ class Mts extends CI_Controller {
         $this->load->view('include/header_nav', $header_data);
         $this->load->view('account_settings');
     }
+    
+    
     /*public function addService(){
         $this->form_validation->set_rules('svc_name','Service Name','required');
         $this->form_validation->set_rules('svc_desc','Service Name','required');

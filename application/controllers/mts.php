@@ -362,8 +362,8 @@ class Mts extends CI_Controller {
         //$data['title'] = "Dashboard";
         //echo $this->load->view('contents/add_staff','',true);
         $rules = array(
-                    array('field'=>'first_name', 'label'=>'First Name', 'rules'=>'required|alpha'),
-                    array('field'=>'last_name', 'label'=>'Last Name', 'rules'=>'required|alpha'),
+                    array('field'=>'first_name', 'label'=>'First Name', 'rules'=>'required'),
+                    array('field'=>'last_name', 'label'=>'Last Name', 'rules'=>'required'),
                     array('field'=>'day[]', 'label'=>'Day', 'rules'=>'required|alpha')
                 );
         $this->form_validation->set_rules($rules);
@@ -424,8 +424,8 @@ class Mts extends CI_Controller {
     
     public function update_staff($staff_id){
         $rules = array(
-                    array('field'=>'first_name', 'label'=>'First Name', 'rules'=>'required|alpha'),
-                    array('field'=>'last_name', 'label'=>'Last Name', 'rules'=>'required|alpha'),
+                    array('field'=>'first_name', 'label'=>'First Name', 'rules'=>'required'),
+                    array('field'=>'last_name', 'label'=>'Last Name', 'rules'=>'required'),
                     array('field'=>'day[]', 'label'=>'Day', 'rules'=>'required|alpha')
                 );
         $this->form_validation->set_rules($rules);
@@ -500,7 +500,7 @@ class Mts extends CI_Controller {
     }
     
     public function add_customer(){
-        $this->form_validation->set_rules('cname','Customer Name','required|alpha');
+        $this->form_validation->set_rules('cname','Customer Name','required');
         $this->form_validation->set_rules('mobile','Mobile Number','required|numeric');
         $this->form_validation->set_rules('email','Email','required|valid_email|is_unique[customer.email]');
         if($this->form_validation->run() == false){
@@ -544,7 +544,7 @@ class Mts extends CI_Controller {
     }
     
     public function update_customer($cust_id){
-        $this->form_validation->set_rules('cname','Customer Name','required|alpha');
+        $this->form_validation->set_rules('cname','Customer Name','required');
         $this->form_validation->set_rules('mobile','Mobile Number','required|numeric');
         $this->form_validation->set_rules('email','Email','required|valid_email|is_unique[customer.email]');
         if($this->form_validation->run() == false){
@@ -565,10 +565,29 @@ class Mts extends CI_Controller {
         redirect(base_url('mts/view_customer'));
     }
     
-    public function view_settings(){
+    public function view_details(){
+        $userRecord = $this->User->read(array('user_id'=>$this->user_id));
+        foreach($userRecord as $u){
+            $data['cname'] = $u['company_name'];
+            $data['email'] = $u['email'];
+            $data['cnum'] = $u['contact_no'];
+            $data['address'] = $u['address'];
+        }
         $header_data['active'] = 'account';
         $this->load->view('include/header_nav', $header_data);
-        $this->load->view('account_settings');
+        $this->load->view('account_details',$data);
+    }
+    
+    public function update_details(){
+        $this->form_validation->set_rules('cname','Company Name','required|alpha_numeric_space');
+        if($this->form_validation->run() == false){
+            echo validation_errors();
+        }
+        else{
+            $newDetailsRecord = array('company_name'=>$_POST['cname'], 'contact_no'=>$_POST['cnum'], 'address'=>$_POST['address']);
+            $this->Customer->update($newDetailsRecord, $this->user_id);
+            echo 'success';
+        }
     }
     
     

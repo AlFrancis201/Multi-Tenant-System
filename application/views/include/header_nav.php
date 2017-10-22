@@ -111,7 +111,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li <?php echo ($active=='account') ? 'class="active"' : '';?>><a href="<?php echo base_url('mts/view_settings'); ?>"><i class="fa fa-circle-o"></i> Account Settings</a></li>
+            <li <?php echo ($active=='account') ? 'class="active"' : '';?>><a href="<?php echo base_url('mts/view_details'); ?>"><i class="fa fa-circle-o"></i> Account Details</a></li>
             <li><a href="<?php echo base_url('login/logout'); ?>"><i class="fa fa-circle-o"></i> Logout</a></li>
           </ul>
         </li>

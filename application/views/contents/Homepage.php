@@ -41,6 +41,8 @@
 						<input class="form-control" type="password" required="" placeholder="Password" id="inputPassword" name="password">
 						<button id="login1" class="btn btn-default" type="submit">Login</button>								
 						</form>		
+
+
 				<p>Don't have an account? <a href="<?php echo base_url('registration');?>" >Signup now!</a></p>										
 				</div>
 				</div>

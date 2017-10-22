@@ -34,7 +34,8 @@
                 </div>
             </div>
         </div>
-    </div>
+		</div>
+    
 
         <div class="section">
             <div class="bg2 container">
@@ -90,9 +91,9 @@
 					</div>
 				
 			</div>
-			</div>
 		</div>
-<div class="section">
+		
+
 	<div class="container">
 	<div class="row">
 		<div class="align-center">
@@ -100,40 +101,54 @@
 		</div>
 			<div class="row">
 			<div class="align-center col-md-4">
-				<p>Contact Number: 09111111111</p>
+				<div class="align-center col-md-1">
+				<img id="logoo" src="<?php echo base_url('assets/img/phone.png')?>">
+				<div>
+				<img id="logoo" class="fuck" src="<?php echo base_url('assets/img/fb.png')?>">
+				</div>
+				</div>
+				<p>09111111111 / 0922222222</p>
 				<a>facebook.com/TempusCompany</a>
 			</div>
 			<div class="align-center col-md-4">
-				<p>IG: <a>@TempusCompany</a></p>
-				<p>TWTTR: <a>@TempusCompany</a></p>
+				<div class="align-center col-md-1">
+				<img id="logoo2" src="<?php echo base_url('assets/img/ig.png')?>">
+				<div>
+				<img id="logoo2" src="<?php echo base_url('assets/img/twtr.png')?>">
+				</div>
+				</div>
+				<a>@TempusCompanyOfficial</a>
+				<a>@TempusCompanyOfficial</a>
 			</div>
 			<div class="align-center col-md-4">
-				<p>Email: <a>tempuscompany@gmail.com</a></p>
+				<div class="align-center col-md-1">
+				<img id="logoo2" src="<?php echo base_url('assets/img/email.png')?>">
+				</div>
+				<a>tempuscompany@gmail.com</a>
 			</div>
 		</div>
 	</div>
 </div>
-		
-			
+	
+					
 	<div class="bottom-section">
             <div class="bottom-content">
                 <p><strong>Tempus </strong>Multi-Tenant System</p>    
             </div>
         </div>
 	</div> 
-</div>  
+  
 
 
 
 
-
-    <script>
-        $(document).ready(function() {
-            $('#wrapper').fullpage({
+ <script>
+       $(document).ready(function() {
+         $('#wrapper').fullpage({
          /*       autoScrolling: false*/
             });
-        });
-    </script>>
+       });
+   </script>>
 
 
 </body>

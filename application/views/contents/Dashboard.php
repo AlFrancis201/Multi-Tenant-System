@@ -12,23 +12,34 @@
         
         <section class="content">
             <div class="row">
-                <div class="col-md-8">
-                    <h4>Upcoming Appointments</h4>
+                <div class="col-md-9">
+				<a href="<?php echo base_url('mts/view_calendar');?>"class="btn btn-primary">MAKE AN APPOINTMENT</a>
+                <h4>Upcoming Appointments</h4>
+					
                     <div id="calendar">
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-3">
                     <div class="row">
                         <!-- widget here -->
+						<h3 style="text-align:center;">Add Staff</h3>
+						<a href="<?php echo base_url('mts/add_staff'); ?>"><img src="<?php echo base_url('assets/img/add-staff.png')?>" style="width:200px;height:130px;margin-left:38px; border-radius: 100%;" /> </a>
+						
+					</div>
+                    <div class="row">	
+                        <!-- widget here -->
+						<h3 style="text-align:center;">Add Service</h3>
+						<a href="<?php echo base_url('mts/add_service'); ?>"><img src="<?php echo base_url('assets/img/add-service.png')?>" style="width:180px;height:110px;margin-left:38px; border-radius: 10%;"/></a>
                     </div>
                     <div class="row">
                         <!-- widget here -->
+						<h3 style="text-align:center;">Add Customer</h3>
+						<a href="<?php echo base_url('mts/add_customer'); ?>"><img src="<?php echo base_url('assets/img/add-costumer.png')?>" style="width:200px;height:130px;margin-left:38px; border-radius: 100%;"/></a>
                     </div>
-                    <div class="row">
-                        <!-- widget here -->
-                    </div>
+	
                 </div>
             </div>
+
         </section>
     </div>
 </div>

@@ -92,6 +92,7 @@
         </div>
     </section>
 </div>
+</div>
 <script>
 $(document).ready(function() {
 
@@ -99,9 +100,49 @@ $(document).ready(function() {
 
     $('#calendar').fullCalendar({
         // put your options and callbacks here
-        events: '<?php echo base_url('mts/get_appointment'); ?>'
+        events: '<?php echo base_url('mts/get_appointment'); ?>',
+        header: {
+            left:   '',
+            center: 'title',
+            right:  'month,agendaWeek today prev,next' //listDay, listWeek
+        },
+        firstDay: 1,
+        defaultView: 'agendaWeek',
+        displayEventEnd: true,
+        /*eventRender: function(event, element){
+            element.popover({
+                title: event.title,
+                content: '<button id="test" data-id="'+event.title+'">test</button>',
+                html: true,
+                trigger: 'click',
+                placement: 'auto right',
+            });
+        }*/
+        eventClick: function (event, jsEvent, view){
+            window.location.assign("<?php echo base_url('mts/test'); ?>")
+        },
+            
+        
+        //minTime: '00:00:00',
+        //maxTime: '00:00:00',
+        slotDuration: '00:15:00',
+        //businessHours: true,
+        //hiddenDays
     })
+    
+    $('html').on('click', function(e) {
+        $('.popover').each( function() {
+            if( $(e.target).parents(".fc-time-grid-event").get(0) !== $(this).prev().get(0) ) {
+                $(this).popover('hide');
+            }
+        });
+    });
 
+});
+</script>
+<script>
+$(document).on('click','#test', function(){
+    alert($(this).attr('data-id'));
 });
 </script>
 <script>
@@ -161,15 +202,18 @@ $('select[name="provider"]').on('change',function(){
     
     function handleData(data){
         $.each(data.services, function(key,value){
-                $('select[name="service"]').append('<option value="'+value['service_id']+'">'+value['service_name']+'</option>');
-            });
-            $('.date').datepicker('setDaysOfWeekDisabled', data.daysDisabled);
-            $('.date').datepicker().on('changeDate', function(e){
-                e.preventDefault();
-                var day = $('.date').datepicker('getDate').getDay();
-                $('#appntTime').timepicker('option', 'minTime', data.dayHours[day]['start_time']);
-                $('#appntTime').timepicker('option', 'maxTime', data.dayHours[day]['end_time']);
-            });
+            $('select[name="service"]').append('<option value="'+value['service_id']+'">'+value['service_name']+'</option>');
+        });
+        $('.date').datepicker('setDaysOfWeekDisabled', data.daysDisabled);
+        $('.date').datepicker().on('changeDate', function(e){
+            e.preventDefault();
+            var day = $('.date').datepicker('getDate').getDay();
+            console.log(day);
+            $('#appntTime').timepicker('option', 'minTime', data.dayHours[day]['start_time']);
+            $('#appntTime').timepicker('option', 'maxTime', data.dayHours[day]['end_time']);
+            $('#appntTime').timepicker('option', 'disableTimeRanges', data.dayTimeRanges[day]);
+            alert(data.dayTimeRanges[day]);
+        });
     }
 });
 </script>

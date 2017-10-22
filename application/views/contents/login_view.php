@@ -59,29 +59,6 @@
 			</div>
 		</div>
 	</div>
-</div>
-
-		
-			<div class="col-md-6">
-				<div class="verticalLine">
-				<div class="top1">
-					<p id ="left" class="profile-name-card2">Username</p>
-						<?php echo validation_errors(); ?>
-						<form class="left1 form-signin1" action="<?php echo base_url('login')?>" method='post'><span class="reauth-email1"> </span>
-							<input class="left1 form-control" type="email" required="" placeholder="Email address" autofocus="" id="inputEmail" name="email">
-							<p class="left profile-name-card2">Password</p>
-							<input class="left1 form-control" type="password" required="" placeholder="Password" id="inputPassword" name="password">
-							
-							<button class="left1 top2 btn btn-default1 btn-block1 btn-lg btn-signin1" type="submit">Login</button>
-						</form><a href="#" id="left1" class="forgot-password1">Forgot your password?</a>
-						</div>
-				</div>
-			</div>
-	</div>	
-	</div>	
-			 
-			
-			
-			
+</div>			
 </body>
 </html>

@@ -14,7 +14,7 @@
     <div class="collapse navbar-collapse" id="myNavbar">    
     <ul class="nav navbar-nav pull-right">
       <li><a href="<?php echo base_url('login'); ?>">SIGN IN</a></li>
-      <li><a href="<?php echo base_url('registration');?>"class="btn btn-info">CREATE AN ACCOUNT</a></li>
+      <li><a href="<?php echo base_url('registration');?>">CREATE AN ACCOUNT</a></li>
     </ul>
     </div>
   </div>
@@ -25,40 +25,40 @@
 		<div class="container1">
             <div class="row">
                 <div class="col-md-1">
-				<img id="bg1" src="<?php echo base_url('assets/img/qqq.jpg')?>" />
+				<img id="bg1" src="<?php echo base_url('assets/img/login.jpg')?>" />
 				</div>
 		       				
                 <div class="top col-left col-md-11" />
 				 <h1>Make it in time using Tempus</h1>
-                    <a href="<?php echo base_url('registration'); ?>" class="btton btn btn-info" role="button">TRY IT NOW!</a>
+                    <a href="<?php echo base_url('registration'); ?>" class="btton btn btn-info" role="button">SIGN UP NOW FOR FREE!</a>
                 </div>
             </div>
         </div>
-		</div>
+	</div>
     
 
         <div class="section">
-            <div class="bg2 container">
+            <div class=" container">
 				<div class="row">
                     <div class="col-md-3">
                         <h2>Never ask "what time is my meeting?" again</h2>
                         <p>Clients can use our built-in calendar where you can see your real-time calendar availability and you can also put some notes on the date you like.</p>
                     </div>
                     <div class="col-md-9">
-                        <img id="kalendaryo" src="<?php echo base_url('assets/img/Kalendaryo.png')?>" alt="calendar" width="100%" height="100%">
+                        <img id="kalendaryo" src="<?php echo base_url('assets/img/ps1.png')?>" alt="calendar" width="100%" height="100%">
                     </div>
                 </div>
             </div>
          </div>
 		
     <div class="section">
-        <div class="container">
+        <div class="container container-fluid">
 		<div class="row">
-			<div class="col-md-10">
-			<img id="kalendaryo" src="<?php echo base_url('assets/img/Kalendaryo.png')?>" alt="calendar" width="100%" height="100%">
+			<div class="col-md-9">
+			<img id="control" src="<?php echo base_url('assets/img/control.jpg')?>" alt="control" width="100%" height="100%">
            
         </div>    
-        <div class="col-md-2">
+        <div class="col-md-3">
 			 <h2>Be in full control of your staffs' availability</h2>
 			<p>Manage and monitor your staffs' working hours.</p>
 		</div>
@@ -95,20 +95,20 @@
 		
 
 	<div class="container">
-	<div class="row">
+	<div class="bg21 row">	
 		<div class="align-center">
 			<h4>FOR INQUIRIES</h4>
 		</div>
 			<div class="row">
 			<div class="align-center col-md-4">
 				<div class="align-center col-md-1">
-				<img id="logoo" src="<?php echo base_url('assets/img/phone.png')?>">
+				<img id="logoo" class="fuck1"src="<?php echo base_url('assets/img/phone.png')?>">
 				<div>
-				<img id="logoo" class="fuck" src="<?php echo base_url('assets/img/fb.png')?>">
+				<img id="logoo" class="fuck "src="<?php echo base_url('assets/img/fb.png')?>">
 				</div>
 				</div>
 				<p>09111111111 / 0922222222</p>
-				<a>facebook.com/TempusCompany</a>
+				<p>facebook.com/TempusCompany</p>
 			</div>
 			<div class="align-center col-md-4">
 				<div class="align-center col-md-1">
@@ -128,15 +128,15 @@
 			</div>
 		</div>
 	</div>
-</div>
-	
-					
-	<div class="bottom-section">
-            <div class="bottom-content">
-                <p><strong>Tempus </strong>Multi-Tenant System</p>    
-            </div>
-        </div>
-	</div> 
+</div>			
+</div>	
+	<div class="row bottom-section">
+		<div class="bottom-content">
+			<p><strong>Tempus</strong>Multi Tenant System</p>
+		</div>
+	</div>
+ 
+	 
   
 
 

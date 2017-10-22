@@ -42,7 +42,7 @@ class Mts extends CI_Controller {
         $this->load->view('calendar_view',$data);
     }
     
-    public function ajax_get_staff_details($staff_id){
+    public function ajax_get_staff_details($staff_id, $appnt_id=null){
         $condition = array('staff_id'=>$staff_id);
         $serviceIds = $this->Staff_Service->readServiceIdOnly($condition);
         $services = array();
@@ -82,16 +82,18 @@ class Mts extends CI_Controller {
         $appointments = $this->Appointment->read(array('staff_id'=>$staff_id));
         if($appointments != false){
             foreach($appointments as $a){
-                $start = date('H:ia',strtotime($a['time']));
-                
-                $service = $this->Service->read(array('service_id'=>$a['service_id']));
-                foreach($service as $serv){
-                    $end = date('H:ia',strtotime($a['time'].'+'.$serv['duration'].'mins'));
+                if($a['appointment_id'] != $appnt_id){
+                    $start = date('H:ia',strtotime($a['time']));
+                    
+                    $service = $this->Service->read(array('service_id'=>$a['service_id']));
+                    foreach($service as $serv){
+                        $end = date('H:ia',strtotime($a['time'].'+'.$serv['duration'].'mins'));
+                    }
+                    
+                    $range = array($start, $end);
+                    $timeRanges[]=$range;
+                    $dayTimeRanges[idate('w',strtotime($a['date']))] = $timeRanges;
                 }
-                
-                $range = array($start, $end);
-                $timeRanges[]=$range;
-                $dayTimeRanges[idate('w',strtotime($a['date']))] = $timeRanges;
             }
         }
         
@@ -112,6 +114,10 @@ class Mts extends CI_Controller {
         else{
             echo $this->load->view('contents/add_customerForModal','',true);
         }
+    }
+    
+    public function ajax_get_customer_form2(){
+        echo $this->load->view('contents/add_customerForProfile','',true);
     }
     
     public function add_appointment(){
@@ -145,19 +151,64 @@ class Mts extends CI_Controller {
                 echo 'success';
             }
         }
+    }
+    
+    public function view_appointment_profile($appnt_id){
+        $condition = array('user_id'=>$this->user_id);
+        $data['provider'] = $this->Staff->read($condition);
+        $data['customer'] = $this->Customer->read($condition);
+        $header_data['active'] = 'calendar';
+        $data['appnt_id'] = $appnt_id;
         
+        $appntRecord = $this->Appointment->read(array('appointment_id'=>$appnt_id));
+        foreach($appntRecord as $a){
+            $data['currProvider'] = $a['staff_id'];
+            $data['currService'] = $a['service_id'];
+            $data['currDate'] = $a['date'];
+            $data['currTime'] = date('H:ia',strtotime($a['time']));
+            $data['currCust'] = $a['cust_id'];
+        }
+        $this->load->view('include/header_nav',$header_data);
+        $this->load->view('contents/appnt_profile',$data);
+    }
+    
+    public function update_appointment($appnt_id){
+        $this->form_validation->set_rules('provider', 'Service Provider', 'required');
+        $this->form_validation->set_rules('service', 'Service Provided', 'required');
+        $this->form_validation->set_rules('date', 'Date', 'required');
+        $this->form_validation->set_rules('time', 'Time', 'required');
+        if(isset($_POST['customer']))
+            $this->form_validation->set_rules('customer', 'Customer', 'required');
+        else{
+            $this->form_validation->set_rules('cname','Customer Name','required');
+            $this->form_validation->set_rules('mobile','Mobile Number','required');
+            $this->form_validation->set_rules('email','Email','required');
+        }
         
-        
-        
-        
-        /*$custRecord = array('user_id'=>$this->user_id, 'cust_name'=>$_POST['cname'], 'mobile_no'=>$_POST['mobile'], 'email'=>$_POST['email'], 
-                          'office_no'=>$_POST['office'], 'home_no'=>$_POST['home'], 'address'=>$_POST['address'], 'city'=>$_POST['city'],
-                          'state'=>$_POST['state'], 'zip'=>$_POST['zip']);
-        $this->Customer->create($custRecord);
-        $cust_id = $this->Customer->getLastRecordID();
-        $appntRecord = array('date'=>$_POST['date'], 'time'=>$_POST['time'], 'cust_id'=>$cust_id, 'staff_id'=>$_POST['provider'], 'service_id'=>$_POST['service'], 'user_id'=>$this->user_id);
-        $this->Appointment->create($appntRecord);
-        redirect(base_url('mts/view_calendar'));*/
+        if($this->form_validation->run() == FALSE){
+            echo validation_errors();
+        }
+        else{
+            if(isset($_POST['customer'])){
+                $appntRecord = array('appointment_id'=>$appnt_id, 'date'=>date('Y-m-d', strtotime($_POST['date'])), 'time'=>$_POST['time'], 'cust_id'=>$_POST['customer'], 'staff_id'=>$_POST['provider'], 'service_id'=>$_POST['service'], 'user_id'=>$this->user_id);
+                $this->Appointment->update($appntRecord);
+                echo 'success';
+            }
+            else{
+                $custRecord = array('user_id'=>$this->user_id, 'cust_name'=>$_POST['cname'], 'mobile_no'=>$_POST['mobile'], 'email'=>$_POST['email']);
+                $this->Customer->create($custRecord);
+                $cust_id = $this->Customer->getLastRecordID();
+                $appntRecord = array('appointment_id'=>$appnt_id, 'date'=>$_POST['date'], 'time'=>$_POST['time'], 'cust_id'=>$cust_id, 'staff_id'=>$_POST['provider'], 'service_id'=>$_POST['service'], 'user_id'=>$this->user_id);
+                $this->Appointment->update($appntRecord);
+                echo 'success';
+            }
+        }
+    }
+    
+    public function del_appointment($appnt_id){
+        $condition = array('appointment_id'=>$appnt_id);
+        $this->Appointment->del($condition);
+        redirect(base_url('mts/view_calendar'));
     }
     
     public function get_appointment(){

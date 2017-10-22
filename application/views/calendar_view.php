@@ -119,7 +119,7 @@ $(document).ready(function() {
             });
         }*/
         eventClick: function (event, jsEvent, view){
-            window.location.assign("<?php echo base_url('mts/test'); ?>")
+            window.location.assign("<?php echo base_url('mts/view_appointment_profile/'); ?>"+event.id)
         },
             
         
@@ -212,7 +212,6 @@ $('select[name="provider"]').on('change',function(){
             $('#appntTime').timepicker('option', 'minTime', data.dayHours[day]['start_time']);
             $('#appntTime').timepicker('option', 'maxTime', data.dayHours[day]['end_time']);
             $('#appntTime').timepicker('option', 'disableTimeRanges', data.dayTimeRanges[day]);
-            alert(data.dayTimeRanges[day]);
         });
     }
 });

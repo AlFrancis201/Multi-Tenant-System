@@ -13,6 +13,7 @@
 	<div class="container">
         <?php echo validation_errors(); ?>
 		<form class="form-horizontal customerForm" action="<?php echo base_url('mts/add_customer'); ?>" method="post">	
+				<div class="col-md-6">
 				<div class="form-group">
 					<label class="control-label col-md-1" for="cname">Name:</label>
 	      			<div class="col-md-4">
@@ -42,7 +43,9 @@
 	      			<div class="col-md-4">
 	        			<input type="text" class="form-control" id="home" placeholder="Phone" name="home" value="<?php echo set_value('home'); ?>" />
 	        		</div>
-	      		</div>		      		
+	      		</div>	
+	      		</div>
+	      		<div class="col-md-6">	      		
 	      		<div class="form-group">
 					<label class="control-label col-md-1" for="address">Address:</label>
 	      			<div class="col-md-4">
@@ -67,9 +70,12 @@
 	        			<input type="text" class="form-control" id="zip" placeholder="Zip" name="zip" value="<?php echo set_value('zip'); ?>" />
 	        		</div>
 	      		</div>
-
-                <button class="form-control">Add</button>
+	      	</div>
+	      	<div class="col-md-12">
+                <button class="customerBtn custbtn0">Add</button>
+            </div>
 		</form>
+			<a href="<?php echo base_url('mts/view_customer');?>"><button class="btn btn-default customerBtn custbtn1">Back</button></a>
 </div>
 </body>
 </html>

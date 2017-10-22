@@ -10,14 +10,13 @@
       </ol>
     </section>
 
-	<div class="container">
+	<div class="container customerProf">
         <div id="errors"></div>
-        <a href="<?php echo base_url('mts/del_customer/'.$cust_id); ?>"><button>Delete Customer</button></a>
-        <button id="edit-button">Edit Customer</button>
+        <a href="<?php echo base_url('mts/del_customer/'.$cust_id); ?>"><button class="btn btn-primary rightside1">Delete Customer</button></a>
+        <button class="btn btn-primary rightside1" id="edit-button">Edit Customer</button>
 		<form id="addCustomerForm" class="form-horizontal customerForm">	
-				<div class="form-group ">
-					<span style="font-size:80px;" class="glyphicon glyphicon-user col-md-1"> </span>
-	      		</div>
+				<div class="col-md-6">
+
 				<div class="form-group">
 					<label class="control-label col-md-1" for="cname">Name:</label>
 	      			<div class="col-md-4">
@@ -47,7 +46,9 @@
 	      			<div class="col-md-4">
 	        			<input type="text" class="form-control" id="home" placeholder="Phone" name="home" value="<?=$home?>" disabled>
 	        		</div>
-	      		</div>		      		
+	      		</div>	
+	      		</div>
+	      		<div class="col-md-6">	      		
 	      		<div class="form-group">
 					<label class="control-label col-md-1" for="address">Address:</label>
 	      			<div class="col-md-4">
@@ -72,15 +73,17 @@
 	        			<input type="text" class="form-control" id="zip" placeholder="Zip" name="zip" value="<?=$zip?>" disabled>
 	        		</div>
 	      		</div>
+	      	</div>
 		</form>
+		<a href="<?php echo base_url('mts/view_customer')?>" ><button class="btn btn-primary backcustbtn pull-right">Back</button></a>
 </div>
 
 <script>
 $(document).ready(function(){
     $('#edit-button').click(function(){
         $('input').prop('disabled',false);
-        $('form').append('<button id="submit-button" class="form-control">Submit</button>');
-        $('form').append('<button id="cancel-button" class="form-control">Cancel</button>');
+        $('form').append('<button id="submit-button" class="form-control btn btn-primary">Submit</button>');
+        $('form').append('<button id="cancel-button" class="form-control btn btn-primary">Cancel</button>');
     });
 });
 </script>

@@ -31,11 +31,6 @@ html,body{
   background-color: white;
 }
 
-#serviceAdd{
-  background-color:#aeaeae;
-  border-radius: 3px;
-}
-
 
 ::-webkit-scrollbar {
     width: 6px;
@@ -52,23 +47,83 @@ html,body{
 }
 
 
-@media (max-width: 768px){
-
-  .sidebar2{
-    height:200px;
-  }
-
-  #serviceAdd{
-    margin-bottom:20px;
-  }
+.tableService{
+  overflow:auto;
+  max-height: 500px;
 }
 
-@media (min-width: 769px) and (max-width: 1024px){
-  #serviceAdd{
-    margin-bottom: 20px;
-  }
+.addService h1{
+  font-weight: normal;
+  font-size:24px;
+  color:#414a4c;
+}
 
-  .sidebar2{
-    height: 250px;
-  }
+.serviceDetails input{
+  border-radius: 2px;
+  height: 40px;
+  width: 400px;
+  margin:20px 0;
+}
+
+.serviceProv{
+  overflow: scroll;
+  max-height: 220px;
+  width: 400px;
+  overflow-x:hidden;
+}
+
+.serviceProv1{
+  overflow: scroll;
+  max-height: 240px;
+  width: 400px;
+  overflow-x:hidden;
+}
+
+.addServicebtn{
+  height: 50px;
+  width: 100px;
+  margin-top:100px;
+  float: left;
+  position: relative;
+  display:inline-block;
+  left:32%;
+  margin-left:30px;
+}
+
+@media (max-width: 768px){
+
+  .serviceDetails input{
+  border-radius: 2px;
+  height: 40px;
+  width: 350px;
+  margin:20px 0;
+}
+
+.addServicebtn{
+  height: 50px;
+  width: 100px;
+  margin:20px 50px;
+  float: none;
+}
+
+}
+
+.rightside1 , #submit-button1,  #cancel-button1{
+  height: 50px;
+  width: 100px;
+  margin:20px 0;
+  margin-left: 20px;
+}
+
+.addService #cancel-button , .addService #submit-button {
+  float: left;
+  position: relative;
+  display:inline-block;
+  left:0;
+}
+
+.servicebackbtn{
+  position: absolute;
+  left: 80%;
+  top: 58.5%;
 }

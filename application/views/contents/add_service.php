@@ -14,10 +14,9 @@
         <div class="col-lg-12 col-md-12">
             <form id="addServiceForm" class="customform" action="<?php echo base_url('mts/add_service'); ?>" method="post">
                     <?php echo validation_errors(); ?>                
-                <div class="col-md-12">
-                    <h1 class="text-info">Service Details</h1>
-                </div>
-                <!--<div class="col-lg-3 col-lg-offset-0 col-md-3"><i class="fa fa-user serviceIcon"></i></div>-->
+                <div class="col-md-6 serviceDetails">
+                    <h1 >Service Details</h1>
+
                     <input class="form-control" type="text" placeholder="Enter Service Name" name="svc_name" value="<?php echo set_value('svc_name'); ?>">
                     <input class="form-control" type="text" placeholder="Service Description" id="desc" name="svc_desc" value="<?php echo set_value('svc_desc'); ?>">
                 
@@ -26,7 +25,10 @@
                     <input class="form-control" type="text" placeholder="Price" name="price" value="<?php echo set_value('price'); ?>">
                     <!--<input class="form-control" type="submit" value="Submit">-->    
 
+                 </div>
+                 <div class="col-md-6">                   
                     <h1 class="text-info">Service Provider</h1>
+                    <div class="serviceProv">
                     <div class="checkbox">
                         <label><input id="all_staff" type="checkbox" />All Staff</label>
                     </div>
@@ -37,11 +39,13 @@
                             echo '</div>';
                         }
                     ?>
-
-                    <button class="form-control view-button">Submit</button>
-
+                    </div>
+                </div>
+            </div>
+                <button class="addServicebtn form-control view-button btn btn-primary ">Submit</button>
             </form>
-        </div>
+                <a href="<?php echo base_url('mts/view_service');?>" ><button class="btn btn-primary  addServicebtn">Back</button> </a>
+
     </div>
 </div>
 

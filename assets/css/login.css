@@ -4,6 +4,8 @@ body {
 	background-size: cover;
 	height:100%;
 	width:100%;
+    background-position: 100% top;
+    background-attachment: fixed;
 }
 #logo1{
 	height:200px;
@@ -11,32 +13,27 @@ body {
 
 }
 
-.verticalLine {
-  border-left: 1px solid gray;
-  float:left;
-  height:400px;
-  margin-top:-60px;
-
-}
-
-
  .jumb1 , .jumb2{
     background: rgba(255,255,255,0.75);
-    padding:2px;
+    padding:10px;
     text-align: left;
     width: 550px;
-    margin:5px 30px;
+    margin:20px 50px;
     color:  #817776;
+
  }
 
  .jumb1{
-  height:160px;
-
+  height:180px;
  }
 
+ .jumb2{
+ 	height: 200px;
+ }
  .leftSide h1{
   font-weight: normal;
   font-size:27px;
+  color:#4A4A4A;
  }
 
  .leftSide p{
@@ -58,27 +55,78 @@ body {
  .top{
 	 margin-top:-40px;
  }
+
+ .loginform p{
+ 	font-size:18px;
+ 	margin-top:10px;
+ }
+
+ .loginform p a{
+ 	font-weight: bold;
+ 	color:#2583E5;
+ 	text-decoration: none;
+ }
+
+ #login1{
+ 	width: 100px;
+ 	background-color:#4863A0;
+ 	border:none;
+ }
+
+  #login1:hover{
+  	background-color:#3E5996;
+ }
  
 @media (max-width: 768px) {
 	#logo1{
-	width:150px;
-	height:75px;
-	}
-	body {
-		width:20px;
-		height:10px;
-	}
-	.jumb1, .jumb2{
-		margin-left:25px;
-		height:150px;
-		width:300px;
-		float:center;
-	}
-	.loginform{
-		width:50px;
-	}
-	.verticalLine{
-		
+	width:350px;
+	height:150px;
+	margin-bottom: 20px;
 	}
 
+	.jumb1,.jumb2{
+		display:none;
+	}
+
+	.loginform input{
+		width: 280px;
+	}
+
+	.loginform{
+		margin-top:55px;
+	}
+
+
 }	
+
+@media (min-width: 769px) and (max-width: 1024px){
+	#logo1{
+		width: 250px;
+		height: 140px;
+	}
+
+	.jumb1,.jumb2{
+		width: 400px;
+	}
+
+	.loginform{
+		margin-left:100px;
+	}
+
+	.loginform input{
+		width: 310px;
+	}
+}
+
+@media (min-width: 1025px) and (max-width: 1200px){
+	.loginform{
+		margin-left:120px;
+	}
+
+	#logo1{
+		width: 320px;
+		height: 100px;
+		margin-bottom: 40px;
+		margin-top: 20px;
+	}
+}

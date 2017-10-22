@@ -36,13 +36,15 @@ class Mts extends CI_Controller {
     public function view_calendar(){
         $condition = array('user_id'=>$this->user_id);
         $data['provider'] = $this->Staff->read($condition);
+        $data['customer'] = $this->Customer->read($condition);
         $header_data['active'] = 'calendar';
         $this->load->view('include/header_nav',$header_data);
         $this->load->view('calendar_view',$data);
     }
     
-    public function ajax_get_staff_service($staff_id){
-        $serviceIds = $this->Staff_Service->readServiceIdOnly(array('staff_id'=>$staff_id));
+    public function ajax_get_staff_details($staff_id){
+        $condition = array('staff_id'=>$staff_id);
+        $serviceIds = $this->Staff_Service->readServiceIdOnly($condition);
         $services = array();
         foreach($serviceIds as $s){
             $d['service_id'] = $s;
@@ -52,22 +54,88 @@ class Mts extends CI_Controller {
             }
             $services[] = $d;
         }
-        echo json_encode($services);
+        
+        $daysDisabled = array();
+        $staffHours = $this->Staff_Hours->read($condition);
+        $activeDaysInt = array();
+        $dayHours = array();
+        if($staffHours != false){
+            foreach($staffHours as $s){
+                $activeDaysInt[] = idate('w',strtotime($s['day']));
+                $dd['start_time'] = $s['start_time'];
+                $dd['end_time'] = $s['end_time'];
+                $dayHours[idate('w',strtotime($s['day']))] = $dd;
+            }
+        }
+        
+        for($i=0;$i<=6;$i++){
+            if(!in_array($i, $activeDaysInt))
+                $daysDisabled[] = $i;
+        }
+        
+        echo json_encode(array('services'=>$services, 'daysDisabled'=>$daysDisabled, 'dayHours'=>$dayHours));
     }
     
-    public function ajax_get_customer_form(){
-        echo $this->load->view('contents/add_customerForModal','',true);
+    public function ajax_get_customer_form($cust_id=null){
+        if(isset($cust_id)){
+            $condition = array('cust_id'=>$cust_id);
+            $customers = $this->Customer->read($condition);
+            foreach($customers as $c){
+                $data['cname'] = $c['cust_name'];
+                $data['email'] = $c['email'];
+                $data['mobile'] = $c['mobile_no'];
+            }
+            echo $this->load->view('contents/add_customerForModal',$data,true);
+        }
+        else{
+            echo $this->load->view('contents/add_customerForModal','',true);
+        }
     }
     
     public function add_appointment(){
-        $custRecord = array('user_id'=>$this->user_id, 'cust_name'=>$_POST['cname'], 'mobile_no'=>$_POST['mobile'], 'email'=>$_POST['email'], 
+        $this->form_validation->set_rules('provider', 'Service Provider', 'required');
+        $this->form_validation->set_rules('service', 'Service Provided', 'required');
+        $this->form_validation->set_rules('date', 'Date', 'required');
+        $this->form_validation->set_rules('time', 'Time', 'required');
+        if(isset($_POST['customer']))
+            $this->form_validation->set_rules('customer', 'Customer', 'required');
+        else{
+            $this->form_validation->set_rules('cname','Customer Name','required');
+            $this->form_validation->set_rules('mobile','Mobile Number','required');
+            $this->form_validation->set_rules('email','Email','required');
+        }
+        
+        if($this->form_validation->run() == FALSE){
+            echo validation_errors();
+        }
+        else{
+            if(isset($_POST['customer'])){
+                $appntRecord = array('date'=>$_POST['date'], 'time'=>$_POST['time'], 'cust_id'=>$_POST['customer'], 'staff_id'=>$_POST['provider'], 'service_id'=>$_POST['service'], 'user_id'=>$this->user_id);
+                $this->Appointment->create($appntRecord);
+                echo 'success';
+            }
+            else{
+                $custRecord = array('user_id'=>$this->user_id, 'cust_name'=>$_POST['cname'], 'mobile_no'=>$_POST['mobile'], 'email'=>$_POST['email']);
+                $this->Customer->create($custRecord);
+                $cust_id = $this->Customer->getLastRecordID();
+                $appntRecord = array('date'=>$_POST['date'], 'time'=>$_POST['time'], 'cust_id'=>$cust_id, 'staff_id'=>$_POST['provider'], 'service_id'=>$_POST['service'], 'user_id'=>$this->user_id);
+                $this->Appointment->create($appntRecord);
+                echo 'success';
+            }
+        }
+        
+        
+        
+        
+        
+        /*$custRecord = array('user_id'=>$this->user_id, 'cust_name'=>$_POST['cname'], 'mobile_no'=>$_POST['mobile'], 'email'=>$_POST['email'], 
                           'office_no'=>$_POST['office'], 'home_no'=>$_POST['home'], 'address'=>$_POST['address'], 'city'=>$_POST['city'],
                           'state'=>$_POST['state'], 'zip'=>$_POST['zip']);
         $this->Customer->create($custRecord);
         $cust_id = $this->Customer->getLastRecordID();
         $appntRecord = array('date'=>$_POST['date'], 'time'=>$_POST['time'], 'cust_id'=>$cust_id, 'staff_id'=>$_POST['provider'], 'service_id'=>$_POST['service'], 'user_id'=>$this->user_id);
         $this->Appointment->create($appntRecord);
-        redirect(base_url('mts/view_calendar'));
+        redirect(base_url('mts/view_calendar'));*/
     }
     
     public function get_appointment(){
@@ -245,6 +313,8 @@ class Mts extends CI_Controller {
         }
         $data['service'] = $this->Service->read(array('user_id'=>$this->user_id));
         $data['serviceProvided'] = $this->Staff_Service->readServiceIdOnly($condition);
+        if(!$data['serviceProvided'])
+            $data['serviceProvided'] = array();
         
         //print_r($serviceProvided);
         $header_data['active'] = 'staff';
@@ -291,14 +361,19 @@ class Mts extends CI_Controller {
             }
             echo 'success';*/
             $currServiceIds = $this->Staff_Service->readServiceIdOnly(array('staff_id'=>$staff_id));
-            $diff = array_diff($currServiceIds,$_POST['service']);
+            if($currServiceIds == false)
+                $currServiceIds = array();
+            $service = array();
+            if(isset($_POST['service']))
+                $service = $_POST['service'];
+            $diff = array_diff($currServiceIds,$service);
             if(empty($diff))
-                $diff = array_diff($_POST['service'],$currServiceIds);
+                $diff = array_diff($service,$currServiceIds);
             
             $success = true;
             $errorMsg = "";
             foreach($diff as $d){
-                if(in_array($d, $_POST['service'])){
+                if(in_array($d, $service)){
                     $staffServiceRecord = array('service_id'=>$d,'staff_id'=>$staff_id);
                     $this->Staff_Service->create($staffServiceRecord);
                 }
@@ -425,8 +500,6 @@ class Mts extends CI_Controller {
     }*/
     
     public function test(){
-        //$r = array( [service_id] => 26 [service_name] => Service 3 [service_desc] => Service 3 [duration] => 30 [price] => 3000 [user_id] => 4 )
-        //$updatedService = array('service_name'=>'Service 3','service_desc'=>'Service 3','duration'=>'30','price'=>'3000','user_id'=>'4');
-        //$this->Service->update($updatedService, '26');
+        print_r($_POST);
     }
 }

@@ -24,10 +24,10 @@
         <a href="<?php echo base_url('home'); ?>"> <img src="<?php echo base_url('assets/img/Ico.svg')?>" id="logo1" class="logo"/>
       </a>
     </div>
-    <div class="collapse navbar-collapse" id="myNavbar">    
-    <ul class="nav navbar-nav pull-right">
+    <div class="collapse navbar-collapse nav navbar-nav pull-right" id="myNavbar">    
+    
       <li><a href="<?php echo base_url('login'); ?>">SIGN IN</a></li>
-    </ul>
+    
     </div>
   </div>
 </nav>
@@ -40,11 +40,11 @@
 			
 		<div class="container">
 		<div class="row">
-			<div class="col-md-7 margin-top left">
+			<div class="col-md-7 margin-top ">
 			<div class="align-center">
 			<h2>Take it all with you</h2>
             <h4>Switch between devices, and pick up wherever you left off.</h4>
-			<img src="<?php echo base_url('assets/img/device1.jpg')?>" id="device" class="device"/>
+			<img src="<?php echo base_url('assets/img/device2.jpg')?>" id="device" class="device"/>
             </div>
             </div>
 			
@@ -59,9 +59,39 @@
                     <input class="form-control" type="text" placeholder="Last name" id="inputName" name="lname">
                     <input class="form-control" type="email" name="email" required="" placeholder="Email address" id="inputEmail" >
                     <input class="form-control" type="password" name="password" required="" placeholder="Password" id="inputPassword" name="password">
-					<input type="radio" name="gender" value="male"> Male<br>
-					<input type="radio" name="gender" value="female"> Female<br>
-					<input type="radio" name="gender" value="other"> Other
+					 <ul>
+  <li>
+  <div class="white">
+    <input type="radio" id="f-option" name="selector">
+    <label for="f-option">Monthly</label>
+    <h5>Php 1,000</h5>
+    <div class="check">
+	</div>
+    </div>
+  </li>
+  
+  <li>
+  <div class="white">
+    <input type="radio" id="s-option" name="selector">
+    <label for="s-option">Semi-Annual</label>
+    <h5>Php 5,000</h5>
+    <div class="check">
+	</div>
+	</div>
+  </li>
+  
+  <li>
+  <div class="white">
+    <input type="radio" id="t-option" name="selector">
+    <label for="t-option">Annual</label>
+	<h5>Php 8,000</h5>
+    
+    <div class="check">
+	</div>
+	</div>
+  </li>
+</ul>
+					
                     <div class="checkbox"></div>
                     <input class="btn btn-default btn-block btn-lg btn-signin" type="submit" value="Register"> <!--Register </button>-->
                  </form>

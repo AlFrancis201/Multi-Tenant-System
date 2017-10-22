@@ -9,20 +9,23 @@
         <li class="active">Services</li>
       </ol>
     </section>
+    <section class="sidebar sidebar2">
+           <a href="<?php echo base_url('mts/add_service'); ?>"><button>Add Service</button></a>
+          <!-- Sidebar user panel -->
+          <ul class="sidebar-menu sad" data-widget="tree">
+            <li class="header2">STAFF LIST</li>
+                        <?php
+                            if($service_record != false){
+                                foreach($service_record as $s){
+                                    echo '<li><a class="nav-link" href="'.base_url('mts/view_service_profile/'.$s['service_id']).'">'.$s['service_name'].'</a></li>';
+                                }
+                            }
+                        ?>
+          </ul>
+    </section>  
 
-    <section class="content">
-        <a href="<?php echo base_url('mts/add_service'); ?>"><button>Add Service</button></a>
-        <h2>All Services</h2>
-        <?php
-        if($service_record != false){
-            foreach($service_record as $s){
-                echo '<ul>';
-                echo '<li><a href="'.base_url('mts/view_service_profile/'.$s['service_id']).'">'.$s['service_name'].'</a></li>';
-                echo '</ul>';
-            }
-        }
-        ?>
-    </section>
+
+
 </div>
 </body>
 </html>

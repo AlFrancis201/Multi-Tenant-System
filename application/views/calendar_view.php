@@ -14,15 +14,16 @@
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
                         <h4 class="modal-title">Appointment </h4></div>
                     <div class="modal-body">
+                        <div id="errors"></div>
                         <div>
-                            <ul class="nav nav-tabs appntTab"> <!--tab links -->
+                            <!--<ul class="nav nav-tabs appntTab"> 
                                 <li class="active"><a href="#tab-1" role="tab" data-toggle="tab">DETAILS </a></li>
                                 <li><a href="#tab-2" role="tab" data-toggle="tab">CUSTOMER </a></li>
-                            </ul>
+                            </ul> -->
                             
-                            <form class="form-horizontal appointmentForm" action="<?php echo base_url('mts/add_appointment'); ?>" method="post"> 
-                                <div class="tab-content">
-                                    <div class="tab-pane active" role="tabpanel" id="tab-1">     
+                            <form class="form-horizontal appointmentForm"> 
+                                <!--<div class="tab-content">-->
+                                    <!--<div class="tab-pane active" role="tabpanel" id="tab-1">     -->
                                         <div class="form-group">
                                             <label class="control-label col-md-3" for="">Provider:</label>
                                             <div class="col-md-9">
@@ -46,10 +47,13 @@
                                             </div>
                                         </div>  
                                         <div class="form-group">
-                                            <label class="control-label col-md-3" for="">Day/Time:</label>
+                                            <label class="control-label col-md-3" for="">Date/Time:</label>
                                             <div class="col-md-9">
-                                                <input type="text" class="form-control datepicker" id="" placeholder="" name="date">
-                                                <input type="time" class="form-control" name="time">
+                                                <div class="input-group date">
+                                                    <input type="text" class="form-control" id="appntDate" placeholder="" name="date">
+                                                    <span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+                                                </div> 
+                                                <input type="text" class="form-control" id="appntTime" placeholder="" name="time">
                                             </div>
                                         </div>                  
                                         <!--<div class="form-group">
@@ -59,16 +63,27 @@
                                             </div>
                                         </div>-->                  
                                         <!--<button class="btn btn-primary btn-sm" id="appntcont" type="button">Continue </button>  -->
-                                    </div>
-                                    <div class="tab-pane" role="tabpanel" id="tab-2">
+                                    <!--</div>-->
+                                    <!--<div class="tab-pane" role="tabpanel" id="tab-2">-->
                                         <div id="searchTab">
-                                            <input type="text" id="myInput" placeholder="Search Customer"><span class="pull-right glyphicon glyphicon-search">
-                                            </span>
+                                            <!--<input type="text" id="myInput" placeholder="Search Customer"><span class="pull-right glyphicon glyphicon-search">
+                                            </span>-->
+                                            <select name="customer">
+                                                <option disabled selected hidden>Choose Existing Customer</option>
+                                                <?php
+                                                if($customer != false){
+                                                    foreach($customer as $c){
+                                                        echo '<option value="'.$c['cust_id'].'">'.$c['cust_name'].' ('.$c['email'].')'.'</option>';
+                                                    }
+                                                }
+                                                ?>
+                                            </select>
+                                            <hr />
                                             <button id="new-customer" type="button" class="btn new-cust">New Customer</button>
                                             <!--<button class="btn btn-primary btn-sm" id="appntcont" type="button">Save Appointment </button>-->
                                         </div>
-                                    </div>
-                                </div>
+                                    <!--</div>-->
+                                <!--</div>-->
                             </form>
                         </div>
                     </div>
@@ -89,6 +104,34 @@ $(document).ready(function() {
 
 });
 </script>
+<script>
+$(document).ready(function(){
+    var origCustTab = $('#searchTab').html();
+
+    $('#appointment').on('hidden.bs.modal', function () {
+        $(this).find('form')[0].reset();
+        $(this).find('select[name="service"] > option').remove();
+        $(this).find('#searchTab').html(origCustTab);
+        $('#errors').empty();
+    });
+});
+</script>
+<script>
+$(document).ready(function(){
+    $('.date').datepicker({
+       startDate: "date()",
+       autoclose: true
+    });
+    
+    
+    $('#appntTime').timepicker({
+        disableTextInput: true,
+        step: 5,
+        useSelect: true,
+        noneOption: 'Select Time'
+    });
+});
+</script>
 <!--<script>
 $(document).ready(function(){
     $.ajax({
@@ -105,40 +148,68 @@ $(document).ready(function(){
 <script>
 $('select[name="provider"]').on('change',function(){
     $('select[name="service"]').empty();
+    $('input[name="date"]').val('');
+    $('input[name="time"]').val('');
     var staff_id = $(this).val();
+    console.log(staff_id);
     $.ajax({
-        url: "<?php echo base_url('mts/ajax_get_staff_service/'); ?>"+staff_id,
+        url: "<?php echo base_url('mts/ajax_get_staff_details/'); ?>"+staff_id,
         dataType: 'json',
-        success: function(data){
-            $.each(data,function(key,value){
+
+        success: handleData
+    });
+    
+    function handleData(data){
+        $.each(data.services, function(key,value){
                 $('select[name="service"]').append('<option value="'+value['service_id']+'">'+value['service_name']+'</option>');
             });
+            $('.date').datepicker('setDaysOfWeekDisabled', data.daysDisabled);
+            $('.date').datepicker().on('changeDate', function(e){
+                e.preventDefault();
+                var day = $('.date').datepicker('getDate').getDay();
+                $('#appntTime').timepicker('option', 'minTime', data.dayHours[day]['start_time']);
+                $('#appntTime').timepicker('option', 'maxTime', data.dayHours[day]['end_time']);
+            });
+    }
+});
+</script>
+<script>
+$(document).on('click','#new-customer',function(){
+    event.preventDefault();
+    var tabPane = $(this).closest('div');
+    $.ajax({
+        url: "<?php echo base_url('mts/ajax_get_customer_form'); ?>",
+        dataType: "html",
+        success: function(data){
+            $(tabPane).html(data);
+            $(tabPane).append('<button class="btn btn-primary btn-sm" id="appntsave">Save Appointment </button>');
         }
     });
 });
-</script>
-<script>
-$(document).ready(function(){
-    $('#new-customer').click(function(event){
-        event.preventDefault();
-        var tabPane = $(this).closest('.tab-pane');
-        $.ajax({
-            url: "<?php echo base_url('mts/ajax_get_customer_form'); ?>",
-            dataType: "html",
-            success: function(data){
-                $(tabPane).html(data);
-                $(tabPane).append('<button class="btn btn-primary btn-sm" id="appntsave">Save Appointment </button>');
-            }
-        });
-    });
-});
-$(document).on('click','#appntcont',function(){
-    alert('lala');
+$(document).on('change','select[name="customer"]',function(){
+    event.preventDefault();
+    var tabPane = $(this).closest('div');
+    $(tabPane).find('hr').remove();
+    $(tabPane).find('button').remove();
+    $(tabPane).append('<button class="btn btn-primary btn-sm" id="appntsave">Save Appointment </button>');
 })
 </script>
 <script>
-$(document).ready(function(){
-   $('.datepicker').datepicker({
+$(document).on('click','#appntsave',function(event){
+    event.preventDefault();
+    formData = $('.appointmentForm').serialize();
+    $.ajax({
+        url: "<?php echo base_url('mts/add_appointment'); ?>",
+        data: formData,
+        type: "POST",
+        
+        success: function(data){
+            if(data=='success'){
+                location.reload();
+            }
+            else
+                $('#errors').html(data);
+        }
     });
 });
 </script>

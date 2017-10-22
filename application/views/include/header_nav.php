@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="<?php echo base_url('adminlte/dist/css/skins/_all-skins.min.css'); ?>">
     <link rel="stylesheet" href="<?php echo base_url('adminlte\bower_components\bootstrap-datepicker\dist\css\bootstrap-datepicker.min.css'); ?>">
     <link rel="stylesheet" href="<?php echo base_url('adminlte\bower_components\fullcalendar\dist\fullcalendar.min.css'); ?>">
+    <link rel="stylesheet" href="<?php echo base_url("assets\jquery-timepicker\jquery.timepicker.min.css"); ?>">
     
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/staffss.css'); ?>">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/add_service_final.css'); ?>">
@@ -34,6 +35,7 @@
     <script src="<?php echo base_url('adminlte/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js'); ?>"></script>
     <script src="<?php echo base_url('adminlte/plugins/jvectormap/jquery-jvectormap-world-mill-en.js'); ?>"></script>
     <script src="<?php echo base_url('adminlte/bower_components/jquery-slimscroll/jquery.slimscroll.min.js'); ?>"></script>
+    <script src="<?php echo base_url("assets\jquery-timepicker\jquery.timepicker.min.js"); ?>"></script>
  
     <!--<script src="<?php echo base_url('jqui/external/jquery/jquery.js'); ?>"></script>   
     <script src="<?php echo base_url('bootstrap/js/bootstrap.js'); ?>"></script>

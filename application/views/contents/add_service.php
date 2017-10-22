@@ -18,12 +18,12 @@
                     <h1 class="text-info">Service Details</h1>
                 </div>
                 <!--<div class="col-lg-3 col-lg-offset-0 col-md-3"><i class="fa fa-user serviceIcon"></i></div>-->
-                    <input class="form-control" type="text" placeholder="Enter Service Name" name="svc_name">
-                    <input class="form-control" type="text" placeholder="Service Description" id="desc" name="svc_desc">
+                    <input class="form-control" type="text" placeholder="Enter Service Name" name="svc_name" value="<?php echo set_value('svc_name'); ?>">
+                    <input class="form-control" type="text" placeholder="Service Description" id="desc" name="svc_desc" value="<?php echo set_value('svc_desc'); ?>">
                 
 
-                    <input class="form-control" type="text" placeholder="Duration (mins)" name="duration">
-                    <input class="form-control" type="text" placeholder="Price" name="price">
+                    <input class="form-control" type="text" placeholder="Duration (mins)" name="duration" value="<?php echo set_value('duration'); ?>">
+                    <input class="form-control" type="text" placeholder="Price" name="price" value="<?php echo set_value('price'); ?>">
                     <!--<input class="form-control" type="submit" value="Submit">-->    
 
                     <h1 class="text-info">Service Provider</h1>
@@ -33,7 +33,7 @@
                     <?php 
                         foreach($staffRecord as $s){
                             echo '<div class="checkbox">';
-                            echo '<label><input type="checkbox" name="staff[]" value="'.$s['staff_id'].'" />'.$s['first_name'].' '.$s['last_name'].'</label>';
+                            echo '<label><input type="checkbox" name="staff[]" value="'.$s['staff_id'].'" '.set_checkbox('staff',$s['staff_id']).' />'.$s['first_name'].' '.$s['last_name'].'</label>';
                             echo '</div>';
                         }
                     ?>

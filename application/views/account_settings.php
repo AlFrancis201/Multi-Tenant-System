@@ -16,27 +16,27 @@
         <?php echo validation_errors(); ?>
 		<form class="form-horizontal customerForm" method="post">	
 				<div class="form-group">
-					<label class="control-label col-md-1" for="cname">Company Name:</label>
+					<label class="control-label col-md-1">Company Name:</label>
 	      			<div class="col-md-4">
-	        			<input type="cname" class="form-control" id="cname" placeholder="Company Name" />
+	        			<input type="cname" class="form-control" placeholder="Company Name" />
 	        		</div>
 	      		</div>		
 				<div class="form-group">
-					<label class="control-label col-md-1" for="email">Email:</label>
+					<label class="control-label col-md-1">Email:</label>
 	      			<div class="col-md-4">
-	        			<input type="email" class="form-control" id="email" placeholder="Email" />
+	        			<input type="email" class="form-control" placeholder="Email" />
 	        		</div>
 	      		</div>		
 				<div class="form-group">
-					<label class="control-label col-md-1" for="mobile">Contact No:</label>
+					<label class="control-label col-md-1">Contact No:</label>
 	      			<div class="col-md-4">
-	        			<input type="text" class="form-control" id="mobile" placeholder="Contact No" />
+	        			<input type="text" class="form-control" placeholder="Contact No" />
 	        		</div>
 	      		</div>	
 				<div class="form-group">
-					<label class="control-label col-md-1" for="office">Address:</label>
+					<label class="control-label col-md-1">Address:</label>
 	      			<div class="col-md-4">
-	        			<input type="text" class="form-control" id="office" placeholder="Address" />
+	        			<input type="text" class="form-control" placeholder="Address" />
 	        		</div>
 				</div>
 			</form>

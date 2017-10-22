@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="<?php echo base_url('adminlte/dist/css/skins/_all-skins.min.css'); ?>">
     <link rel="stylesheet" href="<?php echo base_url('adminlte\bower_components\bootstrap-datepicker\dist\css\bootstrap-datepicker.min.css'); ?>">
     <link rel="stylesheet" href="<?php echo base_url('adminlte\bower_components\fullcalendar\dist\fullcalendar.min.css'); ?>">
+    <link rel="stylesheet" media="print" href="<?php echo base_url('adminlte\bower_components\fullcalendar\dist\fullcalendar.print.min.css'); ?>">
     <link rel="stylesheet" href="<?php echo base_url("assets\jquery-timepicker\jquery.timepicker.min.css"); ?>">
     
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/staffss.css'); ?>">
@@ -110,7 +111,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#"><i class="fa fa-circle-o"></i> Account Settings</a></li>
+            <li <?php echo ($active=='account') ? 'class="active"' : '';?>><a href="<?php echo base_url('mts/view_settings'); ?>"><i class="fa fa-circle-o"></i> Account Settings</a></li>
             <li><a href="<?php echo base_url('login/logout'); ?>"><i class="fa fa-circle-o"></i> Logout</a></li>
           </ul>
         </li>

@@ -70,23 +70,13 @@ border-radius: 100%;
 border: 5px solid #3498db;	
 box-shadow: 7px 10px 10px #bebebe; 
 }
-#logoo{
-  height:20px;
-  width:20px;
-  margin-left:40px;
-}
-#logoo2{
-  height:20px;
-  width:20px;
-  margin-left:60px;
-}
 
 
 .container1{
   width: 1400px;
 }
 
-.col-left {
+.col-left{
   float:left;
   width: 40%;
 }
@@ -97,7 +87,7 @@ box-shadow: 7px 10px 10px #bebebe;
 
 .bottom-section {
   height: 20px;
-  margin:50px;
+  margin:10px;
   text-align:center;
   border-top:1px solid #D3D3D3;
   padding:5px;
@@ -122,11 +112,4 @@ margin-top:140px;
 .btton{
 width:175px;
 height :50px;
-}
-.align-right{
-	
-	float:right;
-}
-.fuck{
-	margin-top:10px;
 }

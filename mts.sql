@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 21, 2017 at 07:02 AM
+-- Generation Time: Oct 23, 2017 at 02:31 AM
 -- Server version: 10.1.16-MariaDB
 -- PHP Version: 5.6.24
 
@@ -42,9 +42,7 @@ CREATE TABLE `appointment` (
 --
 
 INSERT INTO `appointment` (`appointment_id`, `date`, `time`, `is_done`, `cust_id`, `staff_id`, `service_id`, `user_id`) VALUES
-(2, '2017-10-25', '16:00:00', 0, 6, 4, 25, 4),
-(3, '2017-10-27', '14:00:00', 0, 7, 7, 26, 4),
-(5, '2017-10-19', '23:00:00', 0, 9, 4, 25, 4);
+(10, '2017-10-23', '08:10:00', 0, 10, 11, 28, 9);
 
 -- --------------------------------------------------------
 
@@ -84,14 +82,7 @@ CREATE TABLE `customer` (
 --
 
 INSERT INTO `customer` (`cust_id`, `cust_name`, `mobile_no`, `email`, `office_no`, `home_no`, `address`, `city`, `state`, `zip`, `user_id`) VALUES
-(1, 'Customer 1', 123, 'cust1@yahoo.com', 0, 0, '', '', '', '', 6),
-(2, 'Customer 2', 1234, 'cust2@gmail.com', 543, 0, 'test', '', '', 'test', 6),
-(3, 'Lala', 1234, 'lala@yahoo.com', 1234, 12345, 'dsa', 'dsa', 'dsa', '', 4),
-(5, 'Cust 1', 123, 'cust1@yahoo.com', 0, 0, '', '', '', '', 4),
-(6, 'Customer 2', 12345, 'cust2@gmail.com', 0, 0, '', '', '', '', 4),
-(7, 'Customer 3', 123456, 'cust3@gmail.com', 0, 0, '', '', '', '', 4),
-(8, 'Red Ingram', 1234, 'red@yahoo.com', 0, 0, '', '', '', '', 4),
-(9, 'Butcher', 123456789, 'rbituonan@yahoo.com', 0, 0, '', '', '', '', 4);
+(10, 'Customer 1', 1234, 'cust1@yahoo.com', 0, 0, '', '', '', '', 9);
 
 -- --------------------------------------------------------
 
@@ -113,9 +104,8 @@ CREATE TABLE `service` (
 --
 
 INSERT INTO `service` (`service_id`, `service_name`, `service_desc`, `duration`, `price`, `user_id`) VALUES
-(25, 'Service 2', 'Service 1', 20, 2000, 4),
-(26, 'Service 3', 'Service 3', 30, 3000, 4),
-(27, 'dsa', 'dsad', 123, 123, 4);
+(28, 'Service 2', 'Service 2', 20, 200, 9),
+(29, 'Service 2', 'Service 2', 20, 200, 9);
 
 -- --------------------------------------------------------
 
@@ -136,11 +126,13 @@ CREATE TABLE `staff` (
 
 INSERT INTO `staff` (`staff_id`, `first_name`, `last_name`, `user_id`) VALUES
 (2, 'alvin', '', 4),
-(3, 'leo', '', 5),
-(4, 'Leo', 'Pajuyo', 4),
-(7, 'Al Francis', 'Orias', 4),
-(9, 'Leonardo', 'Pajuyo', 6),
-(10, 'John', 'Smith', 7);
+(11, 'Leonardo', 'Pajuyo', 9),
+(12, 'Staff ', '1', 9),
+(13, 'Staff', '2', 9),
+(14, 'Leonardo', 'Pajuyo', 9),
+(15, 'Leonardo', 'Pajuyo', 10),
+(16, 'Leo', 'Pajuyo', 11),
+(17, 'leo', 'pajuyo', 12);
 
 -- --------------------------------------------------------
 
@@ -160,8 +152,14 @@ CREATE TABLE `staff_hours` (
 --
 
 INSERT INTO `staff_hours` (`staff_id`, `day`, `start_time`, `end_time`) VALUES
-(7, 'monday', '08:00:00', '17:00:00'),
-(7, 'tuesday', '08:00:00', '17:00:00');
+(11, 'monday', '08:00:00', '17:00:00'),
+(11, 'tuesday', '08:00:00', '17:00:00'),
+(11, 'wednesday', '08:00:00', '17:00:00'),
+(12, 'monday', '08:00:00', '17:00:00'),
+(12, 'wednesday', '08:00:00', '17:00:00'),
+(13, 'friday', '08:00:00', '17:00:00'),
+(13, 'monday', '08:00:00', '17:00:00'),
+(13, 'wednesday', '08:00:00', '17:00:00');
 
 -- --------------------------------------------------------
 
@@ -179,10 +177,8 @@ CREATE TABLE `staff_service` (
 --
 
 INSERT INTO `staff_service` (`staff_id`, `service_id`) VALUES
-(2, 27),
-(4, 25),
-(7, 25),
-(7, 26);
+(11, 28),
+(11, 29);
 
 -- --------------------------------------------------------
 
@@ -193,20 +189,22 @@ INSERT INTO `staff_service` (`staff_id`, `service_id`) VALUES
 CREATE TABLE `user` (
   `user_id` int(11) NOT NULL,
   `email` varchar(30) NOT NULL,
-  `password` varchar(20) NOT NULL,
-  `company_name` varchar(30) NOT NULL
+  `password` varchar(255) NOT NULL,
+  `company_name` varchar(30) NOT NULL,
+  `contact_no` int(11) NOT NULL,
+  `address` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`user_id`, `email`, `password`, `company_name`) VALUES
-(4, 'babin@yahoo.com', '1234', ''),
-(5, 'leo@yahoo.com', '123', ''),
-(6, 'leo2@gmail.com', '1234', ''),
-(7, 'jsmith@gmail.com', '12345', ''),
-(8, 'rbituonan@yahoo.com', '1234', '');
+INSERT INTO `user` (`user_id`, `email`, `password`, `company_name`, `contact_no`, `address`) VALUES
+(4, 'babin@yahoo.com', '1234', '', 0, ''),
+(9, 'leo@gmail.com', '1234', '', 0, ''),
+(10, 'pajuyo.leo@gmail.com', '$2y$10$k4Ii.T.wcfGL0', 'Company', 0, ''),
+(11, 'leo3@gmail.com', '$2y$10$nf65F7Z3Uy3C8', 'Company', 0, ''),
+(12, 'leo4@gmail.com', '$2y$10$YKwIUfb4JFBQlnhIseI7LujviSIHwfy9xrpBL7ym3HYu.B5Roe4jS', 'Company', 0, '');
 
 --
 -- Indexes for dumped tables
@@ -281,27 +279,27 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `appointment`
 --
 ALTER TABLE `appointment`
-  MODIFY `appointment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `appointment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `cust_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `cust_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT for table `service`
 --
 ALTER TABLE `service`
-  MODIFY `service_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `service_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 --
 -- AUTO_INCREMENT for table `staff`
 --
 ALTER TABLE `staff`
-  MODIFY `staff_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `staff_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- Constraints for dumped tables
 --

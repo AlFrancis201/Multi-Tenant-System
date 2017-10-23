@@ -23,8 +23,9 @@ class User_model extends CI_Model {
         
     }
     
-    function update($newRecord){
-        $this->db->replace($this->table,$newRecord);
+    function update($newRecord, $user_id){
+        $this->db->where('user_id', $user_id);
+        $this->db->update($this->table,$newRecord);
     }
     
     function del($where_array){

@@ -5,7 +5,7 @@ class Login extends CI_Controller {
 
 	public function index()
 	{
-		$this->form_validation->set_rules('email','Email','required', array('required' => 'Invalid Username or Password.'));
+		$this->form_validation->set_rules('email','Email','required|valid_email', array('required' => 'Invalid Username or Password.'));
         if($this->form_validation->run()==TRUE)
             $this->form_validation->set_rules('password','Password','callback_verifyLogin');
         if($this->form_validation->run()==FALSE){
@@ -19,11 +19,21 @@ class Login extends CI_Controller {
     public function verifyLogin($password) {
         $email = $this->input->post('email');
         
-        $condition = array('email'=>$email, 'password'=>$password);
+        $condition = array('email'=>$email);
         $this->load->model('user_model','User');
         $result_array = $this->User->read($condition);
         
-        if($result_array){
+        foreach($result_array as $r){
+            if(password_verify($password, $r['password'])){
+                $this->session->set_userdata('user_id', $r['user_id']);
+                return true;
+            }
+            else{
+                $this->form_validation->set_message('verifyLogin','Invalid Username or Password.');
+                return false;
+            }    
+        }
+        /*if($result_array){
             foreach($result_array as $row){
                 $this->session->set_userdata('user_id', $row['user_id']);
             }
@@ -32,7 +42,7 @@ class Login extends CI_Controller {
         else{
             $this->form_validation->set_message('verifyLogin','Invalid Username or Password.');
             return false;
-        }
+        }*/
     }
     
     public function logout(){
